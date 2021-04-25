@@ -1,0 +1,44 @@
+﻿@using PrintForMe.Models.Menu;
+@using CMS.Helpers
+
+@model IEnumerable<MenuItemViewModel>
+
+
+@if (ViewBag.Type == 1)
+{
+    <ul>
+        @foreach (MenuItemViewModel menuItem in Model)
+        {
+
+            <li class="nav-item">
+                <a class="nav-link margin-left-right" href="@menuItem.MenuItemLink">
+                    <span class="e-text">@menuItem.MenuItemText</span>
+                </a>
+            </li>
+
+        }
+    </ul>
+
+}
+else
+{
+    foreach (MenuItemViewModel menuItem in Model)
+    {
+        <div class="dropdown-item">
+            <a class="nav-link text-primary-dark dashboard-menu-links" href="@menuItem.MenuItemLink">
+                <img class="fix-icon icon-margin e-icons" src="@menuItem.MenuItemIcon" />
+                <span class="e-text dropdown_menu">@menuItem.MenuItemText</span>
+            </a>
+        </div>
+
+    }
+    <div class="dropdown-item">
+        <a class="nav-link text-primary-dark dashboard-menu-links" href="@Url.Action("SignOut", "Account")">
+            @*<img class="fix-icon icon-margin e-icons" src="~/Content/Icons/logout-icon.svg" />*@
+            <span class="e-text dropdown_menu">@ResHelper.GetString("PrintForMe.Logout")</span>
+        </a>
+    </div>
+}
+
+
+

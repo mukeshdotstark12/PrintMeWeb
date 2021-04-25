@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<PrintForMe.Models.Store.FrameColorModel>
+
+<div class="center-div">
+    @Html.EJS().Grid("FrameColor").DataSource(dataManager => { dataManager.Json(Model.ToArray()).Adaptor("RemoteSaveAdaptor").UpdateUrl("/en-US/Store/EditFrameColor").InsertUrl("/en-US/Store/AddFrameColor").RemoveUrl("/en-US/Store/DeleteFrameColor"); }).Columns(col =>
+    {
+       col.Field("ItemID").IsPrimaryKey(true).HeaderText("Brand No").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("10").AllowEditing(false).Visible(false).Add();
+       col.Field("ColorName").HeaderText("Color Name").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("30").AllowEditing(true).Add();
+       col.Field("Availability").HeaderText("Availability").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).EditType("booleanedit").DisplayAsCheckBox(true).Type("boolean").Width("30").Add();
+
+    }).EditSettings(edit => { edit.AllowEditing(true).AllowAdding(true).AllowDeleting(false).Mode(Syncfusion.EJ2.Grids.EditMode.Normal); }).Toolbar(new List<string>() { "Edit", "Add", "Update", "Delete", "Cancel" }).Render()
+
+</div>
+
+

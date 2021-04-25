@@ -1,0 +1,49 @@
+﻿@model PrintForMe.Models.Coupons.AddCouponCodeModel
+@{
+    ViewBag.Title = "AddCouponCode";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="center-form-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-12 offset-md-6 col-12">
+                <h1>Add Coupon</h1>
+                @using (Html.BeginForm())
+                {
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="CouponCode">Coupon Code</label></div>
+                            <div class="field-position">
+                                @Html.TextBoxFor(x => x.MultiBuyCouponCodeName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.MultiBuyCouponCodeName)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="TypeOfValue">Use Limit</label></div>
+                            <div class="field-position col-lg-12 control-section">
+                                <div id="wrapper">
+                                    @Html.TextBoxFor(x => x.MultiBuyCouponCodeUseLimit, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.MultiBuyCouponCodeUseLimit)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">  
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="TypeOf">Coupon For</label></div>
+                            <div class="field-position">
+                                @Html.DropDownListFor(x => x.MultiBuyCouponName, new SelectList(Model.CouponCodeFor, "Code", "Text"), "Choose... ", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.MultiBuyCouponName)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group col-md-5"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Coupon Code</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+﻿@using CMS.Helpers;
+@using PrintForMe.Models.Checkout
+@model IEnumerable<BillingAddressViewModel>
+
+@{
+    ViewBag.Title = "MyAddresses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Dir = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft ? "rtl" : "ltr";
+}
+
+@*<div class="checkout-page-content-wrapper">
+    <div class="container @Dir" dir=@Dir">
+        <div class="shipping-info-container">
+            <div class="row">
+                <div class="col-12">*@
+<div class="container">
+    <div>
+        <div class="section-title heading-text font-primary-medium pb-md-4">
+            @ResHelper.GetString("PrintForMe.MyAddresses")
+            @if (Model.Count() == 0)
+            {
+                <br /><span style="font-size:16px; font-weight:normal; color:#000000;">@ResHelper.GetString("PrintForMe.EmptyAddress")</span>
+            }
+        </div>
+        <div id="billingAddress" data-addresstype='BillingAddress' data-fields='["Line1", "Line2", "City", "PostalCode"]'>
+            @if (Model.Count() == 0)
+            {
+                <div class="center">
+                    <div style="height:250px" class="address-icon-bg"></div>
+                    @*<input type="button" class="light-button-bg" value="@ResHelper.GetString("PrintForMe.AddAddressNow")" />*@  @*onclick="location.href='@Url.Action("AddNewAddress", "Address")'"*@
+                </div>
+            }
+            else
+            {
+                <div class="js-address-selector-div">
+                    @foreach (BillingAddressViewModel Address in Model)
+                    {
+                        <div class="shipping-address-item">
+                            @Html.RadioButtonFor(m => Address.AddressID, Address.AddressID, new { @class = "js-address-selector", data_AddressCountryID = Address.CountryID })
+                            <div>
+                                <h3>@Address.PersonalName</h3>
+                                <div style="height:10px"></div>
+                                <p><strong>@Address.Phone</strong> @Address.AddressName<span>@Address.City</span></p>
+                                <div style="height:10px"></div>
+                            </div>
+                            <div class="modify-remove-address">
+                                <a class="edit-address" href="@Url.Action("UpdateMyAddress", "Address", new { AddressID = Address.AddressID })">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                                <a class="edit-address" onclick="deleteMessage(this)" href="@Url.Action("RemoveMyAddress", "Address", new { AddressID = Address.AddressID })">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>                               
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@*<div class="mx-auto my-lg-5" style="width: 389px;">
+        <input type="button" class="text-center dark-button-bg m-1" value="@ResHelper.GetString("PrintForMe.AddNewAddress")" onclick="location.href='@Url.Action("AddNewAddress", "Address")'" />
+    </div>*@
+<div class="row">
+    <div class="col-md-12">
+        <div class="select-address-submit bottomSpace">
+            <input type="button" class="light-button-bg" value="@ResHelper.GetString("PrintForMe.AddNewAddress")" onclick="location.href='@Url.Action("AddNewAddress", "Address")'" />
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    function deleteMessage(e) {
+        if (!confirm("@ResHelper.GetString("PrintForMe.DeleteAddressMessage")"))
+            event.preventDefault();
+    }
+
+</script>

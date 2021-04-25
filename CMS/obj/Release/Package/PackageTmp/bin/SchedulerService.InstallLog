@@ -1,0 +1,15 @@
+﻿Installing assembly 'G:\DotStark\PrintForMe_Web\CMS\bin\SchedulerService.exe'.
+Affected parameters are:
+   assemblypath = G:\DotStark\PrintForMe_Web\CMS\bin\SchedulerService.exe
+   logtoconsole = true
+   logfile = G:\DotStark\PrintForMe_Web\CMS\bin\SchedulerService.InstallLog
+   webpath = G:\DotStark\PrintForMe_Web\CMS
+Installing service KenticoCMSScheduler(PrintForMe_Web)...
+Service KenticoCMSScheduler(PrintForMe_Web) has been successfully installed.
+Creating EventLog source KenticoCMSScheduler(PrintForMe_Web) in log Application...
+Committing assembly 'G:\DotStark\PrintForMe_Web\CMS\bin\SchedulerService.exe'.
+Affected parameters are:
+   assemblypath = G:\DotStark\PrintForMe_Web\CMS\bin\SchedulerService.exe
+   logtoconsole = true
+   logfile = G:\DotStark\PrintForMe_Web\CMS\bin\SchedulerService.InstallLog
+   webpath = G:\DotStark\PrintForMe_Web\CMS

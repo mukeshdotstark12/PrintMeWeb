@@ -1,0 +1,89 @@
+﻿
+@using CMS.Helpers
+@model PrintForMe.Models.Account.RegisterCustomerViewModel
+@{
+    bool isRtl = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" dir="@(isRtl? "rtl" : "ltr")">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="flex justify-content-center">
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control text-box single-line" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "field-validation-valid text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control text-box single-line" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "field-validation-valid text-danger" })
+
+            </div>
+
+        </div>
+        <div class="flex justify-content-center">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control text-box single-line" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "field-validation-valid text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control text-box single-line", @onkeypress = "return onlyNumberKey(event)" } })
+                @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "field-validation-valid text-danger" })
+
+            </div>
+        </div>
+        <div class="flex justify-content-center">
+            <div class="form-group ">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control text-box single-line password" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "field-validation-valid text-danger" })
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.PasswordConfirmation, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.PasswordConfirmation, new { htmlAttributes = new { @class = "form-control text-box single-line password" } })
+                @Html.ValidationMessageFor(model => model.PasswordConfirmation, "", new { @class = "field-validation-valid text-danger" })
+
+            </div>
+        </div>
+        <div class="small-text form-group ">
+            <div class="text-center">
+                @Html.CheckBoxFor(model => model.IsPolicyAccepted, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.LabelFor(model => model.IsPolicyAccepted, htmlAttributes: new { @class = "control-label" })
+                <a href="@Url.Action("terms-and-conditions","Home")" target="_blank">@ResHelper.GetString("PrintForMe.ReadTermsAndPrivacyPolicy")</a><br />
+                @Html.ValidationMessageFor(model => model.IsPolicyAccepted, "", new { @class = "field-validation-valid text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group ">
+            <div class="text-center">
+                <input type="submit" value="@ResHelper.GetString("PrintForMe.SignUp")" class="basic-button e-control e-btn e-lib e-primary wide-btn" />
+            </div>
+        </div>
+    </div>
+    @Html.HiddenFor(model => model.Role, new { Value = "Customer" })
+
+
+}
+
+<script>
+
+    function onlyNumberKey(evt) {
+
+        // Only ASCII charactar in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+</script> 

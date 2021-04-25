@@ -1,0 +1,381 @@
+﻿@model PrintForMe.Models.Checkout.DeliveryDetailsViewModel
+@using CMS.Helpers;
+@{
+    ViewBag.Title = "Delivery Address";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .shipping-address-item input[type="radio"] {
+        z-index: 1000;
+    }
+
+    .select-address-submit {
+        margin-top: 5px;
+    }
+</style>
+
+<!--Checkout page indicator-->
+<div class="checkout-page-indecator">
+    <div class="container">
+        <div class="page-indecator">
+            <ul>
+                <li class="active">@ResHelper.GetString("PrintForMe.ShoppingCart")</li>
+                <li class="active">@ResHelper.GetString("PrintForMe.ShippingInformation")</li>
+                <li>@ResHelper.GetString("PrintForMe.Payment")</li>               
+            </ul>
+        </div>
+    </div>
+</div>
+<!--Checkout page indicator-->
+
+<div class="checkout-page-content-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="shipping-info-container">
+                    @using (Html.BeginForm("DeliveryDetails", "Checkout", FormMethod.Post, new { id = "billingAddressForm" }))
+                    {
+                        <div style="display:none;">
+                            @Html.EditorFor(m => m.Customer)
+                        </div>
+                        <div id="billingAddress" data-addresstype='BillingAddress' data-fields='["Line1", "Line2", "City", "PostalCode"]'>
+                            <div style="padding-bottom:25px;">
+                                <h3>@ResHelper.GetString("PrintForMe.MyAddresses")</h3>
+                                @if (Model.BillingAddress.Addresses.Count() == 0)
+                                {
+                                    <span>@ResHelper.GetString("PrintForMe.EmptyAddress")</span>
+                                }
+                            </div>
+                            @if (Model.BillingAddress.Addresses.Count() == 0)
+                            {
+                                <div class="center">
+                                    <div style="height:300px" class="address-icon-bg"></div>
+                                    @*<input type="button" class="light-button-bg" value="@ResHelper.GetString("PrintForMe.AddAddressNow")" onclick="location.href='@Url.Action("AddNewAddress", "Address")'" />*@
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="js-address-selector-div" data-statelistaction='@Url.Action("CustomerAddress", "Checkout")'>
+
+                                    @for (int i = 0; i < Model.BillingAddress.Addresses.Count(); i++)
+                                    {
+                                        <div class="shipping-address-item">
+                                            @Html.RadioButtonFor(m => Model.BillingAddress.AddressID, Model.BillingAddress.Addresses[i].AddressID, new { @class = "js-address-selector", data_AddressCountryID = Model.BillingAddress.Addresses[i].AddressCountryID })
+                                            <label for="@Model.BillingAddress.AddressID">
+                                                <h3>@Model.BillingAddress.Addresses[i].AddressPersonalName</h3>
+                                                <div style="height:10px"></div>
+                                                <p><strong>@Model.BillingAddress.Addresses[i].AddressPhone</strong> @Model.BillingAddress.Addresses[i].AddressName<span>@Model.BillingAddress.Addresses[i].AddressCity</span></p>
+                                                <div style="height:10px"></div>
+                                            </label>
+                                            <div class="modify-remove-address">
+                                                <a class="edit-address" href="@Url.Action("UpdateAddress", "Checkout", new { AddressID = Model.BillingAddress.Addresses[i].AddressID })">
+                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                </a>
+
+                                                @*@using (Html.BeginForm("RemoveAddress", "Checkout", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                                    {
+                                                        <input type="hidden" name="AddressID" value="@Model.BillingAddress.Addresses[i].AddressID">
+                                                        <input type="submit" value="" name="RemoveAddress">
+                                                        <span class="delete-address">
+                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </span>
+                                                    }*@
+                                                <a class="edit-address" href="@Url.Action("RemoveAddress", "Checkout", new { AddressID = Model.BillingAddress.Addresses[i].AddressID })">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    }
+                                    <div class="message message-error">
+                                        @Html.ValidationMessageFor(m => m.BillingAddress.AddressID)
+                                    </div>
+                                    @Html.HiddenFor(m => m.BillingAddress.Line1)
+                                    @Html.HiddenFor(m => m.BillingAddress.Line2)
+                                    @Html.HiddenFor(m => m.BillingAddress.City)
+                                    @Html.HiddenFor(m => m.BillingAddress.PostalCode)
+                                </div>
+
+                            }
+                            <div id="shippingOption" class="shipping-address-item">
+                                <div class="add-address-form">                                    
+                                    <label for="ShippingOptionID">@ResHelper.GetString("PrintForMe.ShippingOption")</label>
+                                    @Html.DropDownListFor(m => m.ShippingOption.ShippingOptionID, Model.ShippingOption.ShippingOptions)
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="checkout-page-content-wrapper">
+    <div class="container">
+        <div class="shipping-info-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="hidden" id="LocationLatitude" />
+                    <input type="hidden" id="LocationLongitude" />
+                    <input id="pc-input" style="width: 250px; height: 30px;" />
+                    <div id="dvMap" style="width: 100%; height: 380px;"></div>
+                </div>
+                <div class="col-md-6">
+                    @Html.Partial("_addNewAddress", new PrintForMe.Models.Checkout.BillingAddressViewModel())
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="select-address-submit">
+                        <input type="submit" class="text-center dark-button-bg m-1" form="AddNewBillingAddressForm" value="@ResHelper.GetString("PrintForMe.AddNewAddress")">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="select-address-submit">
+                        <input id="btnSave" type="submit" class="text-center dark-button-bg m-1" form="billingAddressForm" value="@ResHelper.GetString("PrintForMe.CompleteTheOrder")" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/Scripts/jquery-2.1.4.min.js")
+@Scripts.Render("~/Scripts/countryStateSelector.js")
+
+<script>
+
+    //$("#btnSave").click(function (e) {
+    //    if (model.BillingAddress.AddressID == 0) {
+    //        e.preventDefault();
+    //        alert("Please select any address");
+    //        }            
+    //    });
+
+    $(function () {
+        selectedaddresselm = $('input[type=radio]:checked');
+        if (selectedaddresselm.data('addresscountryid') == '457') {
+            $('#shippingOption').hide();
+        }
+
+        $('.js-address-selector').on("click", function () {
+            let countryCode = $(this).data('addresscountryid');
+            if (countryCode == '457')
+                $('#shippingOption').hide();
+            else
+                $('#shippingOption').show();
+
+        });
+
+    });
+    function SetCountrySelector(selector) {
+        var $countrySelector = selector,
+            $countryStateSelector = $countrySelector.parent('.js-country-state-selector'),
+            $stateSelector = $countryStateSelector.find('.js-state-selector'),
+            $stateSelectorContainer = $countryStateSelector.find('.js-state-selector-container'),
+            selectedStateId = $countryStateSelector.data('stateselectedid'),
+            url = $countryStateSelector.data('statelistaction'),
+            postData = {
+                countryId: $countrySelector.val()
+            };
+
+        $stateSelectorContainer.hide();
+
+        if (!postData.countryId) {
+            return;
+        }
+
+        // Sends a POST request to the 'CountryStates' endpoint of the 'CheckoutController'
+        $.post(url, postData, function (data) {
+            $countryStateSelector.data('stateselectedid', 0);
+            $stateSelector.val(null);
+
+            if (!data.length) {
+                return;
+            }
+
+            // Fills and shows the state selector element
+            fillStateSelector($stateSelector, data);
+            $stateSelectorContainer.show();
+
+            if (selectedStateId > 0) {
+                $stateSelector.val(selectedStateId);
+            }
+        });
+    }
+</script>
+<script type="text/javascript">
+    var street_name = "";
+    var postal_code = "";
+    var country = "";
+    var region = "";
+    var city = "";
+    var district = "";
+    var totalData;
+    function InitializeMap() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (p) {
+                var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+                var input = document.getElementById('pc-input');
+
+                var mapOptions = {
+                    center: LatLng,
+                    zoom: 17,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                };
+                var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+                var geocoder = new google.maps.Geocoder();
+                var autocomplete = new google.maps.places.Autocomplete(input);
+                map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+                marker = new google.maps.Marker({
+                    map: map,
+                    position: LatLng,
+                    draggable: true
+                });
+                geocodeLatLng(geocoder, map);
+                autocomplete.addListener('place_changed', function () {
+                    marker.setVisible(false);
+                    var place = autocomplete.getPlace();
+                    if (!place.geometry) {
+                        // User entered the name of a Place that was not suggested and
+                        // pressed the Enter key, or the Place Details request failed.
+                        window.alert("No details available for input: '" + place.name + "'");
+                        return;
+                    }
+                    // If the place has a geometry, then present it on a map.
+                    if (place.geometry.viewport) {
+                        map.fitBounds(place.geometry.viewport);
+                    } else {
+                        map.setCenter(place.geometry.location);
+                        map.setZoom(17);  // Why 17? Because it looks good.
+                    }
+                    marker.setPosition(place.geometry.location);
+                    marker.setVisible(true);
+                    // geocodeLatLng(geocoder, map);
+
+                });
+                document.getElementById("LocationLatitude").value = marker.getPosition().lat();
+                document.getElementById("LocationLongitude").value = marker.getPosition().lng();
+                google.maps.event.addListener(marker, 'dragend', function () {
+                    console.log("Inside event code");
+                    geocoder.geocode({ 'location': marker.getPosition() }, function (results, status) {
+                        document.getElementById("LocationLatitude").value = marker.getPosition().lat();
+                        document.getElementById("LocationLongitude").value = marker.getPosition().lng();
+
+                        let AddressLine1 = document.getElementById('Line1');
+                        let AddressCity = document.getElementById("City");
+                        let AddressPostalcode = document.getElementById("PostalCode");
+                        let countrySelector = document.getElementById("CountryID");
+
+                        if (status == 'OK') {
+                            if (results[0]) {
+                                console.log(results[0]);
+                                map.setZoom(17);
+                                map.panTo(marker.getPosition());
+
+                                for (i = 0; i < results[0].address_components.length; i++) {
+                                    if (results[0].address_components[i].types[0] == "premise")
+                                        street_name = results[0].address_components[i].long_name;
+                                    else if (results[0].address_components[i].types[0] == "street_number")
+                                        street_name = results[0].address_components[i].long_name;
+                                    else if (results[0].address_components[i].types[0] == "route")
+                                        street_name = street_name + " " + results[0].address_components[i].long_name;
+                                    else if (results[0].address_components[i].types[0] == "country")
+                                        country = results[0].address_components[i].long_name;
+                                    else if (results[0].address_components[i].types[0] == "postal_code")
+                                        postal_code = results[0].address_components[i].long_name;
+                                    else if (results[0].address_components[i].types[0] == "locality")
+                                        city = results[0].address_components[i].long_name;
+                                    else if (results[0].address_components[i].types[0] == "administrative_area_level_1")
+                                        region = results[0].address_components[i].long_name;
+                                    else if (results[0].address_components[i].types[0] == "political")
+                                        district = results[0].address_components[i].long_name;
+                                }
+
+                                AddressLine1.value = results[0].formatted_address;
+                                AddressCity.value = city;
+                                AddressPostalcode.value = postal_code;
+                                let countryID = getCountryId(countrySelector, country);
+                                if (countryID != 0) {
+                                    countrySelector.value = countryID;
+                                    SetCountrySelector($('.js-country-selector'));
+                                }
+                                //SetCountrySelector.call($('.js-country-selector'));
+                                //document.getElementById("PostalCode").value = country
+                                //console.log(results[0].address_components);
+
+                            }
+                        }
+
+                    });
+                });
+
+            });
+        } else {
+            alert('Geo Location feature is not supported in this browser.');
+        }
+    }
+
+    function getCountryId(countryOptions, country) {
+        let value = 0;
+        for (let option of countryOptions) {
+            if (option.text == country) {
+                value = option.value;
+                break;
+            }
+        }
+        return value;
+    }
+
+    function geocodeLatLng(geocoder, map) {
+        var latlng = { lat: parseFloat(document.getElementById("LocationLatitude").value), lng: parseFloat(document.getElementById("LocationLongitude").value) };
+        geocoder.geocode({ 'location': marker.getPosition() }, function (results, status) {
+            console.log("inside geocode code");
+            if (status == 'OK') {
+                if (results[0]) {
+                    console.log(results[0]);
+                    map.setZoom(17);
+                    document.getElementById("LocationLatitude").value = marker.getPosition().lat();
+                    document.getElementById("LocationLongitude").value = marker.getPosition().lng();
+
+                    let AddressLine1 = document.getElementById('Line1');
+                    let AddressCity = document.getElementById("City");
+                    let AddressPostalcode = document.getElementById("PostalCode");
+                    let countrySelector = document.getElementById("CountryID");
+
+                    for (i = 0; i < results[0].address_components.length; i++) {
+                        if (results[0].address_components[i].types[0] == "premise")
+                            street_name = results[0].address_components[i].long_name;
+                        else if (results[0].address_components[i].types[0] == "street_number")
+                            street_name = results[0].address_components[i].long_name;
+                        else if (results[0].address_components[i].types[0] == "route")
+                            street_name = street_name + " " + results[0].address_components[i].long_name;
+                        else if (results[0].address_components[i].types[0] == "country")
+                            country = results[0].address_components[i].long_name;
+                        else if (results[0].address_components[i].types[0] == "postal_code")
+                            postal_code = results[0].address_components[i].long_name;
+                        else if (results[0].address_components[i].types[0] == "locality")
+                            city = results[0].address_components[i].long_name;
+                        else if (results[0].address_components[i].types[0] == "administrative_area_level_1")
+                            region = results[0].address_components[i].long_name;
+                        else if (results[0].address_components[i].types[0] == "political")
+                            district = results[0].address_components[i].long_name;
+                    }
+                    AddressLine1.value = results[0].formatted_address;
+                    AddressCity.value = city;
+                    AddressPostalcode.value = postal_code;
+                    let countryID = getCountryId(countrySelector, country);
+                    if (countryID != 0) {
+                        countrySelector.value = countryID;
+                        SetCountrySelector($('.js-country-selector'));
+                    }
+                }
+            }
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJcV5tnsekUS4pwV4HlbuKeddRnz4yB0s&libraries=places&callback=InitializeMap"></script>

@@ -1,0 +1,82 @@
+﻿@using CMS.Helpers
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model PrintForMe.Models.User.UserModel
+<div class="center-form-wrapper">
+    <div class="container">
+        @using (Html.BeginForm("Profile", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken() //Prevent cross-site-scripting*@
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
+                    <h1>@ResHelper.GetString("PrintForMe.MyInfo")</h1>
+                    <div class="profile-form">
+                        <div class="update-profile-details">
+                            <div class="form-group" style="color:green;">@ViewBag.Success</div>
+                            <div class="form-group">
+                                <div class="control-label">@ResHelper.GetString("PrintForMe.FirstName")</div>
+                                <div class="field-position">
+                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label">@ResHelper.GetString("PrintForMe.LastName")</div>
+                                <div class="field-position">
+                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label">@ResHelper.GetString("PrintForMe.MobileNumber")</div>
+                                <div class="field-position">
+                                    @Html.TextBoxFor(model => model.MobileNumber, new { htmlAttributes = new {@onkeypress = "return onlyNumberKey(event)" }, @class = "form-control text-box single-line valid", @readonly = "readonly"})
+                                    @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label">@ResHelper.GetString("PrintForMe.Email")</div>
+                                <div class="field-position">
+                                    @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" }, @class = "form-control text-box single-line valid", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="change-password-section">
+                            <h2>@ResHelper.GetString("PrintForMe.Change")</h2>
+                            @Html.ActionLink(ResHelper.GetString("PrintForMe.PasswordReset.Heading"), // <-- Link text
+                                             "RetrievePassword", // <-- Action Method Name
+                                             "Account", // <-- Controller Name
+                                             null, // <-- Route value
+                                             null // <-- htmlArguments
+                                             )
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row container justify-content-center d-flex justify-content-end mx-2 my-4">
+                @Html.EJS().Button("btn").Content(@ResHelper.GetString("PrintForMe.Save")).CssClass("basic-button e-control e-btn e-lib e-primary wide-btn dark-button-bg").Render()
+            </div>
+        }
+
+    </div>
+</div>
+
+<script>
+
+    function onlyNumberKey(evt) {
+
+        // Only ASCII charactar in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+</script> 

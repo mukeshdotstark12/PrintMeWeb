@@ -1,0 +1,80 @@
+﻿@using Syncfusion.EJ2.Grids
+@using CMS.Helpers
+
+@model IEnumerable<PrintForMe.Models.OrderManagement.OrderListSettingModel>
+
+<div id="grid" class="cen ter-div">
+    @Html.EJS().Grid("OrderListSettings").DataSource((IEnumerable<object>)Model.ToList()).Columns(col =>
+{
+    col.HeaderText("S. No.").TextAlign(TextAlign.Center).AllowSorting(true).Width("45").AllowEditing(false).AllowSearching(false).Visible(true).Add();
+    col.Field("OrderID").IsPrimaryKey(true).HeaderText("Order ID").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Width("50").AllowEditing(false).Visible(true).Add();
+    col.Field("OrderDate").HeaderText("Order Date").Width("50").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Format("yMd").Add();
+    col.Field("CustomerName").HeaderText("Client Name").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Width("65").AllowEditing(true).AllowSearching(true).AllowFiltering(true).AllowSorting(true).Add();
+    col.Field("CustomerMobile").HeaderText("Mobile No").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("55").AllowEditing(true).AllowSearching(true).AllowFiltering(true).AllowSorting(true).Add();
+    col.Field("PaymentOption").HeaderText("Payment Method").Width("70").ValidationRules(new { required = true, minLength = 1 }).AllowSearching(true).AllowFiltering(true).AllowSorting(true).Add();
+    col.Field("FormattedTotalPrice").HeaderText("Total").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("55").Visible(true).AllowEditing(true).AllowFiltering(true).AllowSorting(true).AllowSearching(true).Add();
+    col.Field("StatusName").HeaderText("Order Status").Template("#dropdown").Width("70").Add();
+    col.Template("#template").AllowEditing(false).AllowSearching(false).Width("50").Add();
+}).QueryCellInfo("dropdown").AllowPaging().AllowSorting().AllowFiltering().Toolbar(new List<string>() { "Search" }).Render()
+</div>
+<script type="text/x-jsrender" id="dropdown">
+    <input id="combo${StatusID}">
+</script>
+<script id="template" type="text/x-template">
+    <button onclick="onClick(this)">View Details</button>
+</script>
+<script>
+    var userInfo = @Html.Raw(Json.Encode(ViewBag.DropDownData));
+    function dropdown(args) {
+        if (args.column.headerText == "S. No.") {
+            args.cell.innerHTML = count;
+            count++;
+        }
+        if (args.column.headerText === "Order Status") {
+            var ele = args.cell.querySelector("#combo" + args.data["StatusID"]);
+            var drop = new ej.dropdowns.DropDownList({
+                dataSource: userInfo,
+                fields: { text: 'Text', value: 'Value' },
+                change: onchange,
+            });
+            //Setting Selected Value
+            $(ele).val(args.data["StatusName"]);
+            drop.appendTo(ele);
+        }
+    }
+    function onchange(args) {
+        var grid = document.getElementById("OrderListSettings").ej2_instances[0];
+        var gridRowDetails = grid.getRowInfo(args.element);
+        var id = args.element.id;
+
+        // Retrieve current row info 
+        var orderID = gridRowDetails.rowData["OrderID"];
+        var StatusName = $("#"+id).val();
+
+        var request = { OrderID: orderID, StatusName: StatusName };
+            var ajax = new ej.base.Ajax({
+                url: '@Url.Action("UpdateOrderFromGrid", "OrderManagement")',
+                type: "POST",
+                data: JSON.stringify(request)
+            });
+            ajax.send().then(function (data) {
+               //No Code Here
+            }).catch(function (xhr) {
+                console.log(xhr);
+            });
+    }
+
+    var count = 1;
+    var rowObject;
+
+    // Template button click function 
+    function onClick(args) {
+        // Get the closest row cell element from the target 
+        var closestRowCell = args.closest('.e-rowcell');
+        var gridObj = document.getElementById('OrderListSettings').ej2_instances[0];
+        // Retrieve current row info 
+        var rowInfo = gridObj.getRowInfo(closestRowCell);
+        var orderID = rowInfo.rowData["OrderID"];
+        location.href = '@Url.Action("GetOrderDetail", "OrderManagement")?orderID=' + orderID;
+    }
+</script>

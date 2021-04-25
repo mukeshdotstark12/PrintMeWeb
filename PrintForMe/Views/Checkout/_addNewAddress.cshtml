@@ -1,0 +1,58 @@
+﻿@model PrintForMe.Models.Checkout.BillingAddressViewModel
+@using CMS.Helpers
+
+<style>
+    .add-address-form {
+        width: 100%;
+    }
+</style>
+<div class="add-address-wrapper">
+    <div class="add-address-form ">
+        @using (Html.BeginForm("AddNewBillingAddress", "Checkout", FormMethod.Post, new { id = "AddNewBillingAddressForm" }))
+        {
+            <h3>@ResHelper.GetString("PrintForMe.AddNewAddress")</h3>
+            <div class="form-field">                
+                <label for="PersonalName">@ResHelper.GetString("PrintForMe.PersonalName")</label>
+                @Html.EditorFor(m => m.PersonalName, new { @class = "text-box single-line" })
+            </div>
+            <div class="form-field">                
+                <label for="Phone">@ResHelper.GetString("PrintForMe.Phone")</label>
+                @Html.EditorFor(m => m.Phone, new { @class = "text-box single-line" })
+            </div>
+            <div class="form-field">                
+                <label for="City">@ResHelper.GetString("PrintForMe.City")</label>
+                @Html.EditorFor(m => m.City, new { @class = "text-box single-line" })
+                @Html.ValidationMessageFor(m => m.City)
+            </div>
+            <div class="form-field">                
+                <label for="Line1">@ResHelper.GetString("PrintForMe.Line1")</label>
+                @Html.EditorFor(m => m.Line1, new { @class = "text-box single-line" })
+                @Html.ValidationMessageFor(m => m.Line1)
+            </div>
+            <div class="form-field">                
+                <label for="Line2">@ResHelper.GetString("PrintForMe.Line2")</label>
+                @Html.EditorFor(m => m.Line2, new { @class = "text-box single-line" })
+            </div>
+            <div class="form-field">                
+                <label for="PostalCode">@ResHelper.GetString("PrintForMe.PostalCode")</label>
+                @Html.EditorFor(m => m.PostalCode, new { @class = "text-box single-line" })
+                @Html.ValidationMessageFor(m => m.PostalCode)
+            </div>
+            <div class="js-country-state-selector" data-statelistaction='@Url.Action("CountryStates", "Checkout")' data-countryselectedid='@Model.CountryID' data-stateselectedid='@Model.StateID' data-countryfield='CountryID' data-statefield='StateID'>                
+                <label for="CountryID">@ResHelper.GetString("PrintForMe.Country")</label>
+                @Html.DropDownListFor(m => m.CountryID, Model.Countries, new { @class = "js-country-selector" })
+            <div class="js-state-selector-container">                
+                <label for="StateID">@ResHelper.GetString("PrintForMe.State")</label>
+                @Html.DropDownListFor(m => m.StateID, Enumerable.Empty<SelectListItem>(), new { @class = "js-state-selector" })
+            </div>
+            </div>
+            <div>                
+                <label for="MainAddress">@ResHelper.GetString("PrintForMe.MainAddress")</label>
+                @Html.EJS().CheckBoxFor(m => m.MainAddress).Render()
+            </div>
+        }
+    </div>
+</div>
+
+
+

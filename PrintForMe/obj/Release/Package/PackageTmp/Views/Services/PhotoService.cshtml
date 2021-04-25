@@ -1,0 +1,47 @@
+﻿@using CMS.Helpers
+
+@{
+    ViewBag.Title = "PhotoService";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model PrintForMe.Models.Services.PhotoServiceModel
+
+<div class="photo-page-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 col-md-6 col-12">
+                <img src="~/Content/Images/print-photos.jpg" />
+            </div>
+            <div class="col-xl-5 col-md-6 col-12">
+                <div class="print-photos-box">
+                    <h1 class="text-right">@ResHelper.GetString("PrintForMe.PrintPhotos")</h1>
+                    <p class="text-right mb-4">@ResHelper.GetString("PrintForMe.PrintPhotosDescription")</p>
+
+                    @using (Html.BeginForm("AddPhotoProject", "Services", FormMethod.Get, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="row ">
+                            <div class="col-md-6 offset-md-4 col-12">
+                                <div class="form-group form-field">
+                                    @Html.Label("Size", new { @class = "control-label float-left" })
+                                    @Html.DropDownListFor(p => p.SelectedSize, new SelectList(Model.Size, "ItemID", "Code"), new { @class = "js-variant-selector form-control" })
+                                </div>
+                                <div class="form-group form-field">
+                                    @Html.Label("Paper Material", new { @class = "control-label float-left" })
+                                    @Html.DropDownListFor(p => p.SelectedPaperMaterial, new SelectList(Model.PaperMaterial, "ItemID", "PageType"), new { @class = "js-variant-selector form-control" })
+                                </div>
+                                <div class="notes text-center">Photo price start from @Model.MinimumPrice riyals</div>
+                                <div class="upload-photos-submit mt-5">
+                                    @Html.HiddenFor(p => p.ServiceID, Model.ServiceID)
+                                    @*<input type="submit" class="text-center dark-button-bg " value="Upload photos">*@
+                                    @Html.EJS().Button("btn").Content(@ResHelper.GetString("PrintForMe.UploadPhotos")).CssClass("text-center dark-button-bg").Render()
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

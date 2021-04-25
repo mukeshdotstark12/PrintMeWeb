@@ -1,0 +1,165 @@
+﻿@using Syncfusion.EJ2.DropDowns
+@using CMS.Ecommerce
+@model PrintForMe.Models.CouponModel
+@{
+    ViewBag.Title = "EditProductCoupon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="center-form-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-12 offset-md-6 col-12">
+                <h1>Edit Discount</h1>
+                @using (Html.BeginForm())
+                {
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="CouponCode">Discount Code</label></div>
+                            <div class="field-position">
+                                @Html.TextBoxFor(x => x.CouponCode, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.CouponCode)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="formGroupExampleInput">Start Date</label></div>
+                            <div class="field-position col-lg-12 control-section">
+                                <div id="wrapper">
+                                    @Html.EJS().DateTimePickerFor(x => x.Start).Placeholder("Select a date and time").Render()
+                                    @Html.ValidationMessageFor(x => x.Start)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            @*<div class="control-label"><label for="DiscountCoupon">Discount Coupon</label></div>
+                    <div class="field-position">
+                        @Html.TextBoxFor(x => x.DiscountCoupon, new { @class = "form-control" })
+                    </div>*@
+                            <div class="control-label"><label for="TypeOf">Discount Type</label></div>
+                            <div class="field-position">
+                                @Html.DropDownListFor(x => x.TypeOf, new SelectList(Model.Types, "Code", "Text"), "Choose... ", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.TypeOf)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="formGroupExampleInput">Expried Date</label></div>
+                            <div class="field-position col-lg-12 control-section">
+                                <div id="wrapper">
+                                    @Html.EJS().DateTimePickerFor(x => x.Expried).Placeholder("Select a date and time").Render()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="TypeOfValue">&nbsp;</label></div>
+                            <div class="field-position">
+                                @Html.TextBoxFor(x => x.TypeOfValue, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.TypeOfValue)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group  col-md-5">
+                            <div class="control-label"><label for="TypeOf">Discount can be applied on</label></div>
+                            <div class="field-position">
+                                @Html.DropDownListFor(x => x.AppliesTo, new SelectList(Model.Applies, "Code", "Text"), "Choose... ", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.AppliesTo)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            @Html.CheckBoxFor(x => x.OnePerCustomer.GetValueOrDefault(), new { @class = "form-control" })
+                            <label class="form-check-label" for="OnePerCustomer">
+                                Discount can be used per email address
+                            </label>
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group col-md-5">
+                            <div style="height:15px;"></div>
+                            @Html.CheckBoxFor(x => x.NeverExpires.GetValueOrDefault(), new { @class = "form-control" })
+                            <label class="form-check-label" for="gridRadios2">
+                                Never Expires
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Discount</button>
+                    @Html.HiddenFor(x => x.SelectedCategory)
+                    @Html.HiddenFor(x => x.MultiBuyDiscountID)
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="productModel" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Products list</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table" id="rData">
+                    <tr>
+                        <th></th>
+                        <th>Product Name</th>
+                    </tr>
+                    <tbody id="productRecords">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveSelection">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    <script id="ProductTemplate" type="text/x-jquery-tmpl">
+        <tr>
+            <td> <div class="form-check"><input type="checkbox" class="form-check-input chkObject" data-objectId="${ID}" id="chk-${ID}" /></div> </td>
+            <td>${Name}</td>
+        </tr>
+    </script>
+    <script type="text/javascript">
+        $("#AppliesTo").change(function () {
+            $("#ProductTemplate").tmpl({ records: [] }).appendTo("#productRecords");
+            $.ajax({
+                url: "/en-us/discounts/getobject?objectType=" + $(this).val(),
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8', //define a contentType of your request
+                cache: false,
+                success: function (data) {
+                    var json = JSON.parse(data);
+                    $('#rData tr').not(function () { return !!$(this).has('th').length; }).remove();
+                    $('#ProductTemplate').tmpl(json).appendTo('#productRecords')
+                    $("#productModel").modal("toggle");
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        });
+
+        $("#saveSelection").click(function () {
+            var selected = '';
+            $('.chkObject:checkbox:checked').each(function () {
+                selected += $(this).attr("data-objectId") + ",";
+            });
+            $("#SelectedCategory").val(selected);
+            $("#productModel").modal("toggle");
+        });
+    </script>
+}
+

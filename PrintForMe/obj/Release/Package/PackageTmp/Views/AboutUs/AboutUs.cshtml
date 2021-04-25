@@ -1,0 +1,44 @@
+﻿@using PrintForMe.Models.AboutUs;
+@using CMS.Helpers
+
+@model IEnumerable<AboutUsViewModel>
+
+@{
+    ViewBag.Title = "AboutUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-7">
+    @foreach (AboutUsViewModel item in Model)
+    {
+        if (item.Index % 2 == 0)  //odd index number
+        {
+            <div class="row justify-content-center align-items-start pb-3">
+                <div class="col-md-6 col-lg-6 pt-4">
+                    <img class="about-img img-fluid " src="https://dummyimage.com/1920x1078/bebdbf/fff" />
+                </div>
+                <div class="col-md-6 col-lg-6 about-content p-lg-5 @(ViewBag.rtl ? "rtl" : "ltr")">
+                    <div class="about-title heavy-font medium-text font-primary-medium">@item.Heading </div>
+                    <div class="about-title heavy-font medium-text font-primary-medium">@item.SubHeading </div>
+
+                    <div class="font-grey">@Html.Raw(@item.Text)</div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row justify-content-center align-items-start pb-3 flex-column-reverse flex-md-row">
+                <div class="col-md-6 col-lg-6  about-content p-lg-5 @(ViewBag.rtl ? "rtl" : "ltr")">
+                    <div class="about-title heavy-font medium-text font-primary-medium">@item.Heading </div>
+                    <div class="about-title heavy-font medium-text font-primary-medium">@item.SubHeading  </div>
+
+                    <div class="font-grey">@Html.Raw(@item.Text)</div>
+                </div>
+                <div class="col-md-6 col-lg-6 pt-4">
+                    <img class="about-img img-fluid " src="@item.ImageUrl" />
+                </div>
+            </div>
+        }
+    }
+</div>
+

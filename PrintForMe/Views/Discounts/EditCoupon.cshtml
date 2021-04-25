@@ -1,0 +1,82 @@
+﻿@using Syncfusion.EJ2.DropDowns
+@using CMS.Ecommerce
+@model PrintForMe.Models.CouponModel
+@{
+    ViewBag.Title = "EditCoupon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="center-form-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-12 offset-md-6 col-12">
+                <h1>Edit Coupon</h1>
+                @using (Html.BeginForm())
+                {
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="CouponCode">Coupon Code</label></div>
+                            <div class="field-position">
+                                @Html.TextBoxFor(x => x.CouponCode, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.CouponCode)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="formGroupExampleInput">Start Date</label></div>
+                            <div class="field-position col-lg-12 control-section">
+                                <div id="wrapper">
+                                    @Html.EJS().DateTimePickerFor(x => x.Start).Placeholder("Select a date and time").Render()
+                                    @Html.ValidationMessageFor(x => x.Start)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            @*<div class="control-label"><label for="DiscountCoupon">Discount Coupon</label></div>
+                    <div class="field-position">
+                        @Html.TextBoxFor(x => x.DiscountCoupon, new { @class = "form-control" })
+                    </div>*@
+                            <div class="control-label"><label for="TypeOf">Coupon Type</label></div>
+                            <div class="field-position">
+                                @Html.DropDownListFor(x => x.TypeOf, new SelectList(Model.CouponTypes, "Code", "Text"), "Choose... ", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.TypeOf)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="formGroupExampleInput">Expried Date</label></div>
+                            <div class="field-position col-lg-12 control-section">
+                                <div id="wrapper">
+                                    @Html.EJS().DateTimePickerFor(x => x.Expried).Placeholder("Select a date and time").Render()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <div class="control-label"><label for="TypeOfValue">&nbsp;</label></div>
+                            <div class="field-position">
+                                @Html.TextBoxFor(x => x.TypeOfValue, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.TypeOfValue)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group  col-md-5">
+                            <div class="field-position">
+                                @Html.RadioButtonFor(x => x.NeverExpires, new { @class = "form-control" })
+                                <label class="form-check-label" for="gridRadios2">
+                                    Never Expires
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Coupon</button>
+                    @Html.HiddenFor(x => x.SelectedCategory)
+                    @Html.HiddenFor(x => x.DiscountID)
+                }
+            </div>
+        </div>
+    </div>
+</div>

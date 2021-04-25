@@ -1,0 +1,163 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using CMS.Helpers;
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ bool isRtl = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft;}
+
+<style>
+    :root {
+        --landing-page-1: url(@Model.LandingImageUrl);
+    }
+</style>
+
+<!--Home page banner-->
+<div class="lannding-page-bg" style="background-image: url(@Model.LandingImageUrl);">
+    <div class="container">
+        <div class="col-lg-6 col-7 pull-right landing-page-heading font-primary-medium ltr align-items-center">
+            <h1 class="home-heading-text heavy-font">
+                @ResHelper.GetString(@Model.Heading)  <br>
+                @Html.Raw(@Model.Text)
+            </h1>
+        </div>
+    </div>
+</div>
+<!--Home page banner-->
+<!--Printing Services-->
+<div class="cta-icon-section" style="background-image: url(~/Content/images/section-banner.png);">
+    <div class="container">
+        <div class="row cta-icon-wrapper">
+            <div class="col-12">
+                <h2>@ResHelper.GetString("PrintForMe.OurPrintingServices")</h2>
+            </div>
+            @Html.Action("GetPrintingService", "PrintingService")
+        </div>
+    </div>
+</div>
+<!--Printing Services-->
+<!--Info with icon -->
+<div class="info-icon-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="info-icon-wrapper info-icon-wrapper2">
+                    <div class="info-icon-box">
+                        <div class="info-icon-image">
+                            <span>
+                                <img src="~/Content/images/home-s2-icon1.svg" alt="" />
+                            </span>
+                        </div>
+                        <p>@ResHelper.GetString("PrintForMe.Printyourphotosin")</p>
+                    </div>
+                    <div class="info-icon-box">
+                        <div class="info-icon-image">
+                            <span>
+                                <img src="~/Content/images/home-s2-icon2.svg" alt="" />
+                            </span>
+                        </div>
+                        <p><b>@ResHelper.GetString("PrintForMe.femininefunction")</b></p>
+                    </div>
+                    <div class="info-icon-box">
+                        <div class="info-icon-image">
+                            <span>
+                                <img src="~/Content/images/home-s2-icon3.svg" alt="" />
+                            </span>
+                        </div>
+                        <p><b>@ResHelper.GetString("PrintForMe.Safeandreliablewebsite")</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Info with icon -->
+<!--Info with icon with big icons-->
+<div class="info-icon-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>@ResHelper.GetString("PrintForMe.Printwithease")</h2>
+            </div>
+            <div class="col-12">
+                <div class="info-icon-wrapper">
+                    <div class="info-icon-box">
+                        <div class="info-icon-image icon-2">
+                            <span>
+                                <img src="~/Content/images/home-s3-icon1.svg" alt="" />
+                            </span>
+                        </div>
+                        <b>@ResHelper.GetString("PrintForMe.Enjoy")</b><br>
+                        <p>@ResHelper.GetString("PrintForMe.Enjoyyourphotosandmemoriesofthefather")</p>
+                    </div>
+                    <div class="info-icon-box">
+                        <div class="info-icon-image icon-2">
+                            <span>
+                                <img src="~/Content/images/home-s3-icon2.svg" alt="" />
+                            </span>
+                        </div>
+                        <b>@ResHelper.GetString("PrintForMe.Uploadyourphoto")</b><br>
+                        <p>@ResHelper.GetString("PrintForMe.Uploadyourphotosanddesignyourproject")</p>
+                    </div>
+                    <div class="info-icon-box ">
+                        <div class="info-icon-image icon-2">
+                            <span>
+                                <img src="~/Content/images/home-s3-icon3.svg" alt="" />
+                            </span>
+                        </div>
+                        <b>@ResHelper.GetString("PrintForMe.Choose")</b><br>
+                        <p>@ResHelper.GetString("PrintForMe.Chooseoneofourprintingservices")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Info with icon -->
+<!-- Testimonial -->
+<div class="testimonial-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <div class="testimonial-heading">
+                    <h2>@ResHelper.GetString("PrintForMe.WhatPeopleSaid")</h2>
+                </div>
+            </div>
+            <div class="offset-lg-3 col-lg-6">
+                <div class="qoute-img">
+                    <img height="40" src="~/Content/Icons/quotes_727798.png">
+                </div>
+                @Html.Action("GetTestimonialSection", "Home")
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial -->
+
+<!-- Join newsletter-->
+<div class="newsletter-wrapper subscripe-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2> @ResHelper.GetString("PrintForMe.JoinOur") @ResHelper.GetString("PrintForMe.Newsletter")</h2>
+                <div class="newsletter-subscribe">
+                    @{ Html.RenderAction("Show", "Subscription"); }                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+    })
+</script>

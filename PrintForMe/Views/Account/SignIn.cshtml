@@ -1,0 +1,92 @@
+﻿@model PrintForMe.Models.Account.SignInViewModel
+@using CMS.Helpers;
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Message = "Sign in to your account";
+}
+
+<!--Signin form-->
+<div class="center-form-wrapper" style="background-image: url(~/Content/Images/bg-login.jpg);">
+    <div class="container">
+        <div class="row ">
+            <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12" dir="@(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? " rtl" : "ltr" )">
+                <h1>
+                    @ResHelper.GetString("PrintForMe.SignInToYourAccount")
+                </h1>
+                <div class="login-form">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal @(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? " rtl" : "ltr" )">
+                            @Html.ValidationSummary(true, @ResHelper.GetString("PrintForMe.IncorrectPassword"), new { @class = "text-danger" })
+                            <div class="form-group">
+                                <div class="control-label">@ResHelper.GetString("PrintForMe.PhoneNumber")</div>
+                                <div class="field-position">
+                                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control text-box single-line" } })
+                                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "field-validation-valid text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label">@ResHelper.GetString("PrintForMe.Password")</div>
+                                <div class="field-position">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control text-box single-line password" } })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "field-validation-valid text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    @Html.EditorFor(model => model.StaySignedIn)
+                                    <span class="control-label">@ResHelper.GetString("PrintForMe.SignIn.StaySignedIn")</span>
+                                    @Html.ValidationMessageFor(model => model.StaySignedIn, "", new { @class = "field-validation-valid text-danger" })
+                                </div>
+                                <div class="forgot-password-wrapper">
+                                    @Html.ActionLink(ResHelper.GetString("PrintForMe.ForgottenPassword"),
+                                   "RequestPasswordReset", "PasswordReset", null,
+                                    //new AjaxOptions { UpdateTargetId = "retrievePasswordWrap" }, 
+                                    new { @class = "logon-password-retrieval-link" })
+                                </div>
+                            </div>
+                            <div class="form-group text-center my-5">
+                                <button type="submit" class="basic-button e-control e-btn e-lib e-primary wide-btn" onclick="location.href='@Url.Action("SignIn", "Account" , Model)'">@ResHelper.GetString("PrintForMe.Login")</button>
+                            </div>
+                        </div>
+                    }
+                    <div class="text-center" id="retrievePasswordWrap"></div>
+                    <div class="text-center ">
+                        <p>
+                            @ResHelper.GetString("PrintForMe.SignIn.NewToPrintForMe")@Html.ActionLink(ResHelper.GetString("PrintForMe.SignUpWithUS"), "Register", null, new { @class = "font-primary-medium" })
+                        </p>
+
+                        @*DocSection:ExternalAuthView*@
+                        @using Microsoft.Owin.Security
+
+                        @{
+                            @* Gets a collection of the authentication services registered in your application's startup class *@
+                            var authServices = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+
+                            @* Generates a form with buttons targeting the RequestSignIn action. Optionally pass a redirect URL as a parameter. *@
+                            using (Html.BeginForm("RequestSignIn", "ExternalAuthentication"))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="justify-content-around align-items-sm-center">
+                                    @foreach (AuthenticationDescription p in authServices)
+                                    {
+                                        <button type="submit" style="font-size:15px" class="p-2 e-control btn e-lib font-white @p.Caption-btn" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Sign in using your @p.Caption account">
+                                            <img class="btn-img" src="~/Content/Icons/(@p.Caption).svg" /><span class="mx-2"><span class="vl-white"></span> </span>@ResHelper.GetString("PrintForMe.SignInWith" + @p.AuthenticationType)
+                                        </button>
+                                    }
+                                </div>
+                            }
+                        }
+                        @*EndDocSection:ExternalAuthView*@
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Signin form-->

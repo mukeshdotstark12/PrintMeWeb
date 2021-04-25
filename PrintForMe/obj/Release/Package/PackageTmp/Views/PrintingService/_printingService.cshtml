@@ -1,0 +1,27 @@
+﻿@using PrintForMe.Models.PrintingService;
+@using CMS.Helpers
+
+@model IEnumerable<PrintingServiceModel>
+
+
+@foreach (PrintingServiceModel Items in Model)
+{
+    <div class="col-lg-2 col-md-2 cta-icon-box">
+        <a href="@Items.Link">
+            <div class="cta-icon-image"><img src="@Items.Image" alt="" /></div>
+            <p class="cta-color-1" style="color:@Items.ColorCode">@Items.Name</p>
+        </a>
+    </div>
+    @*<div class="col-3 text-center">
+            <a class="nav-link" href="@Items.Link">
+                <img class="printing_service" src="@Items.Image" />
+                <span class="printing_text" style="color:@Items.ColorCode">@Items.Name</span>
+            </a>
+        </div>*@
+}
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+﻿@model PrintForMe.Models.ManageShippingModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="center-form-wrapper">
+    <div class="container shipping-form-edit">
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
+                    <div class="profile-form">
+                        <div class="update-profile-details">
+                            <div class="form-group">
+                                <label for="ShippingCostMinWeight">Weight</label>
+                                @Html.TextBoxFor(x => x.ShippingCostMinWeight, new { @class = "form-control width10" })
+                                @Html.ValidationMessageFor(x => x.ShippingCostMinWeight)
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ShippingCostValue">Cost</label>
+                                @Html.TextBoxFor(x => x.ShippingCostValue, new { @class = "form-control width10" })
+                                @Html.ValidationMessageFor(x => x.ShippingCostValue)
+                            </div>
+                            @Html.HiddenFor(x => x.ShippingOptionID)
+                            @Html.HiddenFor(x => x.ShippingCostID)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row container justify-content-center d-flex justify-content-end mx-2 my-4">
+                <button type="submit" class="basic-button e-control e-btn e-lib e-primary wide-btn dark-button-bg">Update</button>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,24 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/PrintForMe/Kentico12/CMS/bin
+/.vs
+
+
+
+
+/PrintForMe/bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll
+/PrintForMe/bin/roslyn/Microsoft.CodeAnalysis.dll
+/PrintForMe/bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll
+/PrintForMe/bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll
+/PrintForMe/bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll
+/PrintForMe/bin/roslyn/csi.rsp
+/PrintForMe/bin/roslyn/csi.exe.config
+/PrintForMe/bin/roslyn/csi.exe
+/PrintForMe/bin/roslyn/csc.rsp
+/PrintForMe/bin/roslyn/csc.exe.config
+/PrintForMe/bin/roslyn/csc.exe
+/PrintForMe/bin/roslyn
+/PrintForMe/Bin/
+/PrintForMe/obj/Debug

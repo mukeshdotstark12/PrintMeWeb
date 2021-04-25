@@ -1,0 +1,103 @@
+﻿@using CMS.Helpers;
+@model PrintForMe.Models.Home.DashBoardViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dasboard-overview-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>@ResHelper.GetString("PrintForMe.OverView")</h2>
+            </div>
+        </div>
+        <div class="dashboard-overview-detail">
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <div class="dashboard-overview-box">
+                        <h6>@ResHelper.GetString("PrintForMe.Views")</h6>
+                        <div class="overview-stats-img float-left">
+                            <img src="~/Content/images/stats1.svg" alt="">
+                        </div>
+                        <div class="overview-stats-content float-right">
+                            <h4>246K</h4>
+                            <p class="stats-down"> 13.8% <img src="~/Content/images/stats-arrow1.svg" alt=""></p>
+                        </div>
+                    </div>
+                    <div class="dashboard-overview-box">
+                        <h6>@ResHelper.GetString("PrintForMe.Thesales")</h6>
+                        <div class="overview-stats-img float-left">
+                            <img src="~/Content/images/stats2.svg" alt="">
+                        </div>
+                        <div class="overview-stats-content float-right">
+                            <h4>@Model.NumOfOrder</h4>
+                            @if (Convert.ToDecimal(Model.NumOfOrderPer) >= 0)
+                            {
+                                <p class="stats-up"> @Math.Abs(Convert.ToDecimal(Model.NumOfOrderPer)) <img src="~/Content/images/stats-arrow2.svg" alt=""></p>
+                            }
+                            else
+                            {
+                                <p class="stats-down"> @Math.Abs(Convert.ToDecimal(Model.NumOfOrderPer)) <img src="~/Content/images/stats-arrow1.svg" alt=""></p>
+                            }
+                        </div>
+                    </div>
+                    <div class="dashboard-overview-box">
+                        <h6>@ResHelper.GetString("PrintForMe.Earnings")</h6>
+                        <div class="overview-stats-img float-left">
+                            <img src="~/Content/images/stats3.svg" alt="">
+                        </div>
+                        <div class="overview-stats-content float-right">
+                            <h4>@Model.Totalearning</h4>
+                            @if (Convert.ToDecimal(Model.TotalearningPer) >= 0)
+                            {
+                                <p class="stats-up"> @Math.Abs(Convert.ToDecimal(Model.TotalearningPer)) <img src="~/Content/images/stats-arrow2.svg" alt=""></p>
+                            }
+                            else
+                            {
+                                <p class="stats-down"> @Math.Abs(Convert.ToDecimal(Model.TotalearningPer)) <img src="~/Content/images/stats-arrow1.svg" alt=""></p>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="dashboard-overview-box">
+                        <h6>@ResHelper.GetString("PrintForMe.Quickdetails")</h6>
+                        <ul>
+                            <li>
+                                <div class="overview-box2 float-left">
+                                    <small>@ResHelper.GetString("PrintForMe.Last24hours")</small>
+                                </div>
+                                <div class="overview-box2 float-right ">
+                                    <img src="~/Content/images/stat-icon1.svg" alt="">
+                                    <span>@Model.NewClients @ResHelper.GetString("PrintForMe.newclients")</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="overview-box2 float-left">
+                                    <small>@ResHelper.GetString("PrintForMe.Inprograss")</small>
+                                </div>
+                                <div class="overview-box2 float-right ">
+                                    <img src="~/Content/images/stat-icon2.svg" alt="">
+                                    <span>@Model.InProgress @ResHelper.GetString("PrintForMe.requests")</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="overview-box2 float-left">
+                                    <small>@ResHelper.GetString("PrintForMe.waiting")</small>
+                                </div>
+                                <div class="overview-box2 float-right ">
+                                    <img src="~/Content/images/stat-icon3.svg" alt="">
+                                    <span>@Model.Waiting @ResHelper.GetString("PrintForMe.requests")</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

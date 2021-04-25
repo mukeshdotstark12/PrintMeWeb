@@ -1,0 +1,26 @@
+﻿@model IEnumerable<PrintForMe.Models.Store.AlbumFormat>
+
+<div class="center-div">
+    @Html.EJS().Grid("AlbumFormat").DataSource(dataManager => { dataManager.Json(Model.ToArray()).Adaptor("RemoteSaveAdaptor").UpdateUrl("/en-US/Store/EditServicesSettings").InsertUrl("/en-US/Store/AddServicesSettings").RemoveUrl("/en-US/Store/DeleteServicesSettings"); }).Columns(col =>
+{
+
+    col.Field("ItemID").IsPrimaryKey(true).HeaderText("ItemID").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("10").AllowEditing(false).Visible(false).Add();
+    col.Field("Availability").HeaderText("Availability").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).EditType("booleanedit").DisplayAsCheckBox(true).Type("boolean").Width("30").Add();
+    col.Field("Price").HeaderText("Price").Width("50").EditType("numericedit").ValidationRules(new { required = true }).Format("C2").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+    col.Field("AlbumPageSize").HeaderText("AlbumPageSize").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("40").AllowEditing(true).Add();
+    //col.Field("AlbumPageSizeCode").HeaderText("AlbumPageSizeCode").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("40").AllowEditing(true).Add();
+    //col.Field("Culture").HeaderText("Culture").Width("40").ValidationRules(new { required = true, minLength = 1 }).AllowEditing(false).Add();
+
+
+}).EditSettings(edit => { edit.AllowEditing(true).AllowAdding(true).AllowDeleting(false).Mode(Syncfusion.EJ2.Grids.EditMode.Normal); }).Toolbar(new List<string>() { "Edit", "Add", "Update", "Delete", "Cancel" }).Render()
+</div>
+
+@*<script>
+
+    function actionBeginAlbum(args) {        
+        if (args.requestType === 'add') {
+            args.data['ServiceID'] = 4;
+        }
+    }
+
+</script>*@

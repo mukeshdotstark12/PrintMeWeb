@@ -1,0 +1,59 @@
+﻿@model PrintForMe.Models.Checkout.BillingAddressViewModel
+
+
+@using (Html.BeginForm("GetUserAddress", "Address", FormMethod.Post))
+{
+        <div id="billingAddress" data-addresstype='BillingAddress' data-fields='["Line1", "Line2", "City", "PostalCode"]'>
+            <h3>Add new address</h3>
+            @*DocSection:AddressSelector*@
+            @*<div class="js-address-selector-div" data-statelistaction='@Url.Action("CustomerAddress", "Checkout")'>
+
+                    @Html.LabelFor(m => m.AddressID)
+                    @Html.DropDownListFor(m => m.AddressID, Model.Addresses, "(new)", new { @class = "js-address-selector" })
+
+                    <div class="message message-error">
+                        @Html.ValidationMessageFor(m => m.AddressID)
+                    </div>
+                </div>*@
+            @*EndDocSection:AddressSelector*@
+            <div>
+                @Html.LabelFor(m => m.PersonalName)
+                @Html.EditorFor(m => m.PersonalName)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Phone)
+                @Html.EditorFor(m => m.Phone)
+            </div>
+            <div class="js-country-state-selector" data-statelistaction='@Url.Action("CountryStates", "Checkout")' data-countryselectedid='@Model.CountryID' data-stateselectedid='@Model.StateID' data-countryfield='CountryID' data-statefield='StateID'>
+                @Html.LabelFor(m => m.CountryID)
+                @Html.DropDownListFor(m => m.CountryID, Model.Countries, new { @class = "js-country-selector" })
+                <div class="js-state-selector-container">
+                    @Html.LabelFor(m => m.StateID)
+                    @Html.DropDownListFor(m => m.StateID, Enumerable.Empty<SelectListItem>(), new { @class = "js-state-selector" })
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.City)
+                @Html.EditorFor(m => m.City)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Line1)
+                @Html.EditorFor(m => m.Line1)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Line2)
+                @Html.EditorFor(m => m.Line2)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.PostalCode)
+                @Html.EditorFor(m => m.PostalCode)
+            </div>
+        </div>
+
+
+    <input type="submit" value="Continue" />
+}
+@*EndDocSection:AddressJavaScript*@
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<script src="~/Scripts/countryStateSelector.js"></script>
+<script src="~/Scripts/addressSelector.js"></script>

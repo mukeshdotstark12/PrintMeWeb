@@ -1,0 +1,24 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using CMS.Helpers;
+@{
+    ViewBag.Title = "Contact Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Contact form-->
+<div class="contact-form-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
+                <h1>
+                    @ResHelper.GetString("PrintForMe.ContactPageTitle")
+                </h1>
+                <div class="contact-form @(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? "rtl" : "ltr")">
+                    @Html.Kentico().EditableArea("ContactArea1")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Contact form-->

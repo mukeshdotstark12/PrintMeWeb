@@ -1,0 +1,96 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using PrintForMe.Helpers
+@using CMS.Helpers;
+@using CMS.Membership
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Terms</title>
+    @Styles.Render("~/Content/css") 
+    @Scripts.Render("~/bundles/scripts")
+
+    <link href="~/Content/css/css.css" rel="stylesheet" />
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    @Scripts.Render("https://code.jquery.com/jquery-3.1.1.min.js")
+    @Scripts.Render("https://cdn.syncfusion.com/js/assets/external/jsrender.min.js")
+
+    <script src="https://cdn.syncfusion.com/17.4.0.46/js/web/ej.web.all.js"></script>
+
+    @* See ~/App_Start/ApplicationConfig.cs, ~/Controllers/HomeController.cs and ~/Views/Home/Index.cshtml
+        Uncomment the following line to add <link> tag referencing the Page builder style bundle. *@
+    @Html.Kentico().PageBuilderStyles()
+
+    @{
+
+        var controllerName = RouteTable.Routes.GetRouteData(new HttpContextWrapper(HttpContext.Current)).Values["controller"].ToString();
+    }
+
+    <!-- Syncfusion Essential JS 2 Styles -->
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
+    <link rel="stylesheet" href="~/Content/css/rating-style.css" />
+
+    <!-- Syncfusion Essential JS 2 Scripts -->
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />    
+    <link href="~/Content/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-4">
+                </div>
+                <div class="col-lg-6 col-md-6 col-4">
+                    <div class="logo-n-nav">
+                        <div class="logo">
+                            <a href="@Url.Action("Index","Home")"><img class="ECS-logo-sm" src="~/Content/Images/logo.png" style="height:100px;width:100px;" /></a>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="col-lg-3 col-md-3 col-12">
+                    <div class="account-n-language">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @ResHelper.GetString("PrintForMe.Language")
+                            </a>
+                            <div class="font-primary-medium dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div id="divArabic" class="dropdown-item">
+                                    @Html.CultureLink(@ResHelper.GetString("PrintForMe.Arabic"), "ar-SA")
+                                </div>
+                                <div id="divEnglish" class="dropdown-item">
+                                    @Html.CultureLink(@ResHelper.GetString("PrintForMe.English"), "en-US")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </header>
+    <div class="py-5">
+        <div class="row justify-content-center">
+            <div class="">
+                <h2>@ResHelper.GetString("PrintForMe.TermsAndConditions")</h2>
+            </div>
+        </div>
+        <div dir="rtl" class="container">
+            <div class="row">
+                <div class="text-right">
+                    @Html.Kentico().EditableArea("area1")
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

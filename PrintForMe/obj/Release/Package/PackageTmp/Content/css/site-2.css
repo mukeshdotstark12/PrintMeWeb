@@ -1,0 +1,284 @@
+.border-bottom {
+    border-bottom: 1px solid var(--grey-color);
+}
+
+.store-profile {
+    padding: 100px 0 100px 0;
+}
+
+.store-name-search .control-label {
+    text-align: right;
+    font-weight: bold;
+    width: 100%;
+}
+
+.store-name-search {
+    margin: 0 0 55px 0;
+}
+
+.container-fluid {
+    max-width: 1600px;
+}
+
+.edit-delete-icon>form input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    background: none;
+    border: 0;
+}
+
+.edit-delete-icon .edit-address,
+.edit-delete-icon .delete-address,
+.edit-delete-icon>form {
+    font-size: 18px;
+    color: #000000 !important;
+    border: 1px solid rgba(190, 189, 191, 0.6);
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    display: block;
+    display: table;
+    border-radius: 3px;
+    float: left;
+    margin-left: 5px;
+}
+
+.edit-delete-icon>form {
+    border: none;
+    position: relative;
+}
+
+.edit-delete-icon>form input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    background: none;
+    border: 0;
+}
+
+.edit-delete-icon>form span {
+    margin: 0 !important;
+}
+
+.edit-delete-icon .edit-address:hover,
+.edit-delete-icon .delete-address:hover,
+.edit-delete-icon>form:hover span {
+    color: var(--primary-color-medium) !important;
+    border: 1px solid var(--primary-color-medium);
+}
+
+.edit-delete-icon .edit-address i,
+.edit-delete-icon .delete-address i {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.store-profile-table {
+    padding: 0 0 10px 0;
+    margin-bottom: 60px;
+}
+
+.store-profile-table-title {
+    font-size: 25px;
+    color: var(--primary-color-medium);
+    margin-bottom: 24px;
+}
+
+.store-profile-table table {
+    border: 1px solid var(--light-grey-color);
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.store-profile-table table tr th,
+.store-profile-table table tr td {
+    padding: 4px 10px 4px 0;
+}
+
+.store-profile-table table tr td:first-child {
+    padding-left: 10px;
+    min-width: 140px;
+}
+
+.store-profile-table table tr th {
+    background: var(--primary-color-medium);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.store-profile-table table tr td {
+    color: var(--light-grey-color);
+    font-size: 15px;
+}
+
+.store-profile-table table tr {
+    border-top: 1px solid var(--light-grey-color);
+}
+
+.store-profile-table .service-print {
+    font-size: 25px;
+    line-height: 45px;
+    color: var(--primary-color-medium);
+    font-weight: bold;
+    margin-top: 110px;
+}
+
+.bottom-button {
+    width: 100%;
+}
+
+.bottom-button input {
+    margin: 0 auto;
+    display: table;
+    width: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@media only screen and (max-width: 1199.98px) {
+    .store-profile-table .service-print {
+        margin-top: 0px;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/*Edit Photos*/
+
+.edit-photos-wrapper {
+    padding: 150px 0;
+}
+
+.edit-photos-wrapper .container-fluid {
+    position: relative;
+}
+
+.add-photo {
+    position: fixed;
+    right: 10px;
+    top: 260px;
+    z-index: 1;
+    width: 70px;
+}
+
+.edit-photo-item {
+    border: 1px solid #707070;
+    border-radius: 17px;
+    height: 100%;
+    padding: 25px;
+}
+
+.edit-photo-item-bottom .cart-remove-item {
+    margin: 0;
+}
+
+.edit-photo-item .edit-photo-item-top {
+    height: 100%;
+}
+
+.edit-photo-item .image img {
+    max-width: 100%;
+    box-shadow: 0 3px 6px rgb(0 0 0 / .16);
+}
+
+.edit-photo-item .notes {
+    color: #F5AABF;
+    font-size: 10px;
+    margin: 15px 0 0 0;
+}
+
+.edit-photo-item .cart-remove-item-qty {
+    margin: 17px 0;
+}
+
+.edit-photo-item .number-input.cart-update-qty {
+    width: 100%;
+    max-width: 145px;
+    margin: 0;
+}
+
+.edit-photo-item .number-input.cart-update-qty button {
+    min-width: 50px;
+}
+
+.edit-photo-item .number-input.cart-update-qty input[type="number"] {
+    width: inherit;
+    max-width: 45px;
+}
+
+.edit-photo-item select {
+    width: 100%;
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+}
+
+.edit-photo-col {
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 1199.98px) {
+    .edit-photos-wrapper {
+        padding: 80px 0;
+    }
+    .add-photo {
+        width: 50px;
+        top: 158px;
+    }
+}
+
+
+/*End Edit Photos*/
+
+
+/*Photo Page*/
+
+.photo-page-wrapper {
+    padding: 44px 0 80px;
+}
+
+.print-photos-box h1 {
+    color: #7CC0D9;
+    font-weight: bold;
+    font-size: 70px;
+    text-transform: uppercase;
+}
+
+.print-photos-box p {
+    color: #BEBDBF;
+}
+
+.print-photos-box .form-group,
+.print-photos-box .form-control {
+    width: 100%;
+    text-align: right;
+}
+
+.print-photos-box .notes {
+    color: #F5AABF;
+    font-size: 10px;
+}
+
+.upload-photos-submit input {
+    width: 100%
+}
+
+@media only screen and (max-width: 1199.98px) {
+    .photo-page-wrapper {
+        padding: 44px 0 40px;
+    }
+}
+
+
+/*End Photo Page*/

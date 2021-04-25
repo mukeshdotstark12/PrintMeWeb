@@ -1,0 +1,32 @@
+﻿@model IEnumerable<PrintForMe.Models.OrderManagement.OrdersListViewModel>
+@using CMS.MacroEngine;
+@{
+    ViewBag.Title = "OrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/admin-css/admin.css" rel="stylesheet" />
+<link href="~/Content/admin-css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/admin-css/jquery.magnific-popup.min.css" rel="stylesheet" />
+@if (Model.Any())
+{
+    <div class="content-wrapper">
+        <div class="">
+            <div class="container-fluid">
+                <div class="col-xl-12 col-md-12 col-12">
+                    <div class="store-profile-table border-bottom">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-12">
+                                <div class="store-profile-table-title text-right">Order List</div>
+                                <div class="overflow-auto">
+                                    <div id="grid" class="center-div">
+                                        @Html.Action("OrderListServicesSettings", "OrderManagement")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

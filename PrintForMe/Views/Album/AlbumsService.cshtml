@@ -1,0 +1,90 @@
+﻿@using CMS.Helpers
+@model PrintForMe.Models.Services.AlbumServiceModel
+
+@{
+    ViewBag.Title = "AlbumService";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .print-photos-box label::after {
+        position: absolute;
+        content: "*";
+        top: -2px;
+        color: red;
+        font-size: 16px;
+        right: 0;
+    }
+
+    .print-photos-box label {
+        position: relative;
+        padding-right: 10px;
+    }
+</style>
+
+<div class="photo-page-wrapper">
+    <div class="container">   
+        <div class="row">
+            <div class="col-xl-7 col-md-6 col-12">
+                <img src="~/Content/Images/print-photos.jpg" />
+            </div>
+            <div class="col-xl-5 col-md-6 col-12">
+                <div class="print-photos-box">
+                    <h1 class="text-right">@ResHelper.GetString("PrintForMe.PrintAlbum")</h1>
+                    <p class="text-right mb-4">@ResHelper.GetString("PrintForMe.PrintAlbumDescription")</p>
+
+                    @using (Html.BeginForm("ArrangeAlbum", "Album", FormMethod.Post))
+                                {
+                <div class="row">
+                   
+                    <div class="col-md-7 offset-md-4 col-12">
+                        @if (ViewBag.Error != null)
+                        {
+                        <p style="color:red">
+                            @ViewBag.Error
+                        </p>
+                        }
+                        @Html.HiddenFor(m => m.AlbumID,new { Value=Model.AlbumID})
+                    <div class="form-group form-field">
+                        @Html.Label(@ResHelper.GetString("PrintForMe.Size"), new { @class = "control-label float-left"})
+                        @Html.DropDownListFor(m => m.SelectedSize,
+ Model.AlbumFormat.Select(d => new SelectListItem()
+ {
+     Value = d.AlbumPageSizeCode.ToString(),
+     Text = d.AlbumPageSize
+ }), new { @class = "js-variant-selector form-control", required = String.Empty })
+                    </div>
+                    <div class="form-group form-field">
+                        @Html.Label(@ResHelper.GetString("PrintForMe.AlbumNoofPages"), new { @class = "control-label float-left" })
+                        @Html.DropDownListFor(m => m.SelectedNoofpages,
+Model.AlbumSize.Select(d => new SelectListItem()
+{
+    Value = d.AlbumSizeCode.ToString(),
+    Text = d.Size
+}), new { @class = "js-variant-selector form-control", required = String.Empty })
+
+
+                    </div>
+                    <div class="form-group form-field">
+                        @Html.Label(@ResHelper.GetString("PrintForMe.PaperMaterial"), new { @class = "control-label float-left" })
+                        @Html.DropDownListFor(m => m.SelectedPaperMaterial,
+Model.PaperMaterial.Select(d => new SelectListItem()
+{
+    Value = d.PaperMaterialCode.ToString(),
+    Text = d.PageType
+}), new { @class = "js-variant-selector form-control", required = String.Empty })
+
+
+                    </div>
+                    <div class="notes text-center">@ResHelper.GetString("PrintForMe.AlbumServiceFooter")</div>
+                        <div class="upload-photos-submit mt-5">
+                            @Html.HiddenFor(m => m.ServiceID, Model.ServiceID)
+                            @Html.EJS().Button("btn").Content(@ResHelper.GetString("PrintForMe.StartAlbum")).CssClass("text-center dark-button-bg").Render()
+                        </div>
+                    </div>
+                </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,255 @@
+﻿@model PrintForMe.Models.OrderManagement.OrderDetailViewModel
+@using PrintForMe.Helpers
+@using CMS.Helpers;
+@using CMS.MacroEngine;
+
+@{
+    ViewBag.Title = "Order Details | admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<div>
+        <span class="strong">Total Price</span>
+        <span class="total-price">@Model.FormatPrice(Model.TotalPrice)</span>
+    </div>
+    <div class="col-md-2 order-item-subtotal">
+        <span>@Model.FormatPrice(orderItem.TotalPriceInMainCurrency)</span>
+    </div>*@
+@*<a target="_blank" class="btn light-basic-button" href="@string.Format("//{0}{1}",CMS.SiteProvider.SiteContext.CurrentSite.DomainName,"CMSModules/Ecommerce/CMSPages/GetInvoice.aspx?orderid="+Model.OrderID)"><bold>Print</bold></a>*@
+
+<link href="~/Content/admin-css/admin.css" rel="stylesheet" />
+<link href="~/Content/admin-css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/admin-css/jquery.magnific-popup.min.css" rel="stylesheet" />
+
+<div class="container full">
+    <div class="row">
+        <div class="section-component col-12">
+            <div class="main-section-wrapper">
+                <div class="content-wrapper left-align small-width left-align">
+                    <div class="form-wrapper">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="order-detail-date text-right mb-5">
+                                    <div class="order-number"> @Model.InvoiceNumber <strong>Order number</strong></div>
+                                    <div class="order-date">@Model.OrderDate.ToString("MM/dd/yyyy")</div>
+                                </div>
+                                <div class="order-detail">
+                                    <div class="row">
+                                        <div class="col-xl-5 col-md-6 col-12 offset-xl-1 ">
+                                            <div class="order-wrapping text-right">
+                                                <strong>Gift wrapping service</strong>
+                                                @if (Model.OrderGiftWrapping)
+                                                {
+                                                    <span class="order-wrapping-color">
+                                                        <i class="fa fa-check" aria-hidden="true" style="color:#20b116;font-size: 40px"></i>
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="order-wrapping-color">
+                                                        <i class="fa fa-times" aria-hidden="true" style="color: #de0c0c;font-size: 50px;margin: -7px 0 0 0;"></i>
+                                                    </span>
+                                                }
+                                            </div>
+                                            <div class="order-notes text-right">
+                                                @Model.OrderNote
+                                            </div>
+                                            <div class="order-downloa-section">
+                                                <ul>
+                                                    @foreach (var orderItem in Model.OrderItems)
+                                                    {
+                                                        <li><span>@orderItem.SKUName</span><a href="#" onclick="downloadFiles('@orderItem.SKUID', '@Model.OrderID');"><i class="fa fa-cloud-download"></i></a></li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-5 col-md-6 col-12 offset-xl-1">
+                                            <div class="shipping-and-payment-box text-right">
+                                                <div class="shipping-box">
+                                                    <span class="title">Shipping address</span><br>
+                                                    @if (@Model.OrderAddress != null)
+                                                    {
+                                                        @Html.DisplayFor(m => m.OrderAddress.AddressLine1)<br />
+                                                        @Html.DisplayFor(m => m.OrderAddress.AddressLine2)<br />
+                                                        @Html.DisplayFor(m => m.OrderAddress.AddressCity) @Html.DisplayFor(m => m.OrderAddress.AddressState) @Html.DisplayFor(m => m.OrderAddress.AddressCountry)
+                                                        @Html.DisplayFor(m => m.OrderAddress.AddressPostalCode)<br />
+                                                        @Html.DisplayFor(m => m.OrderAddress.AddressPhone);
+                                                    }
+                                                </div>
+
+                                                <div class="payment-box text-right">
+                                                    <span class="title">Payment</span><br>
+                                                    @MacroResolver.Resolve(Model.PaymentOption)
+                                                </div>
+                                                <div class="order-details-box justify-content-right">
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="2"> Order details</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="order-price">@Model.FormatPrice(Model.TotalPrice)@*<span class="small-text">SAR</span>*@</td>
+                                                                <td class="order-details-label">Price</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="order-discount">@Model.FormatPrice(Model.OrderGrandTotal - Model.TotalPrice)</td>
+                                                                <td class="order-details-label">Discount</td>
+                                                            </tr>
+                                                            <tr>
+                                                                @if ((Model.OrderGrandTotal - Model.TotalPrice) > 0)
+                                                                {
+                                                                    <td>Applied</td>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td></td>
+                                                                }
+                                                                <td class="order-details-label">Coupon</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>@Model.FormatPrice(Model.OrderTotalShipping)</td>
+                                                                <td class="order-details-label">Shipping</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>@Model.FormatPrice(Model.OrderTotalTax)</td>
+                                                                <td class="order-details-label">tax</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="order-total-price"><strong>@Model.FormatPrice(Model.OrderGrandTotal)</strong>@*<span class="small-text">SAR</span>*@</td>
+                                                                <td class="order-details-label">Total price</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @foreach (var orderItem in Model.OrderItems)
+                                {
+                                    <div class="order-detail-table mt-5">
+                                        <div class="overflow-auto">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="6" class="text-center">@orderItem.SKUName</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (orderItem.SKUName.Contains("Photo"))
+                                                    {
+                                                        <tr>
+                                                            <td rowspan="2" width="15%" class="price border-bottom align-middle">@Model.FormatPrice(orderItem.UnitPrice)</td>
+                                                            <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.PaperMaterial")</td>
+                                                            <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.TotalNoofPhotos")</td>
+                                                            <td rowspan="2" width="150" class="border-bottom pr-0 table-cart-image">
+                                                                @Html.Image(orderItem.serviceDetail.ImagePath, orderItem.SKUName, null) @*, SizeConstraint.MaxWidthOrHeight(150)*@
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.PaperMaterial</td>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.TotalPhotos</td>
+                                                        </tr>
+                                                    }
+
+                                                    @if (orderItem.SKUName.Contains("Wooden"))
+                                                    {
+                                                        <tr>
+                                                            <td rowspan="2" width="30%" class="price border-bottom align-middle">@Model.FormatPrice(orderItem.UnitPrice)</td>
+                                                            <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.ThicknessOfPallets")</td>
+                                                            <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.NoOfPhotos")</td>
+                                                            <td rowspan="2" width="150" class="border-bottom pr-0 table-cart-image">
+                                                                @Html.Image(orderItem.serviceDetail.ImagePath, orderItem.SKUName, null) @*, SizeConstraint.MaxWidthOrHeight(150)*@
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.ThicknessOfPallets</td>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.TotalPhotos</td>
+                                                        </tr>
+                                                    }
+
+                                                    @if (orderItem.SKUName.Contains("Wall"))
+                                                    {
+                                                        <tr>
+                                                            <td rowspan="2" width="30%" class="price border-bottom align-middle">@Model.FormatPrice(orderItem.UnitPrice)</td>
+                                                            <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.FrameColor")</td>
+                                                            <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.PaperMaterial")</td>
+                                                            <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.NoOfPhotos")</td>
+                                                            <td rowspan="2" width="150" class="border-bottom pr-0 table-cart-image">
+                                                                @Html.Image(orderItem.serviceDetail.ImagePath, orderItem.SKUName, null) @*, SizeConstraint.MaxWidthOrHeight(150)*@
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.FrameColor</td>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.PaperMaterial</td>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.TotalPhotos</td>
+                                                        </tr>
+                                                    }
+                                                    @if (orderItem.SKUName.Contains("Album"))
+                                                    {
+                                                    string imagepath = "/Album/" + orderItem.serviceDetail.AlbumID + "/AlbumPhoto/" + orderItem.serviceDetail.ImagePath;
+                                                    <tr>
+                                                        <td rowspan="2" width="30%" class="price border-bottom align-middle">@Model.FormatPrice(orderItem.UnitPrice)</td>
+                                                        <td class="text-center align-bottom">Number of Pages</td>
+                                                        <td class="text-center align-bottom">Quantity</td>
+                                                        <td class="text-center align-bottom">Size</td>
+                                                        <td class="text-center align-bottom">Paper Material</td>
+
+                                                        <td rowspan="2" width="150" class="border-bottom pr-0 table-cart-image">
+                                                            <img src="@imagepath" alt="" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center border-bottom align-top">@orderItem.serviceDetail.NoOfPages</td>
+                                                        <td class="text-center border-bottom align-top">@orderItem.serviceDetail.quantity</td>
+                                                        <td class="text-center border-bottom align-top">@orderItem.serviceDetail.Size</td>
+                                                        <td class="text-center border-bottom align-top">@orderItem.serviceDetail.PaperMaterial</td>
+                                                    </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function printDiv() {
+        var divContents = document.getElementById("maindiv").innerHTML;
+        var a = window.open('', '', 'height=1000, width=1000');
+        a.document.write('<html>');
+        a.document.write('<body >');
+        a.document.write(divContents);
+        a.document.write('</body></html>');
+        a.document.close();
+        a.print();
+    }
+
+    function downloadFiles(id, orderID) {
+        //Starting a Loader
+        showLoader();
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("DownloadProjectItems", "OrderManagement")', //"~/en-US/OrderManagement/downloadProjectItems",
+            data: '{ "SKUID": "' + parseInt(id) + '", "OrderID": "' + parseInt(orderID) + '"}',
+            success: function (result, status, xhr) {
+                hideLoader();
+                alert(result);                
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+            }
+        });
+    }
+</script>

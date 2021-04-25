@@ -1,0 +1,271 @@
+﻿@using System.Globalization
+@using CMS.Ecommerce
+@using CMS.Helpers
+@using Syncfusion.EJ2.Navigations;
+@using Syncfusion.EJ2.Grids
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="center-form-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-12 offset-md-6 col-12">
+                <h1>Coupons List</h1>
+                <div class="row" style="margin-bottom:15px;">
+                    <div class="col-lg-10">
+                        @*<a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/AddCoupon" class="btn btn-primary">Add New Coupon</a><br /><br />*@
+                        <a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/AddProductCoupon" class="light-button-bg">Add Discount </a>&nbsp;&nbsp;
+                        <a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/AddCouponCode" class="light-button-bg" style="color:#ffffff;">Add Coupon</a>
+                    </div>
+                </div>
+                @(Html.EJS().Tab("ej2Tab").ContentTemplate(
+                @<div>
+                    <div class="e-tab-header">
+                        <div>Coupon</div>
+                        <div>Discount</div>
+                    </div>
+                    <div class="e-content">
+                        <div>
+                            @(Html.EJS().Grid("couponList").DataSource((IEnumerable<object>)ViewBag.ProductCoupons).Columns(col =>
+                            {
+                                col.Field("MultiBuyCouponCodeID").HeaderText("ID").Width("70").AllowSearching(true).TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+                                col.Field("MultiBuyCouponCodeCode").HeaderText("Coupon Code").Width("120").AllowSearching(true).TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+                                col.Field("MultiBuyCouponCodeUseLimit").HeaderText("Use Limit").Width("100").AllowSearching(true).TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                                col.Field("MultiBuyCouponCodeUseCount").HeaderText("Use Count").Width("100").AllowSearching(true).TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                                col.Field("MultiBuyCouponCodeFor").HeaderText("Coupon For").Width("120").AllowSearching(true).TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add(); 
+                                col.Field("MultiBuyCouponCodeLastModified").HeaderText("Last Modified").AllowSearching(true).Width("130").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Format("yMd").Add();
+                                col.Template("#couponEditTemplate").AllowEditing(false).AllowSearching(false).Width("70").Add();
+                                col.Template("#couponDeleteTemplate").AllowEditing(false).AllowSearching(false).Width("70").Add();
+                            })
+                            .Width("100%")
+                            .Height("100%")
+                            .AllowPaging()
+                            .AllowSorting()
+                            .Render()
+                            )
+                        </div>
+                        <div>
+                            @*@(Html.EJS().Grid("shippingGrid").DataSource((IEnumerable<object>)ViewBag.ShippingData).Columns(col =>
+                            {
+                                col.Field("DiscountName").HeaderText("Code").Width("120").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+                                col.HeaderText("Apply On").DefaultValue("Shipping").Width("120").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                                col.Field("DiscountValidFrom").HeaderText("Date Created").Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Format("yMd").Add();
+                                col.Field("DiscountValidTo").HeaderText("Expiry Date").Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Format("yMd").Add();
+                                col.HeaderText("The Number of use").DefaultValue("10").Width("130").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                                col.Field("DiscountValue").HeaderText("Total").Width("130").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                            })
+                            .Width("100%")
+                            .Height("100%")
+                            .AllowPaging()
+                            .Render()
+                            )
+
+                            @(Html.EJS().Grid("orderGrid").DataSource((IEnumerable<object>)ViewBag.OrderData).Columns(col =>
+                            {
+                                col.Field("DiscountName").HeaderText("Code").Width("120").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+                                col.HeaderText("Apply On").DefaultValue("Shipping").Width("120").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                                col.Field("DiscountValidFrom").HeaderText("Date Created").Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Format("yMd").Add();
+                                col.Field("DiscountValidTo").HeaderText("Expiry Date").Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Format("yMd").Add();
+                                col.HeaderText("The Number of use").DefaultValue("10").Width("130").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                                col.Field("DiscountValue").HeaderText("Total").Width("130").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                            })
+                            .Width("100%")
+                            .Height("100%")
+                            .AllowPaging()
+                            .Render()
+                            )*@
+
+                            @(Html.EJS().Grid("productCouponGrid").DataSource((IEnumerable<object>)ViewBag.ProductCouponData).Columns(col =>
+                        {
+                            col.Field("MultiBuyDiscountID").HeaderText("ID").AllowSearching(true).Width("50").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+                            col.Field("MultiBuyDiscountName").HeaderText("Discount").AllowSearching(true).Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Left).Add();
+                            col.Field("ApplyOn").HeaderText("Apply On").DefaultValue("Products").AllowSearching(true).Width("100").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                            col.Field("MultiBuyDiscountValidFrom").HeaderText("Date Created").AllowSearching(true).Width("120").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Format("yMd").Add();
+                            col.Field("MultiBuyDiscountValidTo").HeaderText("Expiry Date").AllowSearching(true).Width("115").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Format("yMd").Add();
+                            col.Field("NumberofUse").HeaderText("Number of use").DefaultValue("10").AllowSearching(true).Width("150").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                            col.Field("MultiBuyDiscountValue").HeaderText("Total Discount").AllowSearching(true).Width("130").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+                            col.Template("#discountEditTemplate").AllowEditing(false).AllowSearching(false).Width("70").Add();
+                            col.Template("#discountDeleteTemplate").AllowEditing(false).AllowSearching(false).Width("70").Add();
+                        })
+                            .Width("100%")
+                            .Height("100%")
+                            .AllowPaging()
+                            .AllowSorting()
+                            .Render()
+                            )
+                        </div>
+                    </div>
+                </div>
+                )
+                .OverflowMode(OverflowMode.Scrollable)
+                .HeightAdjustMode(HeightStyles.Content)
+                .Render())
+                @*<nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-coupons" role="tab" aria-controls="nav-home" aria-selected="true">Coupons</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-discounts" role="tab" aria-controls="nav-profile" aria-selected="false">Discounts</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-coupons" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Coupon Code</th>
+                                        <th scope="col">Use Limit</th>
+                                        <th scope="col">Use Count</th>
+                                        <th scope="col">Last Modified</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (MultiBuyCouponCodeInfo obj in coupons)
+                                    {
+                                        <tr>
+                                            <td>@obj.MultiBuyCouponCodeCode</td>
+                                            <td>@obj.MultiBuyCouponCodeUseLimit</td>
+                                            <td>@obj.MultiBuyCouponCodeUseCount</td>
+                                            <td>@obj.MultiBuyCouponCodeLastModified.ToString("dd/MMM/yyyy")</td>
+                                            <td>
+                                                <a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/AddUpdateProductCoupon/@obj.MultiBuyCouponCodeID"><img src="~/Content/Icons/edit-icon.svg" /></a>&nbsp;&nbsp;
+                                                <a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/DeleteCouponCode/@obj.MultiBuyCouponCodeID" type="button" onclick="return deleteConfirmation();"><img src="~/Content/Icons/delete-icon.svg" /></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="nav-discounts" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Code</th>
+                                        <th scope="col">Apply on</th>
+                                        <th scope="col">Date Created</th>
+                                        <th scope="col">Expiry Date</th>
+                                        <th scope="col">The Number of use</th>
+                                        <th scope="col">Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   @foreach (DiscountInfo obj in ViewBag.ShippingData)
+                                    {
+                                        <tr>
+                                            <td>@obj.DiscountName</td>
+                                            <td>Shipping</td>
+                                            <td>@obj.DiscountValidFrom.ToString("dd/MMM/yyyy")</td>
+                                            <td>@obj.DiscountValidTo.ToString("dd/MMM/yyyy")</td>
+                                            <td>10</td>
+                                            <td>@obj.DiscountValue.ToString("f2")</td>
+                                            <td>
+                                                <a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/EditCoupon/@obj.DiscountID"><img src="~/Content/Icons/edit-icon.svg" /></a>&nbsp;&nbsp;
+                                                <a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/DeleteDiscount/@obj.DiscountID" type="button" onclick="return deleteConfirmation();"><img src="~/Content/Icons/delete-icon.svg" /></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                    @foreach (DiscountInfo obj in ViewBag.OrderData)
+                                    {
+                                        <tr>
+                                            <td>@obj.DiscountName</td>
+                                            <td>Order</td>
+                                            <td>@obj.DiscountValidFrom.ToString("dd/MMM/yyyy")</td>
+                                            <td>@obj.DiscountValidTo.ToString("dd/MMM/yyyy")</td>
+                                            <td>10</td>
+                                            <td>@obj.DiscountValue.ToString("f2")</td>
+                                            <td>
+                                                <a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/EditCoupon/@obj.DiscountID"><img src="~/Content/Icons/edit-icon.svg" /></a>&nbsp;&nbsp;
+                                                <a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/DeleteDiscount/@obj.DiscountID" type="button" onclick="return deleteConfirmation();"><img src="~/Content/Icons/delete-icon.svg" /></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                    @foreach (MultiBuyDiscountInfo obj in ViewBag.ProductCouponData)
+                                    {
+                                        <tr>
+                                            <td>@obj.MultiBuyDiscountName</td>
+                                            <td>Product</td>
+                                            <td>@obj.MultiBuyDiscountValidFrom.ToString("dd/MMM/yyyy", new CultureInfo(CMS.Localization.LocalizationContext.CurrentCulture.CultureCode))</td>
+                                            <td>@obj.MultiBuyDiscountValidTo.ToString("dd/MMM/yyyy", new CultureInfo(CMS.Localization.LocalizationContext.CurrentCulture.CultureCode))</td>
+                                            <td>10</td>
+                                            <td>@obj.MultiBuyDiscountValue.ToString("f2")</td>
+                                            <td>
+                                                <a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/EditProductCoupon/@obj.MultiBuyDiscountID"><img src="~/Content/Icons/edit-icon.svg" /></a>&nbsp;&nbsp;
+                                                <a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/Discounts/DeleteProductDiscount/@obj.MultiBuyDiscountID" type="button" onclick="return deleteConfirmation();"><img src="~/Content/Icons/delete-icon.svg" /></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+<script id="couponEditTemplate" type="text/x-template">
+     <a href="#" onclick="onCouponEdit(this);" type="button"><img src="~/Content/Images/Edit.png" /></a>
+</script>
+<script id="couponDeleteTemplate" type="text/x-template">
+    <a href="#" onclick="onCouponDelete(this);" type="button"><img src="~/Content/Images/Delete.png" /></a>
+</script>
+<script id="discountEditTemplate" type="text/x-template">
+    <a href="#" onclick="onDiscountEdit(this);" type="button"><img src="~/Content/Images/Edit.png" /></a>
+</script>
+<script id="discountDeleteTemplate" type="text/x-template">
+    <a href="#" onclick="onDiscountDelete(this);" type="button"><img src="~/Content/Images/Delete.png" /></a>
+</script>
+<script type="text/javascript">
+    // Template button editing coupon function 
+    function onCouponEdit(args) {
+        // Get the closest row cell element from the target
+        var closestRowCell = args.closest('.e-rowcell');
+        var gridObj = document.getElementById('couponList').ej2_instances[0];
+        // Retrieve current row info 
+        var rowInfo = gridObj.getRowInfo(closestRowCell);
+        var couponID = rowInfo.rowData["MultiBuyCouponCodeID"];
+        location.href = '@Url.Action("EditCouponCode", "Discounts")?id=' + couponID;
+    }
+
+    // Template for Deleting Coupon Code
+    function onCouponDelete(args) {
+        if (confirm("Are you sure you want to delete coupon/disount?")) {
+            // Get the closest row cell element from the target 
+            var closestRowCell = args.closest('.e-rowcell');
+            var gridObj = document.getElementById('couponList').ej2_instances[0];
+            // Retrieve current row info 
+            var rowInfo = gridObj.getRowInfo(closestRowCell);
+            var couponID = rowInfo.rowData["MultiBuyCouponCodeID"];
+            location.href = '@Url.Action("DeleteCouponCode", "Discounts")?id=' + couponID;
+            return true;
+        }
+        return false;
+    }
+
+    // Template button for editing discount 
+    function onDiscountEdit(args) {
+        // Get the closest row cell element from the target
+        var closestRowCell = args.closest('.e-rowcell');
+        var gridObj = document.getElementById('productCouponGrid').ej2_instances[0];
+        // Retrieve current row info 
+        var rowInfo = gridObj.getRowInfo(closestRowCell);
+        var discountID = rowInfo.rowData["MultiBuyDiscountID"];
+        location.href = '@Url.Action("EditProductCoupon", "Discounts")?id=' + discountID;
+    }
+
+    // Template for Deleting Coupon Code
+    function onDiscountDelete(args) {
+        if (confirm("Are you sure you want to delete coupon/disount?")) {
+            // Get the closest row cell element from the target 
+            var closestRowCell = args.closest('.e-rowcell');
+            var gridObj = document.getElementById('productCouponGrid').ej2_instances[0];
+            // Retrieve current row info 
+            var rowInfo = gridObj.getRowInfo(closestRowCell);
+            var discountID = rowInfo.rowData["MultiBuyDiscountID"];
+            location.href = '@Url.Action("DeleteProductDiscount", "Discounts")?id=' + discountID;
+            return true;
+        }
+        return false;
+    }
+</script>

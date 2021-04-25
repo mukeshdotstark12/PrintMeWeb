@@ -1,0 +1,633 @@
+﻿@model PrintForMe.Models.WallPainting.AddWallPaintingProject
+@using CMS.Helpers
+
+@{
+    ViewBag.Title = "EditWallPaintingProject";
+    Layout = "";
+}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <title>@ResHelper.GetString("PrintForMe.AddPhotos")</title>
+    <link rel="stylesheet" href="~/Content/css/rating-style.css" />
+    <link href="~/Content/css/css.css" rel="stylesheet">
+    <link href="~/Content/css/styles.css" rel="stylesheet">
+    <link href="~/Content/css/site.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--Syncfusion Essential JS 2 Styles -->
+    <!-- Syncfusion Essential JS 2 Styles -->
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
+
+
+    <!-- Syncfusion Essential JS 2 Scripts -->
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
+
+    <link rel="stylesheet" href="~/Content/css/site.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/css/cropper.css">
+    <style>
+        .loading {
+            top: 0;
+            left: 0;
+            position: fixed;
+            opacity: 0.8;
+            z-index: 10000000;
+            height: 100%;
+            width: 100%;
+            margin: auto;
+            background: rgba(255,255,255,0.8) url("../../Content/Images/loader.gif") center no-repeat;
+        }
+        /* Turn off scrollbar when body element has the loading class */
+        body.loading {
+            overflow: hidden;
+        }
+            /* Make spinner image visible when body element has the loading class */
+            body.loading .overlay {
+                display: block;
+            }
+    </style>
+</head>
+
+<body cz-shortcut-listen="true">
+    <div id="load-div"></div>
+    <div class="main-wrapper">
+        @using (Html.BeginForm("AddWallPaintingProject", "WallPainting", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <header class="edit-photo-header">
+                <div class="container">
+                    <div class="editphoto-button-links">
+                        @if (ViewBag.isEditProject)
+                        {
+                            <button type="submit" id="btnSaveToCart" name="addToCart" value="Add To Cart" class="editphoto-cart">@ResHelper.GetString("PrintForMe.EditProject")<img src="~/Content/images/save_icon.svg" alt="Save icon" /></button>
+                        }
+                        else
+                        {
+                            <button class="editphoto-cart" id="addToCart" name="addToCart" value="addToCart">@ResHelper.GetString("PrintForMe.AddToCart")<img src="~/Content/images/cart-icon.svg" alt="Cart icon" /></button>
+                            <button type="submit" id="btnSave" class="editphoto-cart">@ResHelper.GetString("PrintForMe.SaveProject")<img src="~/Content/images/save_icon.svg" alt="Save icon" /></button>
+                        }
+
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="edit-photos-wrapper">
+                    <div class="container-fluid">
+                        <div class="add-photo">
+                            <img id="btnSelect" src="~/Content/Images/add-icon.svg" />
+                        </div>
+
+                        @Html.Hidden("AddWallPaintingProject.ProjectID", Model.ProjectID)
+                        @Html.Hidden("AddWallPaintingProject.ServiceID", Model.ServiceID)
+                        @Html.Hidden("AddWallPaintingProject.PaintingSize", Model.PaintingSize)
+                        @Html.Hidden("AddWallPaintingProject.FrameColorID", Model.FrameColorID)
+                        @Html.Hidden("AddWallPaintingProject.PaperMaterialID", Model.PaperMaterialID)
+                        @Html.Hidden("AddWallPaintingProject.SKUID", Model.SKUID)
+                        <div class="row" id="displayImages">
+
+                            @for (var i = 0; i < Model.AddWallPaintingProjectDetails.Count; i++)
+                            {
+                                <!--edit-photo-item-->
+                                <div id="@string.Format("AddPhotoProject.AddWallPaintingProjectDetails[{0}].ImageUrl", i)" class="edit-photo-col col-lg-3 col-md-4 col-12">
+                                    <div class="edit-photo-item d-flex flex-column">
+                                        <div class="edit-photo-item-top align-items-center justify-content-center d-flex">
+                                            <div class="image" onclick="getImageDetail('@Model.AddWallPaintingProjectDetails[i].ImageUrl')" data-target="#modal" data-toggle="modal">
+                                                <img id="img_@i" name="file" type="file" src="~/PrintForMe/WallPaintingProject/@Model.AddWallPaintingProjectDetails[i].ImageUrl" />
+                                                @Html.Hidden(string.Format("AddWallPaintingProject.AddWallPaintingProjectDetails[{0}].ImageUrl", i), Model.AddWallPaintingProjectDetails[i].ImageUrl)
+                                                @Html.Hidden(string.Format("AddWallPaintingProject.AddWallPaintingProjectDetails[{0}].ItemID", i), Model.AddWallPaintingProjectDetails[i].ItemID)
+                                            </div>
+                                        </div>
+                                        <div class="edit-photo-item-bottom mt-auto">
+                                            @if (@Model.AddWallPaintingProjectDetails[i].IsLowResolution)
+                                            {
+                                                <div class="notes text-right d-flex align-items-center justify-content-end">The image resolution is low <img src="~/Content/Images/exclamation-icon.svg" /></div>
+                                            }
+                                            <div id="lblprice_@i" class="notes d-flex justify-content-center total-price" style="font-size: inherit;">Price:- SAR @Model.AddWallPaintingProjectDetails[i].Price</div>
+                                            <div class="cart-remove-item-qty d-flex justify-content-between align-items-center">
+                                                <div class="cart-remove-item  fa fa-trash-o" onclick="deletePhotos(@Model.AddWallPaintingProjectDetails[i].ItemID,@Model.SKUID,'@Model.AddWallPaintingProjectDetails[i].ImageUrl',@i)">
+                                                </div>
+                                                <div class="input-group number-input cart-update-qty d-flex justify-content-between">
+                                                    <div class="quantity buttons_added">
+                                                        <input type="button" value="-" class="minus add-minus-btn ">
+                                                        @Html.TextBox(string.Format("AddWallPaintingProject.AddWallPaintingProjectDetails[{0}].NoOfCopy", i), Model.AddWallPaintingProjectDetails[i].NoOfCopy, new { @class = "input-text qty text", @title = "Qty", @size = "4", @pattern = "", @inputmode = "", @type = "number", @step = "1", @min = "1", @max = "", onchange = "getPrice('" + i + "')" })
+                                                        <input type="button" value="+" class="plus add-minus-btn ">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @Html.DropDownList(string.Format("AddWallPaintingProject.AddWallPaintingProjectDetails[{0}].SizeID", i), new SelectList(Model.Size, "ItemID", "Code", Model.SizeID), new { @class = "js-variant-selector form-control", onchange = "getPrice('" + i + "')" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--emd edit-photo-item-->
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="container">
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="actions">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Cropper</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="img-container avatar-wrapper">
+                            <img id="image" src="~/Content/Images/photo-1533154613417-407cfcf6abb2.jpg" alt="Picture">
+                        </div>
+                    </div>
+                    <div class="modal-footer docs-buttons">
+
+                        <button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left" id="btnrotate1">
+                            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(-45)">
+                                <span class="fa fa-undo"></span>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-primary" data-method="rotate" data-option="45" title="Rotate Right" id="btnrotate2">
+                            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(45)">
+                                <span class="fa fa-repeat"></span>
+                            </span>
+                        </button>
+
+                        <button type="button" class="btn btn-primary avatar-save" id="button">Crop</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnclose">Close</button>
+                    </div>
+                    <div id="result"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+
+         $("#btnSave").click(function (e) {
+            if (@Model.AddWallPaintingProjectDetails.Count == 0) {
+                e.preventDefault();
+                alert("Select atleast one image");
+                }
+
+            if (@Model.AddWallPaintingProjectDetails.Where(x=>x.IsLowResolution).Count()> 0) {
+                e.preventDefault();
+                alert("@ResHelper.GetString("PrintForMe.LowResolutionMessage")");
+            }
+        });
+
+        $("#addToCart").click(function (e) {
+        if (@Model.AddWallPaintingProjectDetails.Count == 0) {
+            e.preventDefault();
+            alert("Select atleast one image");
+            }
+             if (@Model.AddWallPaintingProjectDetails.Where(x=>x.IsLowResolution).Count()> 0) {
+                e.preventDefault();
+                alert("@ResHelper.GetString("PrintForMe.LowResolutionMessage")");
+            }
+        });
+
+        $("#btnSaveToCart").click(function (e) {
+        if (@Model.AddWallPaintingProjectDetails.Count == 0) {
+            e.preventDefault();
+            alert("Select atleast one image");
+            }
+             if (@Model.AddWallPaintingProjectDetails.Where(x=>x.IsLowResolution).Count()> 0) {
+                e.preventDefault();
+                alert("@ResHelper.GetString("PrintForMe.LowResolutionMessage")");
+            }
+        });
+
+    $("#btnSelect").click(function () {
+        var inputPhotos = $('<input id="file" type="file" multiple accept="image/png, image/jpeg"/>');
+        inputPhotos.change(function () {
+            console.log("selected file:" + $(this).val());
+            var files = inputPhotos.get(0).files;
+            var fileData = new FormData();
+            var projectId = $("#AddWallPaintingProject_ProjectID").val();
+            var isOtherFiles = false;
+            showLoader();
+
+            for (var i = 0; i < files.length; i++) {
+                if (!files[i].name.match(/.(jpg|jpeg|png)$/i)) {
+                    isOtherFiles = true;
+                    alert('Select only image file');
+                    break;
+                }
+            }
+
+            if (!isOtherFiles) {
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append("fileInput", files[i]);
+                }
+                fileData.append('id', projectId);
+
+                $.ajax({
+                    type: "POST",
+                    url: "~/en-US/WallPainting/UploadFiles",
+                    dataType: "json",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result, status, xhr) {
+                        console.log(result, "files");
+                        //FileDetails(result);
+                        location.reload(true);
+                        hideLoader();
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr, status, error, "error");
+                        location.reload(true);
+                        hideLoader();
+                    }
+                });
+            }
+        });
+        inputPhotos.trigger('click');
+    });
+
+        function showLoader() {
+            $("#load-div").addClass("loading");
+        }
+        function hideLoader() {
+            $("#load-div").removeClass("loading");
+        }
+
+    function FileDetails(filePaths) {
+
+        // VALIDATE OR CHECK IF ANY FILE IS SELECTED.
+        if (filePaths.length > 0) {
+
+            // RUN A LOOP TO CHECK EACH SELECTED FILE.
+            for (var i = 0; i <= filePaths.length - 1; i++) {
+                if (i == 0) {
+                    document.getElementById('displayImages').innerHTML =
+                        //document.getElementById('displayImages').innerHTML +
+                        '<div class="edit-photo-col col-lg-3 col-md-4 col-12">' +
+                        '<div class="edit-photo-item d-flex flex-column" > ' +
+                        '<div class="edit-photo-item-top align-items-center justify-content-center d-flex">' +
+                        '<div class="image">' +
+                        '<img src="~/PrintForMe/TempProject/' + filePaths[i] + '" />' +
+                        '</div>' +
+                        '</div>' +
+                        '</div >' +
+                        '</div >';
+                }
+                else {
+                    document.getElementById('displayImages').innerHTML =
+                        document.getElementById('displayImages').innerHTML +
+                        '<div class="edit-photo-col col-lg-3 col-md-4 col-12">' +
+                        '<div class="edit-photo-item d-flex flex-column" > ' +
+                        '<div class="edit-photo-item-top align-items-center justify-content-center d-flex">' +
+                        '<div class="image">' +
+                        '<img src="~/PrintForMe/TempProject/' + filePaths[i] + '" />' +
+                        '</div>' +
+                        '</div>' +
+                        '</div >' +
+                        '</div >';
+                }
+            }
+        }
+        else {
+            alert('Please select a file.')
+        }
+    }
+
+
+        function deletePhotos(itemId, SKUID, imageUrl, i) {
+            showLoader();
+            //Deletes the record with ID sent below
+            $.ajax({
+                type: "POST",
+                url: "~/en-US/WallPainting/DeletePhoto",
+                data: JSON.stringify({ imageUrl: imageUrl, itemId: itemId, SKUID: SKUID }),
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    //console.log(result, "this");
+                    location.reload();
+                    //var myobj = document.getElementById("AddPhotoProject.AddWallPaintingProjectDetails[" + i + "].ImageUrl");
+                    //myobj.remove();
+                    hideLoader();
+                },
+                error: function (xhr, status, errorThrown) {
+                    alert(errorThrown);
+                    hideLoader();
+                }
+            });
+    }
+
+
+    //***** For step up and down *****//
+    function wcqib_refresh_quantity_increments() {
+        jQuery("div.quantity:not(.buttons_added), td.quantity:not(.buttons_added)").each(function (a, b) {
+            var c = jQuery(b);
+            c.addClass("buttons_added"), c.children().first().before('<input type="button" value="-" class="minus" />'), c.children().last().after('<input type="button" value="+" class="plus" />')
+        })
+    }
+    String.prototype.getDecimals || (String.prototype.getDecimals = function () {
+        var a = this,
+            b = ("" + a).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+        return b ? Math.max(0, (b[1] ? b[1].length : 0) - (b[2] ? +b[2] : 0)) : 0
+    }), jQuery(document).ready(function () {
+        wcqib_refresh_quantity_increments()
+    }), jQuery(document).on("updated_wc_div", function () {
+        wcqib_refresh_quantity_increments()
+    }), jQuery(document).on("click", ".plus, .minus", function () {
+        var a = jQuery(this).closest(".quantity").find(".qty"),
+            b = parseFloat(a.val()),
+            c = parseFloat(a.attr("max")),
+            d = parseFloat(a.attr("min")),
+            e = a.attr("step");
+        b && "" !== b && "NaN" !== b || (b = 0), "" !== c && "NaN" !== c || (c = ""), "" !== d && "NaN" !== d || (d = 0), "any" !== e && "" !== e && void 0 !== e && "NaN" !== parseFloat(e) || (e = 1), jQuery(this).is(".plus") ? c && b >= c ? a.val(c) : a.val((b + parseFloat(e)).toFixed(e.getDecimals())) : d && b <= d ? a.val(d) : b > 0 && a.val((b - parseFloat(e)).toFixed(e.getDecimals())), a.trigger("change")
+    });
+    //***** For step up and down *****//
+
+
+    function imgSize(id) {
+        console.log(id, "id")
+        var myImg = document.querySelector("#img_" + id);
+        var realWidth = myImg.naturalWidth;
+        var realHeight = myImg.naturalHeight;
+        //alert("Original width=" + realWidth + ", " + "Original height=" + realHeight);
+        return false;
+        }
+
+          function getPrice(id) {
+            var sizeId = document.getElementById('AddWallPaintingProject_AddWallPaintingProjectDetails_' + id + '__SizeID').value;
+            var qty = document.getElementById('AddWallPaintingProject_AddWallPaintingProjectDetails_' + id + '__NoOfCopy').value;
+            console.log(qty, "id");
+            //var txt = @Model.Size;
+           // console.log(txt,"text");
+                $.ajax({
+                    type: "POST",
+                    url: '~/ar-SA/WallPainting/GetPrice',
+                    data: '{ "sizeId": "' + parseInt(sizeId) + '", "serviceId": "' +@Model.ServiceID+'","qty":"'+qty+'"}',
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (result, status, xhr) {
+                        //$('div.total-price').text('Price:- SAR ' + result);
+                        document.getElementById("lblprice_" + id).innerHTML = 'Price:- SAR ' + result
+                    },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    }
+            });
+        }
+
+    </script>
+
+    <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="~/Content/js/cropper.js"></script>
+    <script>
+        function getImageDetail(imgsource) {
+            $("#image").attr("src", "~/PrintForMe/WallPaintingProject/" + imgsource);
+                var image = document.getElementById('image');
+                var cropBoxData;
+                var canvasData;
+                var cropper;
+
+                var button = document.getElementById('button');
+                var result = document.getElementById('result');
+                var options = {
+                    //aspectRatio: 16 / 9,
+                    preview: '.img-preview',
+                    ready: function (e) {
+                        console.log(e.type);
+                    },
+                    cropstart: function (e) {
+                        console.log(e.type, e.detail.action);
+                    },
+                    cropmove: function (e) {
+                        console.log(e.type, e.detail.action);
+                    },
+                    cropend: function (e) {
+                        console.log(e.type, e.detail.action);
+                    },
+                    crop: function (e) {
+                        var data = e.detail;
+                        cropImgData = e;
+                        console.log(cropImgData.image, "cropdata");
+                        //dataX.value = Math.round(data.x);
+                        //dataY.value = Math.round(data.y);
+                        //dataHeight.value = Math.round(data.height);
+                        //dataWidth.value = Math.round(data.width);
+                        //dataRotate.value = typeof data.rotate !== 'undefined' ? data.rotate : '';
+                        //dataScaleX.value = typeof data.scaleX !== 'undefined' ? data.scaleX : '';
+                        //dataScaleY.value = typeof data.scaleY !== 'undefined' ? data.scaleY : '';
+                    },
+                    zoom: function (e) {
+                        console.log(e.type, e.detail.ratio);
+                    }
+                };
+
+                    button.onclick = function () {
+                        //var newResult = document.querySelector("[data-btn_album_page_photo_rowguid='" + window.crop_album_page_photo_rowguid + "']");
+
+                        //newResult.innerHTML = '';
+                        //newResult.appendChild(cropper.getCroppedCanvas());
+
+                        cropper.getCroppedCanvas().toBlob((blob) => {
+                            showLoader();
+                            const formData = new FormData();
+                            formData.append('croppedImage', blob);
+                            formData.append('imageName', "~/PrintForMe/WallPaintingProject/" + imgsource);
+                            formData.append('ImageSrc', image.src);
+
+                            fetch("/en-US/WallPainting/UploadCroppedFiles",
+                                {
+                                    method: 'POST',
+                                    mode: 'same-origin',
+                                    credentials: 'same-origin',
+                                    body: formData
+                                })
+                                .then(function (response) {
+                                    //var random_number_image = Math.floor(Math.random() * 10000)
+                                    //newResult.style.backgroundImage = "url(" + window.cropImageSrc + "?id=" + random_number_image + ")";
+                                    document.getElementById("btnclose").click();
+                                    @*const uri_AddPhototoAlbumPageFromQueue = "@Url.Action("GetMainAlbumPageResult", "Album")";
+                                    const uri_DownloadPhotoQueue = "@Url.Action("DownloadPhotoQueue", "Album", new { AlbumRowGUID= 1 })";
+
+                                    let firstAPICall = fetch(uri_AddPhototoAlbumPageFromQueue);
+                                    let secondAPICall = fetch(uri_DownloadPhotoQueue);
+
+                                    Promise.all([firstAPICall, secondAPICall])
+                                        .then(values => Promise.all(values.map(value => value.json())))
+                                        .then(finalVals => {
+                                            let firstAPIResp = finalVals[0];
+                                            let secondAPIResp = finalVals[1];
+                                            RefreshAlbumPageWithPhoto(firstAPIResp)
+                                            RefreshAlbumQueuePhoto(secondAPIResp)
+
+                                        });*@
+
+                                    return response.text()
+                                }).then(function (text) {
+                                    //text is the server's response
+                                });
+                        });
+                };
+
+                actions.querySelector('.docs-buttons').onclick = function (event) {
+                    var e = event || document.querySelector("[data-btn_album_page_photo_rowguid='" + window.crop_album_page_photo_rowguid + "']");
+                    var target = e.target || e.srcElement;
+                    var cropped;
+                    var result;
+                    var input;
+                    var data;
+
+                    if (!cropper) {
+                        return;
+                    }
+
+                    while (target !== this) {
+                        if (target.getAttribute('data-method')) {
+                            break;
+                        }
+
+                        target = target.parentNode;
+                    }
+
+                    if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+                        return;
+                    }
+
+                    data = {
+                        method: target.getAttribute('data-method'),
+                        target: target.getAttribute('data-target'),
+                        option: target.getAttribute('data-option') || undefined,
+                        secondOption: target.getAttribute('data-second-option') || undefined
+                    };
+
+                    cropped = cropper.cropped;
+
+                    if (data.method) {
+                        if (typeof data.target !== 'undefined') {
+                            input = document.querySelector(data.target);
+
+                            if (!target.hasAttribute('data-option') && data.target && input) {
+                                try {
+                                    data.option = JSON.parse(input.value);
+                                } catch (e) {
+                                    console.log(e.message);
+                                }
+                            }
+                        }
+
+                        switch (data.method) {
+                            case 'rotate':
+                                if (cropped && options.viewMode > 0) {
+                                    cropper.clear();
+                                }
+
+                                break;
+
+                            case 'getCroppedCanvas':
+                                try {
+                                    data.option = JSON.parse(data.option);
+                                } catch (e) {
+                                    console.log(e.message);
+                                }
+
+                                if (uploadedImageType === 'image/jpeg') {
+                                    if (!data.option) {
+                                        data.option = {};
+                                    }
+
+                                    data.option.fillColor = '#fff';
+                                }
+
+                                break;
+                        }
+
+                        result = cropper[data.method](data.option, data.secondOption);
+
+                        switch (data.method) {
+                            case 'rotate':
+                                if (cropped && options.viewMode > 0) {
+                                    cropper.crop();
+                                }
+
+                                break;
+
+                            case 'scaleX':
+                            case 'scaleY':
+                                target.setAttribute('data-option', -data.option);
+                                break;
+
+                            case 'getCroppedCanvas':
+                                if (result) {
+                                    // Bootstrap's Modal
+                                    $('#getCroppedCanvasModal').modal().find('.modal-body').html(result);
+
+                                    if (!download.disabled) {
+                                        download.download = uploadedImageName;
+                                        download.href = result.toDataURL(uploadedImageType);
+                                    }
+                                }
+
+                                break;
+
+                            case 'destroy':
+                                cropper = null;
+
+                                if (uploadedImageURL) {
+                                    URL.revokeObjectURL(uploadedImageURL);
+                                    uploadedImageURL = '';
+                                    image.src = originalImageURL;
+                                }
+
+                                break;
+                        }
+
+                        if (typeof result === 'object' && result !== cropper && input) {
+                            try {
+                                input.value = JSON.stringify(result);
+                            } catch (e) {
+                                console.log(e.message);
+                            }
+                        }
+                    }
+                };
+
+
+                $('#modal').on('shown.bs.modal', function () {
+
+                    var hidepicture = document.getElementById('hidepicture');
+                    const imagee = image.src;
+                    //var split = imagee.split("/");
+                    //var ok = split[7];
+                    //var split1 = ok.split("?");
+                    //var pic = split1[0];
+                    if (imagee != "") {
+                    cropper = new Cropper(image, options);
+                    }
+                    else {
+                        document.getElementById("btnclose").click();
+                        alert("No Image Available");
+                    }
+
+                }).on('hidden.bs.modal', function () {
+                    debugger;
+                    cropBoxData = cropper.getCropBoxData();
+                    canvasData = cropper.getCanvasData();
+                    cropper.destroy();
+                    location.reload(true);
+                    hideLoader();
+                });
+        }
+    </script>
+</body>
+
+

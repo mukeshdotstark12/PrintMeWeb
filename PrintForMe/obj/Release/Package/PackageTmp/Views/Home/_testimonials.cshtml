@@ -1,0 +1,20 @@
+﻿@model IEnumerable<PrintForMe.Models.Home.TestimonialViewModel>
+
+@using CMS.Helpers
+
+@{ bool isRtl = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft;}
+@foreach (var item in Model)
+{
+    <div class="testimonial-content row">
+        <div class="testimonial-image col-lg-3 col-5">
+            <img src="@item.PictureUrl" alt=" ">
+        </div>
+        <div class="testimonial-body col-lg-9 col-7">
+            <p>@ResHelper.GetString(@item.Content)</p>
+        </div>
+    </div>
+    <div class="testimonial-author">
+        <p>@ResHelper.GetString(@item.Name)</p>
+    </div>
+}
+

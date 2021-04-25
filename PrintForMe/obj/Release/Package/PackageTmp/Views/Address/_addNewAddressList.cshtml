@@ -1,0 +1,53 @@
+﻿@model PrintForMe.Models.Checkout.BillingAddressViewModel
+<style>
+    .add-address-form {
+        width: 100%;
+    }
+</style>
+<div class="add-address-wrapper">
+    <div class="add-address-form ">
+        @using (Html.BeginForm("AddNewAddress", "Address", FormMethod.Post,new { id= "AddNewBillingAddressForm" }))
+        {
+            <h3> Add New Address </h3>
+            <div class="form-field">
+                @Html.LabelFor(m => m.PersonalName)
+                @Html.EditorFor(m => m.PersonalName, new { @class = "text-box single-line" })
+            </div>
+            <div class="form-field">
+                @Html.LabelFor(m => m.Phone)
+                @Html.EditorFor(m => m.Phone, new { @class = "text-box single-line" })
+            </div>
+            <div class="form-field">
+                @Html.LabelFor(m => m.City)
+                @Html.EditorFor(m => m.City, new { @class = "text-box single-line" })
+                @Html.ValidationMessageFor(m => m.City)
+            </div>
+            <div class="form-field">
+                @Html.LabelFor(m => m.Line1)
+                @Html.EditorFor(m => m.Line1, new { @class = "text-box single-line" })
+                @Html.ValidationMessageFor(m => m.Line1)
+            </div>
+            <div class="form-field">
+                @Html.LabelFor(m => m.Line2)
+                @Html.EditorFor(m => m.Line2, new { @class = "text-box single-line" })
+            </div>
+            <div class="form-field">
+                @Html.LabelFor(m => m.PostalCode)
+                @Html.EditorFor(m => m.PostalCode, new { @class = "text-box single-line" })
+                @Html.ValidationMessageFor(m => m.PostalCode)
+            </div>
+            <div class="js-country-state-selector" data-statelistaction='@Url.Action("CountryStates", "Checkout")' data-countryselectedid='@Model.CountryID' data-stateselectedid='@Model.StateID' data-countryfield='CountryID' data-statefield='StateID'>
+                @Html.LabelFor(m => m.CountryID)
+                @Html.DropDownListFor(m => m.CountryID, Model.Countries, new { @class = "js-country-selector" })
+                <div class="js-state-selector-container">
+                    @Html.LabelFor(m => m.StateID)
+                    @Html.DropDownListFor(m => m.StateID, Enumerable.Empty<SelectListItem>(), new { @class = "js-state-selector" })
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.MainAddress)
+                @Html.EJS().CheckBoxFor(m => m.MainAddress).Render()
+            </div>
+        }
+    </div>
+</div>

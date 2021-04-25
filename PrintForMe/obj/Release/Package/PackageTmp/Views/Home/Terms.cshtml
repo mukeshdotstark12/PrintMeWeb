@@ -1,0 +1,21 @@
+﻿@using CMS.Helpers;
+@{
+    ViewBag.Title = "Terms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="py-5">
+    <div class="row justify-content-center">
+        <div class="">
+            <h2>@ResHelper.GetString("PrintForMe.TermsAndConditions")</h2>
+        </div>
+    </div>
+    <div dir="rtl" class="container">
+        <div class="row">
+            <div class="text-right">
+                @Html.Kentico().EditableArea("area1")
+            </div>
+        </div>
+    </div>
+</div>

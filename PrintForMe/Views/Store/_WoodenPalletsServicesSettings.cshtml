@@ -1,0 +1,29 @@
+﻿@model IEnumerable<PrintForMe.Models.Store.ServiceSettingModel>
+@using CMS.Helpers
+<div class="center-div">
+    @Html.EJS().Grid("WoodenSettings").DataSource(dataManager => { dataManager.Json(Model.ToArray()).Adaptor("RemoteSaveAdaptor").UpdateUrl("/en-US/Store/EditServicesSettings").InsertUrl("/en-US/Store/AddServicesSettings").RemoveUrl("/en-US/Store/DeleteServicesSettings"); }).Columns(col =>
+{
+
+    col.Field("ItemID").IsPrimaryKey(true).HeaderText("ItemID").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("10").AllowEditing(false).Visible(false).Add();
+    col.Field("Availability").HeaderText("Availability").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).EditType("booleanedit").DisplayAsCheckBox(true).Type("boolean").Width("30").Add();
+    col.Field("Price").HeaderText("Price").Width("50").EditType("numericedit").ValidationRules(new { required = true }).Format("C2").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+    col.Field("Description").HeaderText("Description").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("80").AllowEditing(true).Add();
+    col.Field("Code").HeaderText("Code").Width("40").ValidationRules(new { required = true, minLength = 1 }).AllowEditing(false).Add();
+    col.Field("Height").HeaderText("Height").Width("40").EditType("numericedit").ValidationRules(new { required = true }).TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+    col.Field("Width").HeaderText("Width").Width("40").EditType("numericedit").ValidationRules(new { required = true }).TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+    col.Field("ServiceID").HeaderText("ServiceID").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("30").Visible(false).AllowEditing(true).Add();
+
+}).ActionBegin("actionBeginWooden").EditSettings(edit => { edit.AllowEditing(true).AllowAdding(true).AllowDeleting(false).Mode(Syncfusion.EJ2.Grids.EditMode.Normal); }).Toolbar(new List<string>() { "Edit", "Add", "Update", "Delete", "Cancel", ResHelper.GetString("PrintForMe.Search") }).Render()
+</div>
+
+
+
+<script>
+
+    function actionBeginWooden(args) {
+        if (args.requestType === 'add') {
+            args.data['ServiceID'] = 2;
+        }
+    }
+
+</script>

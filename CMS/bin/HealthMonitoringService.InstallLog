@@ -1,0 +1,15 @@
+﻿Installing assembly 'G:\DotStark\PrintForMe_Web\CMS\bin\HealthMonitoringService.exe'.
+Affected parameters are:
+   assemblypath = G:\DotStark\PrintForMe_Web\CMS\bin\HealthMonitoringService.exe
+   logtoconsole = true
+   logfile = G:\DotStark\PrintForMe_Web\CMS\bin\HealthMonitoringService.InstallLog
+   webpath = G:\DotStark\PrintForMe_Web\CMS
+Installing service KenticoCMSHealthMonitor(PrintForMe_Web)...
+Service KenticoCMSHealthMonitor(PrintForMe_Web) has been successfully installed.
+Creating EventLog source KenticoCMSHealthMonitor(PrintForMe_Web) in log Application...
+Committing assembly 'G:\DotStark\PrintForMe_Web\CMS\bin\HealthMonitoringService.exe'.
+Affected parameters are:
+   assemblypath = G:\DotStark\PrintForMe_Web\CMS\bin\HealthMonitoringService.exe
+   logtoconsole = true
+   logfile = G:\DotStark\PrintForMe_Web\CMS\bin\HealthMonitoringService.InstallLog
+   webpath = G:\DotStark\PrintForMe_Web\CMS

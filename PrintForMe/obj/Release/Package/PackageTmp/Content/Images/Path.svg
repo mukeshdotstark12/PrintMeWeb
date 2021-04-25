@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Mask" d="M5.3.292a1,1,0,0,1,1.41,0h0a1,1,0,0,1,0,1.411L2.83,5.587,6.706,9.471a1,1,0,0,1,0,1.411h0a1,1,0,0,1-1.41,0L0,5.587Z" transform="translate(0 6.997) rotate(-90)" fill="#c2d1d9"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2191" data-name="Group 2191" transform="translate(-1406 -450.5)">
+    <circle id="Path" cx="12" cy="12" r="12" transform="translate(1430 450.5) rotate(90)" fill="#f2f5f7"/>
+    <g id="Mask_Group_30" data-name="Mask Group 30" transform="translate(1421.293 456.618) rotate(90)" clip-path="url(#clip-path)">
+      <g id="_" data-name="↪🎨" transform="translate(-6.118 -8.708)">
+        <path id="Atoms_Colors_Black" data-name="Atoms / Colors / Black" d="M0,0H24V24H0Z" fill="#c2d1d9"/>
+      </g>
+    </g>
+  </g>
+</svg>

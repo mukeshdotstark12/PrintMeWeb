@@ -1,0 +1,52 @@
+﻿
+/*All Icons file*/
+.profile-icon {
+    background: url('Icons/profile.svg') no-repeat;
+    height: 40px;
+    width: 27px;
+}
+.logout-icon {
+    background: url('Icons/logout-icon.svg') no-repeat;
+}
+.fav-icon-bg {
+    background: url(Icons/favorite-bg.svg) no-repeat center;
+}
+.go-icon-bg {
+    background: url(Icons/go-bg.svg) no-repeat center;
+}
+.address-icon-bg {
+    background: url(Icons/location-icon-bg.svg) no-repeat center;
+}
+input.button-delete {
+    background: url(Icons/Icons/delete-icon.svg) no-repeat center;
+    border: none;
+    border-color: none;
+    width: 19px;
+    outline: none;
+}
+input.button-edit {
+    background: url(Icons/edit-icon.svg) no-repeat center;
+    border: none;
+    border-color: none;
+    width: 22px;
+    outline: none;
+}
+input.button-wishlist {
+    background: url(Icons/favorite-sm.svg) no-repeat center;
+    border: none;
+    border-color: none;
+    width: 30px;
+    outline: none;
+}
+input.button-bag {
+    background: url(Icons/bag-sm.svg) no-repeat center;
+    border: none;
+    border-color: none;
+    width: 30px;
+    height: 41px;
+    outline: none;
+}
+
+.plus-icon {
+    background: url(Icons/plus.svg) no-repeat center;
+}

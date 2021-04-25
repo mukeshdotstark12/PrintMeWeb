@@ -1,0 +1,24 @@
+﻿@model PrintForMe.Models.Subscription.SubscribeModel
+@using CMS.Helpers
+@using PrintForMe.Helpers
+
+@using (Ajax.BeginForm("Subscribe", "Subscription", null, new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "SubscribeForm"
+}, new { id = "SubscribeForm" }))
+{
+    @Html.Kentico().AntiForgeryToken()
+
+    //@Html.ValidatedEditorFor(m => m.Email)
+    <div class="ktc-default-section">
+        <div class="form-field">
+            <div class="editing-form-control-nested-control email-field">                
+                <input name="Email" class="form-control" placeholder="Type your email" type="email" value="">
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" value="@ResHelper.GetString("PrintForMe.Subscribe")" class="btn btn-primary" />
+}

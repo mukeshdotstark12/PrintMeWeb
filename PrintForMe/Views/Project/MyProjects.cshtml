@@ -1,0 +1,320 @@
+﻿@using CMS.Helpers
+@model PrintForMe.Models.Album.Album
+
+@{
+    ViewBag.Title = "AlbumService";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    int price = 0;
+    string category = "";
+    Guid albumguid = Guid.NewGuid();
+    string image = "";
+    if (Model != null)
+    {
+        
+        price = Model.Price;
+        category = "";
+        albumguid = Model.AlbumRowGUID;
+        image = "/Album/" + Model.AlbumID + "/AlbumPhoto/" + Model.ImagesName;
+        category = @ResHelper.GetString("PrintForMe.AlbumName");
+    }
+}
+<style>
+    .project-page {
+        direction: rtl;
+        padding-right: 10px;
+        padding-top: 96px;
+        padding-bottom: 96px;
+        margin: 0 60px;
+    }
+
+        .project-page h3 {
+            font-size: 40px;
+            line-height: 45px;
+            color: #7CC0D9;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .project-page p {
+            font-size: 20px;
+            line-height: 45px;
+            color: #BEBDBF;
+            margin-bottom: 20px;
+        }
+
+    .project-list {
+        margin-top: 50px;
+        width: 620px;
+        overflow: hidden;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #E5E5E5;
+    }
+
+    .project-img {
+        float: right;
+        width: 106px;
+        margin-left: 10px;
+    }
+
+    .project-content {
+        float: right;
+        width: 66%;
+        overflow: hidden;
+    }
+
+        .project-content ul {
+            float: right;
+            width: 53%;
+            padding: 0;
+            margin: 25px auto 0;
+        }
+
+            .project-content ul li {
+                list-style: none;
+                display: block;
+                margin-bottom: 21px;
+                font-size: 11px;
+                line-height: 15px;
+                color: #434647;
+                font-weight: bold;
+            }
+
+        .project-content h6 {
+            float: left;
+            width: 47%;
+            font-size: 33px;
+            color: #7CC0D9;
+            margin-top: 49px;
+        }
+
+            .project-content h6 span {
+                font-size: 18px;
+            }
+
+    .project-page a {
+        background-color: #7CC0D9;
+        display: inline-block;
+        margin-right: 8px !important;
+        border-radius: 5px;
+        font-size: 14px !important;
+        padding: 6px 10px !important;
+        line-height: 24px !important;
+        text-decoration: none;
+        color: #fff !important;
+        margin-top: 82px;
+        height: auto;
+        border: none;
+    }
+
+    .project-page button {
+        background-color: #7CC0D9;
+        margin-right: 8px !important;
+        border-radius: 5px;
+        font-size: 14px !important;
+        padding: 6px 10px !important;
+        line-height: 24px !important;
+        text-decoration: none;
+        color: #fff !important;
+        margin-top: 82px;
+        height: auto;
+        border: none;
+    }
+
+
+    .project-sidebar {
+        width: 250px;
+        position: fixed;
+        right: 0;
+        height: 100vh;
+        box-shadow: 0 3px 3px #00000029;
+        padding-top: 40px;
+    }
+
+        .project-sidebar.affix {
+            top: 0;
+            padding-top: 26px;
+            background-color: #fff;
+        }
+
+        .project-sidebar ul {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+    .project-img img {
+        height: 106px;
+    }
+
+    .project-sidebar ul li {
+        list-style: none;
+        display: block;
+        text-align: right;
+        margin-bottom: 30px;
+    }
+
+        .project-sidebar ul li a {
+            display: block;
+            font-size: 20px;
+            line-height: 45px;
+            padding: 0 20px;
+        }
+
+            .project-sidebar ul li a img {
+                width: 25px;
+                margin-left: 15px;
+                vertical-align: middle;
+            }
+
+            .project-sidebar ul li a.active {
+                color: #434647 !important;
+            }
+
+    .empty-projects {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+        .empty-projects img {
+            max-width: 100%;
+            display: block;
+            margin: -60px auto 0;
+            width: 250px;
+        }
+
+        .empty-projects a {
+            text-decoration: none;
+            display: inline-block;
+            color: #fff;
+            padding: 10px 43px !important;
+            border-radius: 4px;
+            font-size: 18px !important;
+            font-weight: 400;
+        }
+
+        .empty-projects p {
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: right;
+            display: block;
+        }
+</style>
+
+@if (Model == null)
+{
+    <div class="project-page-m">
+        @*<div class="affix-top project-sidebar" data-spy="affix" data-offset-top="100">
+                <ul>
+                    @if (!User.IsInRole("Admin"))
+                    {
+                        @Html.Action("GetMenuItem", "Project", new { num = 3 })
+                    }
+                    else
+                    {
+                        @Html.Action("GetMenuItem", "Project", new { num = 2 })
+                    }
+                </ul>
+            </div>*@
+        <div class="project-page text-right">
+            <h3>@ResHelper.GetString("PrintForMe.MyNewProjects")</h3>
+            <div class="empty-projects">
+                <p>@ResHelper.GetString("PrintForMe.MyNewProjects")</p>
+                <img src="~/Content/Images/smily-icon.PNG" alt="Empty-project-img" />
+                <a href="@Url.Action("AlbumsService","Album",new { serviceId="4"})">@ResHelper.GetString("PrintForMe.ShopNow")</a>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="project-page-m">
+        @*<div class="affix-top project-sidebar" data-spy="affix" data-offset-top="20">
+                <ul>
+                    @if (!User.IsInRole("Admin"))
+                    {
+                        @Html.Action("GetMenuItem", "Project", new { num = 3 })
+                    }
+                    else
+                    {
+                        @Html.Action("GetMenuItem", "Project", new { num = 2 })
+                    }
+
+                </ul>
+            </div>*@
+        <div class="project-page text-right">
+            <h3>@ResHelper.GetString("PrintForMe.NewProject")</h3>
+            <p>@ResHelper.GetString("PrintForMe.ProjectDescription")</p>
+            <div class="project-list">
+                <div class="row">
+                    <div class="col-md-7 col-lg-7">
+                        <div class="project-detail">
+                            <div class="project-img">
+                                @if (!string.IsNullOrEmpty(Model.ImagesName))
+                                {
+                                    <img src="@image" alt="@Model.ImagesName">
+                                }
+                                else
+                                {
+                                    <img src="~/Content/Images/photo-1.jpg" />
+                                }
+
+                            </div>
+                            <div class="project-content">
+                                <ul>
+                                    <li>@category</li>
+                                    <li></li>
+                                    <li>@Model.AlbumSize <br> @Model.AlbumPageCountCode @ResHelper.GetString("PrintForMe.AlbumSizePages")</li>
+                                </ul>
+                                <h6>@price<span>SAR</span></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                        <a href="@Url.Action("ArrangeAlbum","Album")" class="btn btn-primary">@ResHelper.GetString("PrintForMe.CompleteProject")</a>
+                        <button class="btn btn-primary" id="btndeletealbum">@ResHelper.GetString("PrintForMe.DeleteButton")</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+@*<link href="~/Content/admin-css/admin.css" rel="stylesheet" />*@
+<link href="~/Content/admin-css/jquery.magnific-popup.min.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $('#btndeletealbum').click(function () {
+        debugger;
+        if (confirm("@ResHelper.GetString("PrintForMe.DeleteAlbumMessage")")) {
+            showLoader();
+            $.ajax({
+                    url: "@Url.Action("DeleteAlbum", "Album", new { AlbumRowGUID= albumguid })",
+                    type: "Post",
+                    datatype: "json",
+                    contentType: "application/json",
+                    success: function (result) {
+                        if (result != "") {
+
+                            window.location.href = '@Url.Action("Index","Home")';
+                            hideLoader();
+                        }
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+
+                        window.location.href = '@Url.Action("Index","Home")';
+                        hideLoader();
+                    }
+                })
+        }
+
+    });
+</script>
+

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="67.492" height="67.492" viewBox="0 0 67.492 67.492">
+  <g id="Group_2392" data-name="Group 2392" transform="translate(-1811.754 -182.254)">
+    <g id="Group_2141" data-name="Group 2141" transform="translate(1085.254 -393.746)">
+      <rect id="Fill_Copy" data-name="Fill Copy" width="67.492" height="67.492" rx="4" transform="translate(726.5 576)" fill="none"/>
+      <g id="Border_Copy" data-name="Border Copy" transform="translate(726.5 576)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1">
+        <rect width="67.492" height="67.492" rx="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="66.492" height="66.492" rx="3.5" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_2186" data-name="Group 2186" transform="translate(1820.594 190.593)">
+      <path id="Path_2512" data-name="Path 2512" d="M0,0H50.813V50.813H0Z" fill="none"/>
+      <path id="Path_2513" data-name="Path 2513" d="M36.876,7.234V36.876H7.234V7.234H36.876m0-4.234H7.234A4.247,4.247,0,0,0,3,7.234V36.876A4.247,4.247,0,0,0,7.234,41.11H36.876a4.247,4.247,0,0,0,4.234-4.234V7.234A4.247,4.247,0,0,0,36.876,3ZM26.586,21.759l-6.352,8.194L15.7,24.469,9.352,32.641H34.758Z" transform="translate(3.352 3.352)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

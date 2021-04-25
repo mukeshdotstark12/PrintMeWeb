@@ -1,0 +1,79 @@
+﻿@model PrintForMe.Models.Report.ReportModel
+@using CMS.Helpers
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("DownloadReport", "Reporting", FormMethod.Post, new { @class = "admin-report-page" }))
+{
+    <div class="container">
+        <div class="form-group">
+            <label class="">@ResHelper.GetString("PrintForMe.Report")</label>
+            <div class="dropdown show " id="divUserReport">
+                <select id="ReportType" name="ReportType" class="form-control">
+                    <option value="Users">@ResHelper.GetString("PrintForMe.Userreport")</option>
+                    <option value="orders">@ResHelper.GetString("PrintForMe.Requestreport")</option>
+                    <option value="orders">@ResHelper.GetString("PrintForMe.Salesreport")</option>
+                    <option value="orders">@ResHelper.GetString("PrintForMe.Visitorsreport")</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Duration" class="">@ResHelper.GetString("PrintForMe.Duration")</label>
+            <div class="">
+                <select id="TimeFrame" name="TimeFrame" class="form-control" style="height: auto;">
+                    <option value="Daily">@ResHelper.GetString("PrintForMe.Daily")</option>
+                    <option value="Weekly">@ResHelper.GetString("PrintForMe.Weekly")</option>
+                    <option value="Monthly">@ResHelper.GetString("PrintForMe.Monthly")</option>
+                    <option value="Custom">@ResHelper.GetString("PrintForMe.Custom")</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group box d-none">
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <lable>@ResHelper.GetString("PrintForMe.To")</lable>
+                    <input type="date" value=" " placeholder="" class="form-control">
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <lable>@ResHelper.GetString("PrintForMe.From")</lable>
+                    <input type="date" value=" " placeholder="" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">@ResHelper.GetString("PrintForMe.Download")</button>
+        </div>
+    </div>
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $(".dropdown-menu a ").click(function () {
+            $('#ReportType').val($(this).attr("data-reportype"));
+        });
+
+        $(".duration a ").click(function () {
+            $('#Duration').val($(this).attr("data-reportype"));
+        });
+    });
+
+    $(document).ready(function () {
+        $('#TimeFrame').on('change', function () {
+            var optionValue = this.value;
+            console.log(optionValue, "optionValue")
+            if (optionValue == 'Custom' || optionValue == 'مخصص') {
+                $(".box").show();
+                $(".box").removeClass("d-none");
+            } else {
+                $(".box").hide();
+            }
+        })
+    });
+</script>

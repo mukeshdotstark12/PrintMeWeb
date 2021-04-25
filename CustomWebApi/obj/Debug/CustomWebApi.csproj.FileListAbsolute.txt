@@ -1,0 +1,958 @@
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\obj\Debug\CustomWebApi.csproj.CoreCompileInputs.cache
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CustomWebApi.dll.config
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CustomWebApi.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CustomWebApi.pdb
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Base.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Core.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.DataEngine.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Ecommerce.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Membership.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Newtonsoft.Json.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Web.Http.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.IO.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Helpers.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.SqlServer.TransactSql.ScriptDom.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.MacroEngine.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Activities.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\PayPal.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Globalization.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.DocumentEngine.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Synchronization.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.WebAnalytics.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.ImportExport.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.SiteProvider.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.EmailEngine.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Scheduler.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Search.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.WorkflowEngine.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.EventLog.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.FormEngine.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Protection.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.HealthMonitoring.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Modules.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.AspNet.Platform.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Automation.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Routing.Web.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.ResponsiveImages.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Search.Azure.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Taxonomy.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Relationships.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.PortalEngine.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.DeviceProfiles.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.CRC.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\MaxMind.GeoIP2.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.Interfaces.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\MaxMind.Db.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.WebFarmSync.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\NuGet.Core.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Spatial.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.Core.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.ValueTuple.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Web.XmlTransform.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Base.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Core.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.DataEngine.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Ecommerce.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Membership.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Newtonsoft.Json.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Web.Http.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.IO.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Helpers.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.MacroEngine.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Activities.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.ContactManagement.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\PayPal.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Globalization.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.DocumentEngine.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Synchronization.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll.config
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.WebAnalytics.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.ImportExport.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.SiteProvider.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.EmailEngine.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Scheduler.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Search.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.WorkflowEngine.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.EventLog.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.FormEngine.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Protection.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.HealthMonitoring.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Modules.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.AspNet.Platform.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Automation.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Routing.Web.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.ResponsiveImages.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Search.Azure.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Taxonomy.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Relationships.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.PortalEngine.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.DeviceProfiles.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.CRC.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\MaxMind.GeoIP2.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.Interfaces.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\MaxMind.Db.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.WebFarmSync.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\Microsoft.Spatial.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.Core.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\System.ValueTuple.xml
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\de\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\es\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\fr\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\it\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\ja\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\ko\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\ru\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\zh-Hans\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\zh-Hant\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.XmlSerializers.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\obj\Debug\CustomWebApi.csproj.CopyComplete
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\obj\Debug\CustomWebApi.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\obj\Debug\CustomWebApi.pdb
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\obj\Debug\CustomWebApi.csprojAssemblyReference.cache
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Newsletters.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\PreMailer.Net.dll
+C:\Users\HibahAlmashhad\source\repos\024violetta\CustomWebApi\bin\Debug\CMS.Newsletters.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CustomWebApi.dll.config
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CustomWebApi.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CustomWebApi.pdb
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Base.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Core.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.DataEngine.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Ecommerce.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Helpers.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.MacroEngine.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Membership.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Newsletters.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.SiteProvider.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Newtonsoft.Json.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Net.Http.Formatting.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Web.Http.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Web.Http.WebHost.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Activities.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.FormEngine.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Globalization.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Automation.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.WebAnalytics.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Scheduler.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.DocumentEngine.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.EmailEngine.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.WorkflowEngine.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.ImportExport.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.EventLog.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.IO.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.SqlServer.TransactSql.ScriptDom.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\PayPal.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Synchronization.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Search.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Protection.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.AspNet.Platform.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.HealthMonitoring.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Modules.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Routing.Web.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\PreMailer.Net.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.PortalEngine.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.CRC.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\MaxMind.GeoIP2.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.Interfaces.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.DeviceProfiles.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\MaxMind.Db.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.WebFarmSync.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.ResponsiveImages.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Search.Azure.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Taxonomy.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Relationships.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\DocumentFormat.OpenXml.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\NuGet.Core.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.Core.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.ValueTuple.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Spatial.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Web.XmlTransform.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Base.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.ContactManagement.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Core.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.DataEngine.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Ecommerce.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Helpers.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.MacroEngine.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Membership.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Newsletters.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.SiteProvider.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Newtonsoft.Json.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Net.Http.Formatting.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Web.Http.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Web.Http.WebHost.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Activities.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.FormEngine.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Globalization.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Automation.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.WebAnalytics.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Scheduler.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.DocumentEngine.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.EmailEngine.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.WorkflowEngine.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.ImportExport.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.EventLog.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll.config
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.IO.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\PayPal.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Synchronization.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Search.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Protection.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.AspNet.Platform.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.HealthMonitoring.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Modules.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Routing.Web.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.PortalEngine.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.CRC.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\MaxMind.GeoIP2.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.Interfaces.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.DeviceProfiles.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\MaxMind.Db.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.WebFarmSync.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.ResponsiveImages.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Search.Azure.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Taxonomy.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.Relationships.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\DocumentFormat.OpenXml.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.Data.HashFunction.Core.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\System.ValueTuple.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Azure.Search.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\Microsoft.Spatial.xml
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\de\Microsoft.Spatial.resources.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\es\Microsoft.Spatial.resources.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\fr\Microsoft.Spatial.resources.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\it\Microsoft.Spatial.resources.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\ja\Microsoft.Spatial.resources.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\ko\Microsoft.Spatial.resources.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\ru\Microsoft.Spatial.resources.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\zh-Hans\Microsoft.Spatial.resources.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\zh-Hant\Microsoft.Spatial.resources.dll
+C:\SourceCode\024 violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.XmlSerializers.dll
+C:\SourceCode\024 violetta\CustomWebApi\obj\Debug\CustomWebApi.csprojAssemblyReference.cache
+C:\SourceCode\024 violetta\CustomWebApi\obj\Debug\CustomWebApi.csproj.CoreCompileInputs.cache
+C:\SourceCode\024 violetta\CustomWebApi\obj\Debug\CustomWebApi.csproj.CopyComplete
+C:\SourceCode\024 violetta\CustomWebApi\obj\Debug\CustomWebApi.dll
+C:\SourceCode\024 violetta\CustomWebApi\obj\Debug\CustomWebApi.pdb
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\obj\Debug\CustomWebApi.csprojAssemblyReference.cache
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\obj\Debug\CustomWebApi.csproj.CoreCompileInputs.cache
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CustomWebApi.dll.config
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CustomWebApi.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CustomWebApi.pdb
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Base.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Core.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.DataEngine.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Ecommerce.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.EventLog.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Globalization.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Helpers.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.MacroEngine.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Membership.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Newsletters.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.SiteProvider.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\Newtonsoft.Json.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Net.Http.Formatting.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.Http.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.Http.WebHost.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Activities.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.FormEngine.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Automation.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.WebAnalytics.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Scheduler.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.DocumentEngine.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.EmailEngine.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.WorkflowEngine.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.ImportExport.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.IO.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\Microsoft.SqlServer.TransactSql.ScriptDom.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Synchronization.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Search.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Protection.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.AspNet.Platform.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.HealthMonitoring.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Modules.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Routing.Web.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\PreMailer.Net.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.PortalEngine.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.DeviceProfiles.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.WebFarmSync.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.ResponsiveImages.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Search.Azure.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Taxonomy.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Relationships.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Base.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Core.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.DataEngine.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Ecommerce.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.EventLog.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Globalization.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Helpers.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.MacroEngine.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Membership.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Newsletters.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.SiteProvider.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\Newtonsoft.Json.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Net.Http.Formatting.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.Http.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.Http.WebHost.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Activities.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.FormEngine.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Automation.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.WebAnalytics.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Scheduler.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.DocumentEngine.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.EmailEngine.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.WorkflowEngine.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.ImportExport.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll.config
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.IO.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Synchronization.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Search.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Protection.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.AspNet.Platform.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.HealthMonitoring.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Modules.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Routing.Web.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.PortalEngine.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.DeviceProfiles.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.WebFarmSync.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.ResponsiveImages.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Search.Azure.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Taxonomy.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.Relationships.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.XmlSerializers.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\obj\Debug\CustomWebApi.csproj.CopyComplete
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\obj\Debug\CustomWebApi.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\obj\Debug\CustomWebApi.pdb
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.Helpers.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.Mvc.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.Razor.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\PayPal.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\NuGet.Core.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\Microsoft.Web.XmlTransform.dll
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.Helpers.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.Mvc.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.Razor.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Ltech\Violetta\GITLtech\024violetta\CustomWebApi\bin\Debug\PayPal.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CustomWebApi.dll.config
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CustomWebApi.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CustomWebApi.pdb
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Base.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Core.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.DataEngine.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Ecommerce.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.EventLog.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Globalization.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Helpers.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.MacroEngine.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Membership.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Newsletters.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.SiteProvider.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\Microsoft.Web.Infrastructure.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\Newtonsoft.Json.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Net.Http.Formatting.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.Helpers.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.Http.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.Http.WebHost.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.Mvc.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.Razor.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Activities.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.FormEngine.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Automation.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.WebAnalytics.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Scheduler.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.DocumentEngine.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.EmailEngine.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.WorkflowEngine.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.ImportExport.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.IO.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\Microsoft.SqlServer.TransactSql.ScriptDom.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\PayPal.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Synchronization.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Search.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Protection.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.AspNet.Platform.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.HealthMonitoring.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Modules.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Routing.Web.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\PreMailer.Net.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.PortalEngine.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.DeviceProfiles.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.WebFarmSync.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.ResponsiveImages.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Search.Azure.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Taxonomy.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Relationships.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\NuGet.Core.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\Microsoft.Web.XmlTransform.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Base.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Core.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.DataEngine.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Ecommerce.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.EventLog.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Globalization.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Helpers.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.MacroEngine.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Membership.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Newsletters.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.SiteProvider.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\Newtonsoft.Json.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Net.Http.Formatting.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.Helpers.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.Http.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.Http.WebHost.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.Mvc.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.Razor.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Activities.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.FormEngine.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Automation.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.WebAnalytics.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Scheduler.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.DocumentEngine.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.EmailEngine.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.WorkflowEngine.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.ImportExport.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll.config
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.IO.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\PayPal.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Synchronization.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Search.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Protection.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.AspNet.Platform.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.HealthMonitoring.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Modules.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Routing.Web.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.PortalEngine.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.DeviceProfiles.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.WebFarmSync.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.ResponsiveImages.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Search.Azure.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Taxonomy.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.Relationships.xml
+G:\DotStark\Violetta\024violetta\CustomWebApi\bin\Debug\CMS.LicenseProvider.XmlSerializers.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\obj\Debug\CustomWebApi.csprojAssemblyReference.cache
+G:\DotStark\Violetta\024violetta\CustomWebApi\obj\Debug\CustomWebApi.csproj.CoreCompileInputs.cache
+G:\DotStark\Violetta\024violetta\CustomWebApi\obj\Debug\CustomWebApi.csproj.CopyComplete
+G:\DotStark\Violetta\024violetta\CustomWebApi\obj\Debug\CustomWebApi.dll
+G:\DotStark\Violetta\024violetta\CustomWebApi\obj\Debug\CustomWebApi.pdb
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CustomWebApi.dll.config
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CustomWebApi.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CustomWebApi.pdb
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.CustomTables.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.DocumentEngine.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.WebAnalytics.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Newtonsoft.Json.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Net.Http.Formatting.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Helpers.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Http.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Http.WebHost.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Mvc.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Razor.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Activities.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.FormEngine.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Scheduler.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.WorkflowEngine.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.ImportExport.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Search.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Synchronization.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.IO.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Routing.Web.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.ResponsiveImages.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Search.Azure.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Taxonomy.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Relationships.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.PortalEngine.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.DeviceProfiles.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Modules.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.HealthMonitoring.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.WebFarmSync.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.CustomTables.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.DocumentEngine.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.WebAnalytics.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Newtonsoft.Json.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Helpers.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Mvc.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Razor.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Activities.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.FormEngine.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Scheduler.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.WorkflowEngine.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.ImportExport.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.LicenseProvider.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll.config
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Search.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Synchronization.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.IO.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Routing.Web.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.ResponsiveImages.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Search.Azure.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Taxonomy.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Relationships.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.PortalEngine.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.DeviceProfiles.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Modules.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.HealthMonitoring.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.WebFarmSync.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\CMS.LicenseProvider.XmlSerializers.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\obj\Debug\CustomWebApi.csprojAssemblyReference.cache
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\obj\Debug\CustomWebApi.csproj.CoreCompileInputs.cache
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\obj\Debug\CustomWebApi.csproj.CopyComplete
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\obj\Debug\CustomWebApi.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\obj\Debug\CustomWebApi.pdb
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Azure.Search.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Spatial.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\NuGet.Core.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Web.XmlTransform.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Azure.Search.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Spatial.xml
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\de\Microsoft.Spatial.resources.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\es\Microsoft.Spatial.resources.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\fr\Microsoft.Spatial.resources.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\it\Microsoft.Spatial.resources.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\ja\Microsoft.Spatial.resources.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\ko\Microsoft.Spatial.resources.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\ru\Microsoft.Spatial.resources.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\zh-Hans\Microsoft.Spatial.resources.dll
+E:\Ltech\Print4Me\PrintMeWeb\CustomWebApi\bin\Debug\zh-Hant\Microsoft.Spatial.resources.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CustomWebApi.dll.config
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CustomWebApi.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CustomWebApi.pdb
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.WebAnalytics.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\Microsoft.Web.Infrastructure.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\Newtonsoft.Json.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Net.Http.Formatting.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Helpers.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Http.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Http.WebHost.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Mvc.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Razor.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Activities.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.FormEngine.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Scheduler.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.ImportExport.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Search.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Synchronization.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.IO.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Routing.Web.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.PortalEngine.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.DeviceProfiles.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Modules.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.HealthMonitoring.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.WebFarmSync.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.WebAnalytics.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\Newtonsoft.Json.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Helpers.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Mvc.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.Razor.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Activities.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.FormEngine.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Scheduler.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.ImportExport.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.LicenseProvider.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll.config
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Search.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Synchronization.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.IO.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Routing.Web.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.PortalEngine.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.DeviceProfiles.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.Modules.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.HealthMonitoring.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.WebFarmSync.xml
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\bin\Debug\CMS.LicenseProvider.XmlSerializers.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\obj\Debug\CustomWebApi.csprojAssemblyReference.cache
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\obj\Debug\CustomWebApi.csproj.CoreCompileInputs.cache
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\obj\Debug\CustomWebApi.csproj.CopyComplete
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\obj\Debug\CustomWebApi.dll
+F:\Backup\07-10-2020\PrintMeWeb\CustomWebApi\obj\Debug\CustomWebApi.pdb
+F:\DotStark\PrintForMe\CustomWebApi\obj\Debug\CustomWebApi.csproj.CoreCompileInputs.cache
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CustomWebApi.dll.config
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CustomWebApi.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CustomWebApi.pdb
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.CustomTables.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.DocumentEngine.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.WebAnalytics.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Web.Infrastructure.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Newtonsoft.Json.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Net.Http.Formatting.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.Helpers.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.Http.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.Http.WebHost.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.Mvc.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.Razor.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Activities.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.FormEngine.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Scheduler.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.WorkflowEngine.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.ImportExport.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Search.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Synchronization.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.IO.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Routing.Web.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.ResponsiveImages.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Search.Azure.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Taxonomy.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Relationships.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.PortalEngine.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.DeviceProfiles.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Modules.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.HealthMonitoring.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.WebFarmSync.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.CustomTables.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.DocumentEngine.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.WebAnalytics.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Newtonsoft.Json.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.Helpers.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.Mvc.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.Razor.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Activities.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.FormEngine.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Scheduler.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.WorkflowEngine.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.ImportExport.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll.config
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Search.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Synchronization.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.IO.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Routing.Web.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.ResponsiveImages.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Search.Azure.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Taxonomy.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Relationships.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.PortalEngine.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.DeviceProfiles.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.Modules.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.HealthMonitoring.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.WebFarmSync.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.XmlSerializers.dll
+F:\DotStark\PrintForMe\CustomWebApi\obj\Debug\CustomWebApi.csprojAssemblyReference.cache
+F:\DotStark\PrintForMe\CustomWebApi\obj\Debug\CustomWebApi.csproj.CopyComplete
+F:\DotStark\PrintForMe\CustomWebApi\obj\Debug\CustomWebApi.dll
+F:\DotStark\PrintForMe\CustomWebApi\obj\Debug\CustomWebApi.pdb
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Spatial.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\NuGet.Core.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Web.XmlTransform.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Microsoft.Spatial.xml
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\de\Microsoft.Spatial.resources.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\es\Microsoft.Spatial.resources.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\fr\Microsoft.Spatial.resources.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\it\Microsoft.Spatial.resources.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\ja\Microsoft.Spatial.resources.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\ko\Microsoft.Spatial.resources.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\ru\Microsoft.Spatial.resources.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\zh-Hans\Microsoft.Spatial.resources.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\zh-Hant\Microsoft.Spatial.resources.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\Swashbuckle.Core.dll
+F:\DotStark\PrintForMe\CustomWebApi\bin\Debug\WebActivatorEx.dll
+F:\PrintMe\CustomWebApi\obj\Debug\CustomWebApi.csprojAssemblyReference.cache
+F:\PrintMe\CustomWebApi\obj\Debug\CustomWebApi.csproj.CoreCompileInputs.cache
+F:\PrintMe\CustomWebApi\bin\Debug\CustomWebApi.dll.config
+F:\PrintMe\CustomWebApi\bin\Debug\CustomWebApi.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CustomWebApi.pdb
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.CustomTables.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.DocumentEngine.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.WebAnalytics.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Web.Infrastructure.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Newtonsoft.Json.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Swashbuckle.Core.dll
+F:\PrintMe\CustomWebApi\bin\Debug\System.Net.Http.Formatting.dll
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.Helpers.dll
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.Http.dll
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.Http.WebHost.dll
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.Mvc.dll
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.Razor.dll
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.dll
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.WebPages.dll
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.dll
+F:\PrintMe\CustomWebApi\bin\Debug\WebActivatorEx.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Activities.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.FormEngine.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Scheduler.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.WorkflowEngine.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.ImportExport.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Search.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Synchronization.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.IO.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Routing.Web.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.ResponsiveImages.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Search.Azure.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Taxonomy.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Relationships.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.PortalEngine.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.DeviceProfiles.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Modules.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.HealthMonitoring.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.WebFarmSync.dll
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.CustomTables.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.DocumentEngine.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.WebAnalytics.xml
+F:\PrintMe\CustomWebApi\bin\Debug\Newtonsoft.Json.xml
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.Helpers.xml
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.Mvc.xml
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.Razor.xml
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.WebPages.xml
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.xml
+F:\PrintMe\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Activities.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.FormEngine.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Scheduler.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.WorkflowEngine.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.ImportExport.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll.config
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Search.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Synchronization.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.IO.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Routing.Web.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.ResponsiveImages.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Search.Azure.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Taxonomy.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Relationships.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.PortalEngine.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.DeviceProfiles.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.Modules.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.HealthMonitoring.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.WebFarmSync.xml
+F:\PrintMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.XmlSerializers.dll
+F:\PrintMe\CustomWebApi\obj\Debug\CustomWebApi.csproj.CopyComplete
+F:\PrintMe\CustomWebApi\obj\Debug\CustomWebApi.dll
+F:\PrintMe\CustomWebApi\obj\Debug\CustomWebApi.pdb
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Spatial.dll
+F:\PrintMe\CustomWebApi\bin\Debug\NuGet.Core.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Web.XmlTransform.dll
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.xml
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.xml
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.xml
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.xml
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.xml
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.xml
+F:\PrintMe\CustomWebApi\bin\Debug\Microsoft.Spatial.xml
+F:\PrintMe\CustomWebApi\bin\Debug\de\Microsoft.Spatial.resources.dll
+F:\PrintMe\CustomWebApi\bin\Debug\es\Microsoft.Spatial.resources.dll
+F:\PrintMe\CustomWebApi\bin\Debug\fr\Microsoft.Spatial.resources.dll
+F:\PrintMe\CustomWebApi\bin\Debug\it\Microsoft.Spatial.resources.dll
+F:\PrintMe\CustomWebApi\bin\Debug\ja\Microsoft.Spatial.resources.dll
+F:\PrintMe\CustomWebApi\bin\Debug\ko\Microsoft.Spatial.resources.dll
+F:\PrintMe\CustomWebApi\bin\Debug\ru\Microsoft.Spatial.resources.dll
+F:\PrintMe\CustomWebApi\bin\Debug\zh-Hans\Microsoft.Spatial.resources.dll
+F:\PrintMe\CustomWebApi\bin\Debug\zh-Hant\Microsoft.Spatial.resources.dll
+F:\PrintMe\CustomWebApi\bin\Debug\DocumentFormat.OpenXml.dll
+F:\PrintMe\CustomWebApi\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CustomWebApi.dll.config
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CustomWebApi.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CustomWebApi.pdb
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.CustomTables.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.DocumentEngine.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.WebAnalytics.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Newtonsoft.Json.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Swashbuckle.Core.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.Helpers.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.Http.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.Mvc.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.Razor.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\WebActivatorEx.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Activities.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.FormEngine.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Scheduler.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.WorkflowEngine.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.ImportExport.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Search.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Synchronization.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.IO.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Routing.Web.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.ResponsiveImages.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Search.Azure.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Taxonomy.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Relationships.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.PortalEngine.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.DeviceProfiles.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Modules.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.HealthMonitoring.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.WebFarmSync.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Spatial.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\NuGet.Core.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Web.XmlTransform.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.CustomTables.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.DocumentEngine.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.WebAnalytics.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Newtonsoft.Json.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.Helpers.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.Mvc.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.Razor.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Activities.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.FormEngine.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Scheduler.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.WorkflowEngine.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.ImportExport.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.dll.config
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Search.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Synchronization.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.ContinuousIntegration.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.IO.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Routing.Web.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.ResponsiveImages.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Search.Azure.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Taxonomy.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Relationships.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.PortalEngine.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Service.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.DeviceProfiles.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.Modules.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Data.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.HealthMonitoring.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.WebFarmSync.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.Common.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Azure.Search.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\Microsoft.Spatial.xml
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\de\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\es\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\fr\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\it\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\ja\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\ko\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\ru\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\zh-Hans\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\zh-Hant\Microsoft.Spatial.resources.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\bin\Debug\CMS.LicenseProvider.XmlSerializers.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\obj\Debug\CustomWebApi.csprojAssemblyReference.cache
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\obj\Debug\CustomWebApi.csproj.CoreCompileInputs.cache
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\obj\Debug\CustomWebApi.csproj.CopyComplete
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\obj\Debug\CustomWebApi.dll
+C:\Users\HibahAlmashhad\source\repos\028PrintForMe\CustomWebApi\obj\Debug\CustomWebApi.pdb

@@ -1,0 +1,75 @@
+﻿
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using CMS.Helpers;
+@using PrintForMe.Models.Products
+
+
+@*DocSection:ListingTable*@
+@model IEnumerable<ProductListItemViewModel>
+@{ bool isRtl = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft;}
+
+@* Iterates over all products. *@
+@foreach (ProductListItemViewModel product in Model)
+{
+    <div class="card-group col-lg-3 col-md-4">
+        <div class="store-card-box">
+
+            @if (!product.Available)
+            {
+                <div class="badge badge-info">
+                    Out of stock
+                </div>
+            }
+            <a>
+                <a href="@Url.RouteUrl("Product", new {guid = product.ProductPageGuid, productAlias = product.ProductPageAlias})">
+
+                    <div class="text-center bd-placeholder-img card-img-top" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+                        @if (!string.IsNullOrEmpty(product.ImagePath))
+                        {
+                            <img src="@Url.Kentico().ImageUrl(product.ImagePath, SizeConstraint.MaxWidthOrHeight(300))" alt="@product.Name">
+                        }
+                    </div>
+
+                </a>
+
+
+                <div class="card-body">
+                    <h3>@product.Name</h3>
+                    <div class="price">
+                        @if (product.PriceModel.ListPrice < product.PriceModel.Price)
+                        {
+                            <s>@String.Format(product.PriceModel.CurrencyFormatString, product.PriceModel.Price)</s>
+                        }
+                        <span>@String.Format(product.PriceModel.CurrencyFormatString, product.PriceModel.ListPrice)</span>
+
+                    </div>
+
+                    <div class="add-item-cart-fav">
+                        <div class="add-item-cart">
+                            @* Renders an add to shopping cart button. *@
+                            @using (Html.BeginForm("AddItem", "Checkout", FormMethod.Post))
+                            {
+                                <input type="hidden" name="itemSkuId" value="@product.SKUID" />
+                                <input type="hidden" name="itemUnits" value="1" />
+                                <input type="submit" name="AddItem" value="" class="button-bag" />
+
+                            }
+                        </div>
+                        <div class="add-item-fav">
+                            @* Renders an add to fav cart button. *@
+                            @using (Html.BeginForm("AddItem", "FavoriteCart", FormMethod.Post))
+                            {
+                                <input type="hidden" name="itemSkuId" value="@product.SKUID" />
+                                <input type="submit" name="AddItem" value="" class="button-wishlist" />
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+}
+@*EndDocSection:ListingTable*@
+

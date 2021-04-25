@@ -1,0 +1,24 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using CMS.Helpers;
+
+@{
+    ViewBag.Title = "PrivacyPolicy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ bool isRtl = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft;}
+
+<div class="py-5 @(isRtl ? "rtl" : "ltr")">
+    <div class="row justify-content-center">
+        <div class="">
+            <h2>@ResHelper.GetString("PrintForMe.PrivacyPolicy")</h2>
+        </div>
+    </div>
+    <div dir="rtl" class="container">
+        <div class="row">
+            <div class="text-right">
+                @Html.Kentico().EditableArea("area1")
+            </div>
+        </div>
+    </div>
+</div>

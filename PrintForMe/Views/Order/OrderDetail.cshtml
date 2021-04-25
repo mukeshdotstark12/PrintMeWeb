@@ -1,0 +1,190 @@
+﻿@model PrintForMe.Models.Checkout.OrderViewModel
+@using PrintForMe.Helpers
+@using CMS.Helpers;
+@using CMS.MacroEngine;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Order detail";
+}
+<div class="container full">
+    <div class="row">
+        <div class="section-component col-lg-12">
+            <div class="main-section-wrapper">
+                <div class="content-wrapper left-align small-width left-align">
+                    <div class="form-wrapper order-detail-form">
+                        <div class="row">
+                            <div class="col-lg-11 col-12">
+                                <div class="order-detail-date text-left mb-5">
+
+                                    <div class="order-number"><strong>@ResHelper.GetString("PrintForMe.OrderNumber"):</strong> @Model.InvoiceNumber</div>
+                                    <div class="order-date"><strong>@ResHelper.GetString("PrintForMe.OrderDate"):</strong> @Model.OrderDate.ToString("MM/dd/yyyy")</div>
+                                </div>
+                                <div class="order-tracking-indicator">
+                                    <div class="shipment-info">
+                                        @if (@Model.OrderTrackingNumber != null)
+                                        {
+                                            <h2><span>Track the shipment</span>@Model.OrderTrackingNumber </h2>
+                                        }
+                                        else
+                                        {
+                                            <h2>&nbsp;</h2>
+                                        }
+                                    </div>
+                                    <div class="shipment-indicator">
+                                        <ul>
+                                            <li class="active">@ResHelper.GetString("PrintForMe.Neworder")</li>
+                                            <li class="@(Model.OrderStatusID > 1 ?"active":"")">@ResHelper.GetString("PrintForMe.Inprogress")</li>
+                                            <li class="@(Model.OrderStatusID > 1001 ?"active":"")">@ResHelper.GetString("PrintForMe.Shipped")</li>
+                                            <li class="@(Model.OrderStatusID > 1002 ?"active":"")">@ResHelper.GetString("PrintForMe.Delivared")</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-8 col-md-6 col-12">
+                                        @*<ul>
+                                                @foreach (var orderItem in Model.OrderItems)
+                                                {
+                                                    <li>
+                                                        <div class="shopping-cart-image">
+                                                            @Html.Image(@orderItem.SKUImagePath, @orderItem.SKUName, null, SizeConstraint.MaxWidthOrHeight(150))
+                                                        </div>
+                                                        <div class="shopping-cart-item-details">
+                                                            <p class="cart-item-name">@orderItem.SKUName</p>
+                                                            <p>
+                                                                <span id="lastPrice" class="new-price">SR0.00</span>
+                                                                <span id="totalPrice" class="old-price">@String.Format(Model.CurrencyFormatString, orderItem.UnitPrice)</span>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                }
+                                            </ul>*@
+                                        @foreach (var orderItem in Model.OrderItems)
+                                        {
+                                            <div class="order-detail-table mt-5">
+                                                <div class="overflow-auto">
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                                
+                                                                    <th colspan="6" class="text-center">@orderItem.SKUName</th>
+                                                              
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @if (orderItem.SKUName.Contains("Photo"))
+                                                            {
+                                                                <tr>
+                                                                    <td rowspan="2" width="15%" class="price border-bottom align-middle">@String.Format(Model.CurrencyFormatString, orderItem.UnitPrice)</td>
+                                                                    <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.PaperMaterial")</td>
+                                                                    <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.TotalNoofPhotos")</td>
+                                                                    <td rowspan="2" width="150" class="border-bottom pr-0 table-cart-image">
+                                                                        @Html.Image(orderItem.serviceDetail.ImagePath, orderItem.SKUName, null) @*, SizeConstraint.MaxWidthOrHeight(150)*@
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-center border-bottom align-top">@orderItem.serviceDetail.PaperMaterial</td>
+                                                                    <td class="text-center border-bottom align-top">@orderItem.serviceDetail.TotalPhotos</td>
+                                                                </tr>
+                                                            }
+
+                                                            @if (orderItem.SKUName.Contains("Wooden"))
+                                                            {
+                                                                <tr>
+                                                                    <td rowspan="2" width="30%" class="price border-bottom align-middle">@String.Format(Model.CurrencyFormatString, orderItem.UnitPrice)</td>
+                                                                    <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.ThicknessOfPallets")</td>
+                                                                    <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.NoOfPhotos")</td>
+                                                                    <td rowspan="2" width="150" class="border-bottom pr-0 table-cart-image">
+                                                                        @Html.Image(orderItem.serviceDetail.ImagePath, orderItem.SKUName, null) @*, SizeConstraint.MaxWidthOrHeight(150)*@
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-center border-bottom align-top">@orderItem.serviceDetail.ThicknessOfPallets</td>
+                                                                    <td class="text-center border-bottom align-top">@orderItem.serviceDetail.TotalPhotos</td>
+                                                                </tr>
+                                                            }
+
+                                                            @if (orderItem.SKUName.Contains("Wall"))
+                                                            {
+                                                                <tr>
+                                                                    <td rowspan="2" width="30%" class="price border-bottom align-middle">@String.Format(Model.CurrencyFormatString, orderItem.UnitPrice)</td>
+                                                                    <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.FrameColor")</td>
+                                                                    <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.PaperMaterial")</td>
+                                                                    <td class="text-center align-bottom">@ResHelper.GetString("PrintForMe.NoOfPhotos")</td>
+                                                                    <td rowspan="2" width="150" class="border-bottom pr-0 table-cart-image">
+                                                                        @Html.Image(orderItem.serviceDetail.ImagePath, orderItem.SKUName, null)
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-center border-bottom align-top">@orderItem.serviceDetail.FrameColor</td>
+                                                                    <td class="text-center border-bottom align-top">@orderItem.serviceDetail.PaperMaterial</td>
+                                                                    <td class="text-center border-bottom align-top">@orderItem.serviceDetail.TotalPhotos</td>
+                                                                </tr>
+                                                            }
+
+                                                            @if (orderItem.SKUName.Contains("Album Product"))
+                                                            {
+                                                                string imagepath = "/Album/" + orderItem.serviceDetail.AlbumID + "/AlbumPhoto/" + orderItem.serviceDetail.ImagePath;
+                                                        <tr>
+                                                            <td rowspan="2" width="30%" class="price border-bottom align-middle">@String.Format(Model.CurrencyFormatString, orderItem.UnitPrice)</td>
+                                                            <td class="text-center align-bottom">Number of Pages</td>
+                                                            <td class="text-center align-bottom">Quantity</td>
+                                                            <td class="text-center align-bottom">Size</td>
+                                                            <td class="text-center align-bottom">Paper Material</td>
+                                                            
+                                                            <td rowspan="2" width="150" class="border-bottom pr-0 table-cart-image">
+                                                                <img src="@imagepath" alt="" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.NoOfPages</td>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.quantity</td>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.Size</td>
+                                                            <td class="text-center border-bottom align-top">@orderItem.serviceDetail.PaperMaterial</td>
+                                                        </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        }
+                                   
+                                    </div>
+                                    <div class="col-xl-4 col-md-6 col-12">
+                                        <div class="order-detail">
+                                            <div class="shipping-and-payment-box text-left">
+                                                <div class="shipping-box">
+                                                    <span class="title">@ResHelper.GetString("PrintForMe.ShippingAddress")</span><br>
+                                                    @if (@Model.OrderAddress != null)
+                                                    {
+                                                        @Html.DisplayFor(m => m.OrderAddress.AddressLine1)<br />
+                                                        @Html.DisplayFor(m => m.OrderAddress.AddressLine2)<br />
+                                                        @String.Format("{0} {1} {2}", @Html.DisplayFor(m => m.OrderAddress.AddressCity), @Html.DisplayFor(m => m.OrderAddress.AddressState), @Html.DisplayFor(m => m.OrderAddress.AddressCountry)) @Html.DisplayFor(m => m.OrderAddress.AddressPostalCode)<br />
+                                                        @Html.DisplayFor(m => m.OrderAddress.AddressPhone);
+                                                    }
+                                                </div>
+                                                <div class="payment-box text-left">
+                                                    <span class="title">@ResHelper.GetString("PrintForMe.PaymentOptions")</span><br>
+                                                    @MacroResolver.Resolve(Model.PaymentOption)
+                                                </div>
+                                                <div class="order-details-box justify-content-right">
+                                                    <div class="order-total-wrapper">
+                                                        <h3>@ResHelper.GetString("PrintForMe.OrderDetails")</h3>
+                                                        <p class="highlight-text"><span>@ResHelper.GetString("PrintForMe.TotalPrice")</span> @String.Format(Model.CurrencyFormatString, @Model.OrderTotalPrice)</p>
+                                                        <p><span>@ResHelper.GetString("PrintForMe.Discount")</span> @String.Format(Model.CurrencyFormatString, (Model.OrderGrandTotal - Model.OrderTotalPrice))</p>
+                                                        <p><span>@ResHelper.GetString("PrintForMe.Shipping")</span>  @String.Format(Model.CurrencyFormatString, Model.OrderTotalShipping)</p>
+                                                        <p><span>@ResHelper.GetString("PrintForMe.Tax")</span>  @String.Format(Model.CurrencyFormatString, Model.OrderTotalTax)</p>
+                                                        <p class="order-total highlight-text"><span>@ResHelper.GetString("PrintForMe.TotalPrice")</span>@String.Format(Model.CurrencyFormatString, Model.OrderGrandTotal)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

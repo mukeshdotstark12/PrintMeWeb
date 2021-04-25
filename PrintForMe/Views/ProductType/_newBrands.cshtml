@@ -1,0 +1,30 @@
+﻿
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using CMS.Helpers;
+@using PrintForMe.Models.Products
+
+
+@*DocSection:ListingTable*@
+@model IEnumerable<BrandListItemViewModel>
+
+@{ bool isRtl = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft;}
+
+@* Iterates over all products. *@
+@foreach (BrandListItemViewModel brand in Model)
+{
+    <div class="card-group col-lg-3 col-md-4">
+        <a>
+            <div class="text-center bd-placeholder-img card-img-top" role="img" preserveaspectratio="xMidYMid slice" focusable="false">
+                @if (!string.IsNullOrEmpty(brand.ImagePath))
+                {
+                    <img src="@Url.Kentico().ImageUrl(brand.ImagePath, SizeConstraint.MaxWidthOrHeight(300))" alt="@brand.Name">
+                }
+            </div>
+        </a>
+
+        <div class="card-body">
+            <h3>@brand.Name</h3>
+        </div>
+    </div>
+}

@@ -1,0 +1,349 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using PrintForMe.Helpers
+@using CMS.Helpers;
+@using CMS.Membership
+@{ bool isRtl = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="google-site-verification" content="HOKdML9SxD23korFJktT4cqzGm_NNnlcJij7gIg2fG4" />
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/scripts")
+
+    <link href="~/Content/css/css.css" rel="stylesheet" />
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    @Scripts.Render("https://code.jquery.com/jquery-3.1.1.min.js")
+    @Scripts.Render("https://cdn.syncfusion.com/js/assets/external/jsrender.min.js")
+
+    <script src="https://cdn.syncfusion.com/17.4.0.46/js/web/ej.web.all.js"></script>
+
+    @* See ~/App_Start/ApplicationConfig.cs, ~/Controllers/HomeController.cs and ~/Views/Home/Index.cshtml
+        Uncomment the following line to add <link> tag referencing the Page builder style bundle. *@
+    @Html.Kentico().PageBuilderStyles()
+
+    @{
+
+        var controllerName = RouteTable.Routes.GetRouteData(new HttpContextWrapper(HttpContext.Current)).Values["controller"].ToString();
+    }
+
+    <!-- Syncfusion Essential JS 2 Styles -->
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
+    <link rel="stylesheet" href="~/Content/css/rating-style.css" />
+
+    <!-- Syncfusion Essential JS 2 Scripts -->
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
+    @RenderSection("CustomCSS", required: false)
+    <link href="~/Content/css/site.css" rel="stylesheet" />
+    @* Syncfusion Essential JS 2 Styles *@
+    <!--<link href="~/Content/ej2/material.css" rel="stylesheet" />-->
+    @* Syncfusion Essential JS 2 Scripts *@
+    <!--<script src="~/Scripts/ej2/ej2.min.js"></script>-->
+    <style>
+        .overlay {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            background: rgba(255,255,255,0.8) url("../../Content/Images/loader.gif") center no-repeat;
+        }
+        /* Turn off scrollbar when body element has the loading class */
+        body.loading {
+            overflow: hidden;
+        }
+            /* Make spinner image visible when body element has the loading class */
+            body.loading .overlay {
+                display: block;
+            }
+    </style>
+</head>
+<body id="body" cz-shortcut-listen="true" onload="getCartDetail()">
+    <div class="overlay"></div>
+    <div class="main-wrapper">
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-4">
+                        <div class="shopping-cart">
+                            <form class="form-inline my-2 my-lg-0">
+                                <a href="@Url.Action("ShoppingCart","Checkout")">
+                                    <img class="fix-icon" src="~/Content/images/cart.svg">                                    
+                                        <div id="usercart">
+                                            1
+                                        </div>                                    
+                                </a>
+                                <span>SAR</span>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-4">
+                        <div class="logo-n-nav">
+                            <div class="logo">
+                                @*<a href="@Url.Action("Index","Home")"><img id="imgStoreLogo" class="ECS-logo-sm" style="height:100px;width:100px;" src="@(PrintForMe.Models.UserModel.storeLogoPath)" /></a>*@
+                                <a href="@Url.Action("Index","Home")"><img class="ECS-logo-sm" src="~/Content/Images/logo.png" style="height:100px;width:100px;" /></a>
+                            </div>
+                            <nav class="main-menu-navigation">
+                                <a href="javascript:;" class="mobile-navigation"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                                @Html.Action("GetMenu", "Menu")
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-12">
+                        <div class="account-n-language">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @ResHelper.GetString("PrintForMe.Language")
+                                </a>
+                                <div class="font-primary-medium dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-item">
+                                        @Html.CultureLink(@ResHelper.GetString("PrintForMe.Arabic"), "ar-SA")
+                                    </div>
+                                    <div class="dropdown-item">
+                                        @Html.CultureLink(@ResHelper.GetString("PrintForMe.English"), "en-US")
+                                    </div>
+                                </div>
+                            </div>
+                            <form class="form-inline my-2 my-lg-0">
+                                <div class="account">
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <div class="dropdown dropdown_user">
+                                            <a class="nav-link dropdown-toggle" href="#" id="DashboardDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                @if (Session["Data"] != null)
+                                                {
+                                                    <span class="p-1"> Welcome @((Session["Data"] as UserInfo).FirstName)</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="p-1"> Welcome @PrintForMe.Models.UserModel.userName</span>
+                                                }
+                                                <img src="~/Content/images/profile.svg" />
+                                            </a>
+                                            <div class="font-primary-medium dropdown-menu" aria-labelledby="DashboardDropdown">
+                                                @if (!User.IsInRole("Admin"))
+                                                {
+                                                    @*Loads the partial view with the navigation menu for admins*@
+                                                    @Html.Action("GetMenu", "Menu", new { num = 3 })
+                                                }
+                                                else
+                                                {
+                                                    @*Loads the partial view with the navigation menu for customers*@
+                                                    @Html.Action("GetMenu", "Menu", new { num = 2 })
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" class="login-button btn btn-outline-primary outline-dark" onclick="location.href='@Url.Action("SignIn", "Account")'">@ResHelper.GetString("PrintForMe.LoginSignUp")</button>
+                                        <img src="~/Content/images/profile.svg" />
+                                    }
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="content-wrapper">
+            <!-- Search Bar it should be in header file-->
+            <div class="search-wrapper">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 @(isRtl? "rtl" : "ltr")">
+                            @using (Html.BeginForm("SearchIndex", "Search", FormMethod.Get, new { @Class = "form-inline  @(isRtl? 'rtl' : 'ltr') search-border " }))
+                            {
+                                <div class="e-input-group">
+                                    <input class=" e-input regualr-font pr-2 yellow-border" type="text" name="searchtext" placeholder="@ResHelper.GetString("PrintForMe.SearchPlaceholder")" maxlength="1000">
+                                    <span class="e-input-group-icon e-icons e-search"></span>
+                                    <input type="submit" value="Search" hidden>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Search Bar it should be in header file-->
+            <!-- Render page body -->
+            @RenderBody()
+        </div>
+    </div>
+    <!--Footer-->
+    <footer dir="@(isRtl? "rtl" : "ltr")" class="@(isRtl? "rtl" : "ltr") py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 mb-sm-5 p-4 p-md-3 footer-links-wrapper">
+                    <h3>
+                        <img src="~/Content/Images/Logo.png" />
+                    </h3>
+
+                    <div class="bordr-top-2 small-text py-4" style="display: flex;">
+                        <div class="footer_links">
+                            <div class="flex-column">
+                                <a href="@Url.Action("index","ContactUs")" class="font-primary-medium">@ResHelper.GetString("PrintForMe.CustomerServices")</a>
+                                <a href="@Url.Action("terms-and-conditions","Home")" class="font-primary-medium">@ResHelper.GetString("PrintForMe.TermsAndConditions")</a>
+                                <a href="@Url.Action("privacy-policy","Home")" class="font-primary-medium">@ResHelper.GetString("PrintForMe.PrivacyPolicy")</a>
+                            </div>
+                        </div>
+                        <div class="footer_links">
+                            <div class="flex-column font-primary-medium">
+                                <a href="@Url.Action("delivery-policy","Home",new { section = "ship-replace-policy" })" class="font-primary-medium">@ResHelper.GetString("PrintForMe.ShipReplace")</a>
+                                <a href="@Url.Action("delivery-policy","Home",new { section = "common-questions"})" class="font-primary-medium">@ResHelper.GetString("PrintForMe.CommonQuestions")</a>
+                                <a href="@Url.Action("delivery-policy","Home",new { section = "payment-options"})" class="font-primary-medium">@ResHelper.GetString("PrintForMe.PaymentOptions")</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-4 mb-sm-5 p-4 p-md-3 footer-social-link footer-links-wrapper">
+                    <h3>
+                        @ResHelper.GetString("PrintForMe.FollowUs")
+                    </h3>
+                    <div class="bordr-top-2 py-4 social-links">
+                        <a href="#" class="mx-1">
+                            <img class="fix-icon" src="~/Content/images/twitter.svg">
+                        </a>
+                        <a href="#" class="mx-1">
+                            <img class="fix-icon" src="~/Content/images/insta.svg">
+                        </a>
+                        <a href="#" class="mx-1">
+                            <img class="fix-icon" src="~/Content/images/facebook.svg">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-4 p-4 p-md-3 footer-app-store mt-4">
+                    <div class="footer-apple">
+                        <a href=""><img style="width: 200px;" src="~/Content/Images/apple.png"></a>
+                    </div>
+                    <div class="footer-google">
+                        <a href=""><img style="width: 200px;" src="~/Content/Images/google.png"></a>
+                    </div>
+                    <div class="footer-design">
+                        <p>Designed by Ltech pro</p>
+                        <p>© All rights reserved to Tabbali-2020</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    @if (@ViewBag.Builder != null)
+    {
+        @Html.Kentico().PageBuilderScripts()
+    }
+
+    @Scripts.Render("~/bundles/scripts")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery-unobtrusive-ajax")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <!-- Syncfusion Essential JS 2 ScriptManager -->
+    @Html.EJS().ScriptManager()
+    @section Scripts{
+        <script type="text/javascript">
+
+            $('#exampleModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var recipient = button.data('whatever') // Extract info from data-* attributes
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
+                modal.find('.modal-title').text('New message to ' + recipient)
+                modal.find('.modal-body input').val(recipient)
+            })
+        </script>
+    }
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    @*<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>*@
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/Content/js/star-rating.min.js"></script>
+    <script src="~/Content/js/site-js.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+    @RenderSection("scripts", required: false)
+    <script>
+        var destroyed = false;
+        var starratings = new StarRating('.star-rating', {
+            onClick: function (el) {
+                console.log('Selected: ' + el[el.selectedIndex].text);
+            },
+        });
+        document.querySelector('.toggle-star-rating').addEventListener('click', function () {
+            if (!destroyed) {
+                starratings.destroy();
+                destroyed = true;
+            }
+            else {
+                starratings.rebuild();
+                destroyed = false;
+            }
+        });
+
+        function showLoader() {
+            $("body").addClass("loading");
+        }
+        function hideLoader() {
+            $("body").removeClass("loading");
+        }
+
+        function showCount() {
+            var ele = document.getElementById("usercart");
+            ele.classList.add('cartCount');
+        }
+
+        function hideCount() {
+            var ele = document.getElementById("usercart");
+            ele.remove();
+        }
+
+        function getCartDetail() {            
+            $.ajax({
+                type: "POST",
+                url: '~/ar-SA/Checkout/GetUserCartAvailability',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (result, status, xhr) {
+                    if (result) {
+                        showCount();
+                        console.log(result)
+                    }
+                    else {
+                        hideCount();
+                        console.log(result)
+                    }
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    hideCount();
+                    console.log("testttt")
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1610 @@
+﻿<!DOCTYPE html>
+<html>
+@model PrintForMe.Models.Album.AlbumViewModel
+@using CMS.Helpers;
+@{
+
+    ViewBag.Title = "ArrangeAlbum";
+    Layout = null;
+}
+
+@{
+    bool isRtl = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft;
+    string Queuepath = ViewBag.QueueImages;
+    string AlbumPhotoPath = ViewBag.AlbumImages;
+    Guid albumguid = Model.PhotoAlbum.AlbumRowGUID;
+}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/css/rating-style.css" />
+    <link href="~/Content/css/css.css" rel="stylesheet">
+    <link href="~/Content/css/styles.css" rel="stylesheet">
+    <link href="~/Content/css/site-2.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--Syncfusion Essential JS 2 Styles -->
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
+
+
+    <!-- Syncfusion Essential JS 2 Scripts -->
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css" />
+
+    <link rel="stylesheet" href="~/Content/css/site.css">
+    <link href="~/Content/css/album-page.css" rel="stylesheet" />
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+    <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+    <link href="~/Content/css/slick.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/css/cropper.css">
+    <style>
+        .img-container img {
+            max-width: 100%;
+        }
+    </style>
+
+
+</head>
+
+<body cz-shortcut-listen="true">
+    <header class="edit-photo-header">
+        <div id="announcemnt_div" class="d-none bg-secondary-yellow w-100 flex justify-content-between align-items-center p-10 box-sizing">
+            anncouncemnt bar
+        </div>
+        <div class="container-fluid">
+            <div class="editphoto-button-links">
+
+                <button class="editphoto-cart" id="btnaddtocart">@ResHelper.GetString("PrintForMe.AddtocartButton")<img src="~/Content/images/cart-1.svg" alt="Cart icon" /></button>
+                <button class="editphoto-cart" id="btnSaveAlbumProject">@ResHelper.GetString("PrintForMe.SavetheProjectButton")<img src="~/Content/images/save-icon.svg" alt="Save icon" /></button>
+                <button class="editphoto-cart pull-right" id="btnhome">@ResHelper.GetString("PrintForMe.HomeButton")</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="actions">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">@ResHelper.GetString("PrintForMe.Cropper")</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="img-container avatar-wrapper" id="hidepicture">
+                            <img id="image" src="~/Content/Images/photo-1533154613417-407cfcf6abb2.jpg" alt="Picture">
+                        </div>
+                           
+                    </div>
+                    <div class="modal-footer docs-buttons">
+
+                        <button type="button" class="btn btn-primary" id="buttonreset">Reset</button>
+
+                        <button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left" id="btnrotate1">
+                            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(-45)">
+                                <span class="fa fa-undo"></span>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-primary" data-method="rotate" data-option="45" title="Rotate Right" id="btnrotate2">
+                            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(45)">
+                                <span class="fa fa-repeat"></span>
+                            </span>
+                        </button>
+
+                        <button type="button" class="btn btn-primary avatar-save" id="button">@ResHelper.GetString("PrintForMe.CropButton")</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnclose">@ResHelper.GetString("PrintForMe.CloseButton")</button>
+                    </div>
+                    <div id="result"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container123">
+
+        <div class="main-wrapper">
+
+
+            <div class="content-wrapper">
+
+                <div class="edit-photos-wrapper">
+                    <div class="container-fluid">
+
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div id="album_pages" class="album-wrapper">
+
+                                    <div id="album_pages_inner_container" class="album-wrapper">
+
+                                        @for (var i = 0; i < Model.GetMainAlbumPage_Result.Count; i++)
+                                        {
+                                            if (i < 2)
+                                            {
+
+                                                if (Model.GetMainAlbumPage_Result[i].PageLayoutCode == "LAYOUT01")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" class="album-wrapper2">
+
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(/@Model.GetMainAlbumPage_Result[i].LayoutOne.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutOne.AlbumPagePhotoRowGUID_1" class="template1-div1 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutOne.Name_2); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutOne.AlbumPagePhotoRowGUID_2" class="template1-div2 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                        </div>
+
+                                                    </div>
+                                                }
+                                                else if (Model.GetAlbumPages_Result[i].PageLayoutCode == "LAYOUT02")
+                                                {
+                                                   
+                                                        <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" class="album-wrapper2">
+                                                            <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutTwo.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutTwo.AlbumPagePhotoRowGUID_1" class="template2-div1 col-lg-12" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                            </div>
+                                                        </div>
+                                                 
+
+                                                }
+                                                else if (Model.GetAlbumPages_Result[i].PageLayoutCode == "LAYOUT03")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" class="album-wrapper2">
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutThree.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutThree.AlbumPagePhotoRowGUID_1" style="display:block" class="template3-div1 col-lg-12" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutThree.Name_2); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutThree.AlbumPagePhotoRowGUID_2" style="display:block" class="template3-div2 col-lg-12" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else if (Model.GetAlbumPages_Result[i].PageLayoutCode == "LAYOUT04")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" class="album-wrapper2">
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFour.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFour.AlbumPagePhotoRowGUID_1" class="template4-div1 col-lg-12" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFour.Name_2); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFour.AlbumPagePhotoRowGUID_2" class="template4-div2 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFour.Name_3); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFour.AlbumPagePhotoRowGUID_3" class="template4-div3 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else if (Model.GetAlbumPages_Result[i].PageLayoutCode == "LAYOUT05")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" class="album-wrapper2">
+
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFive.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFive.AlbumPagePhotoRowGUID_1" class="template5-div1 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFive.Name_2); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFive.AlbumPagePhotoRowGUID_2" class="template5-div2 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFive.Name_3); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFive.AlbumPagePhotoRowGUID_3" class="template5-div3 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFive.Name_4); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFive.AlbumPagePhotoRowGUID_4" class="template5-div4 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+
+
+                                                    </div>
+                                                }
+                                                else if (Model.GetAlbumPages_Result[i].PageLayoutCode == "LAYOUT06")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" class="album-wrapper2">
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_1" class="template6-div1 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_2); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_2" class="template6-div2 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_3); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_3" class="template6-div3 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_4); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_4" class="template6-div4 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_5); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_5" class="template6-div5 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_6" class="template6-div6 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                            else
+                                            {
+
+                                                if (Model.GetMainAlbumPage_Result[i].PageLayoutCode == "LAYOUT01")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" style="display: none;">
+
+
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutOne.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutOne.AlbumPagePhotoRowGUID_1" class="template1-div1 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutOne.Name_2); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutOne.AlbumPagePhotoRowGUID_2" class="template1-div2 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else if (Model.GetAlbumPages_Result[i].PageLayoutCode == "LAYOUT02")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" style="display: none;">
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutTwo.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutTwo.AlbumPagePhotoRowGUID_1" class="template2-div1 col-lg-12" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else if (Model.GetAlbumPages_Result[i].PageLayoutCode == "LAYOUT03")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" style="display: none;">
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutThree.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutThree.AlbumPagePhotoRowGUID_1" style="display:block" class="template3-div1 col-lg-12" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutThree.Name_2); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutThree.AlbumPagePhotoRowGUID_2" style="display:block" class="template3-div2 col-lg-12" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else if (Model.GetAlbumPages_Result[i].PageLayoutCode == "LAYOUT04")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" style="display: none;">
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFour.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFour.AlbumPagePhotoRowGUID_1" class="template4-div1 col-lg-12" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFour.Name_2); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFour.AlbumPagePhotoRowGUID_2" class="template4-div2 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFour.Name_3); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFour.AlbumPagePhotoRowGUID_3" class="template4-div3 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else if (Model.GetAlbumPages_Result[i].PageLayoutCode == "LAYOUT05")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" style="display: none;">
+
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFive.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFive.AlbumPagePhotoRowGUID_1" class="template5-div1 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFive.Name_2); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFive.AlbumPagePhotoRowGUID_2" class="template5-div2 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFive.Name_3); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFive.AlbumPagePhotoRowGUID_3" class="template5-div3 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutFive.Name_4); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutFive.AlbumPagePhotoRowGUID_4" class="template5-div4 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+
+                                                    </div>
+                                                }
+                                                else if (Model.GetAlbumPages_Result[i].PageLayoutCode == "LAYOUT06")
+                                                {
+                                                    <div id="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" data-Album_Pages_Album_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID" style="display: none;">
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_1" class="template6-div1 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_2); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_2" class="template6-div2 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_3); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_3" class="template6-div3 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_4); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_4" class="template6-div4 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_5); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_5" class="template6-div5 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                        <div data-target="#modal" data-toggle="modal" style="background-image: url(@AlbumPhotoPath/@Model.GetMainAlbumPage_Result[i].LayoutSix.Name_1); background-size: cover; background-position: center; background-repeat: no-repeat;" data-btn_album_page_photo_rowguid="@Model.GetMainAlbumPage_Result[i].LayoutSix.AlbumPagePhotoRowGUID_6" class="template6-div6 col-lg-6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="page-number-main-album" style="margin-left: 687px">@ResHelper.GetString("PrintForMe.CoverDes")</div>
+                    <div class="album-footer">
+                        <div class="container-fluid">
+                            <div class="row">
+
+                                <div class="col-lg-12" style="margin-left: 10px;">
+
+                                    <div id="thumbnail_pages" class="album-2-col-item ">
+                                        <ul class="footer-pages-slider">
+                                            @for (var i = 0; i < Model.GetAlbumPages_Result.Count; i = i + 2)
+                                            {
+                                                
+                                                <li>
+                                                    <span style="padding-left: 30px; float:left;width:50%;" data-Album_Pages_Thumbnail_RowGUID="@Model.GetAlbumPages_Result[i].AlbumPageRowGUID">@(i+1)</span>
+                                                    <span style="padding-right: 30px; " data-Album_Pages_Thumbnail_RowGUID="@Model.GetAlbumPages_Result[i+1].AlbumPageRowGUID">@(i+2)</span>
+                                                </li>
+
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="album-sidebar affix-top" data-spy="affix" data-offset-top="20">
+                    <div class="navigation-sidebar">
+                        <ul>
+
+                            <li>
+                                <a id="btnFileUploadButton" href="#">
+                                    <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                    @*<img src="~/Content/images/template-icon.svg" alt="" />*@
+                                    <span>@ResHelper.GetString("PrintForMe.PhotoUpload")</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="btnPhotoLayout" href="#" onclick="">
+
+                                    <img src="~/Content/images/photos-icon.svg" alt="" />
+                                    <span>@ResHelper.GetString("PrintForMe.PhotoDes")</span>
+                                </a>
+                            </li>
+                            <li class="active"><a id="btnPageLayout" href="#"><img src="~/Content/images/template-icon.svg" alt="" /><span>@ResHelper.GetString("PrintForMe.TemplateDes")</span></a></li>
+                        </ul>
+                    </div>
+
+
+
+                    <div id="toclonebutton_temp" class="delete-icon" style="display:none;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+
+                    <div id="album-fileupload-section" style="display:none;" class="album-layouts">
+                        <!-- Change /upload-target to your upload address -->
+                        <form action="/en-US/Album/UploadFiles" class="dropzone" id="mydropzone" style="background: rgba(190, 189, 191, 0.22)">
+                            @*<i class="fa fa-upload dz-button" aria-hidden="true"></i>*@
+                        </form>
+                    </div>
+
+                    <div id="album-photo-section" style="display:none;" class="album-layouts">
+                        <ul id="ul_album-photo-section">
+                            @foreach (var item in Model.DownloadPhotoQueue_Result)
+                            {
+                                if (item.ImagesName != null)
+                                {
+                                    <li>
+                                        <img id="img_@item.ItemGUID" data-Album_Page_Photo_RowGUID="@item.ItemGUID" src="@Queuepath/@item.ImagesName" alt="" data-id="@item.Isactive" draggable="false" ondragstart="drag(event)" width="336" height="69">
+                                        <div class="delete-icon" data-btn_album_page_queue_rowguid="@item.ItemGUID" id="delete_btn_@item.ItemGUID">
+                                            <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                                        </div>
+                                    </li>
+
+                                }
+                            }
+                        </ul>
+
+                    </div>
+                    <div id="album-layout-section" style="display:block" ; class="album-layouts">
+                        <ul>
+                            <li draggable="true" ondragstart="drag(event)" data-Album_Page_Layout_Code="LAYOUT01" id="layout01" class="layout-1"><span></span></li>
+                            <li draggable="true" ondragstart="drag(event)" data-Album_Page_Layout_Code="LAYOUT02" id="layout02" class="layout-2"><span></span></li>
+                            <li draggable="true" ondragstart="drag(event)" data-Album_Page_Layout_Code="LAYOUT03" id="layout03" class="layout-3"><span></span></li>
+                            <li draggable="true" ondragstart="drag(event)" data-Album_Page_Layout_Code="LAYOUT04" id="layout04" class="layout-4"><span></span></li>
+                            <li draggable="true" ondragstart="drag(event)" data-Album_Page_Layout_Code="LAYOUT05" id="layout05" class="layout-5"><span></span></li>
+                            <li draggable="true" ondragstart="drag(event)" data-Album_Page_Layout_Code="LAYOUT06" id="layout06" class="layout-6"><span></span></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--Footer-->
+            <footer dir="@(isRtl? "rtl" : "ltr")" class="@(isRtl? "rtl" : "ltr") py-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-5 col-lg-3 mb-sm-5 p-4 p-md-3 footer-links-wrapper">
+                            <h3><img src="~/Content/Images/Logo.png" /></h3>
+                            <div class="bordr-top-2 small-text py-4">
+                                <div class="footer_links">
+                                    <div class="flex-column ">
+                                        <a href="@Url.Action("index","ContactUs")" class="font-primary-medium">@ResHelper.GetString("PrintForMe.CustomerServices")</a>
+                                        <a href="@Url.Action("terms-and-conditions","Home")" class="font-primary-medium">@ResHelper.GetString("PrintForMe.TermsAndConditions")</a>
+                                        <a href="@Url.Action("privacy-policy","Home")" class="font-primary-medium">@ResHelper.GetString("PrintForMe.PrivacyPolicy")</a>
+                                    </div>
+                                </div>
+                                <div class="footer_links">
+                                    <div class="flex-column font-primary-medium">
+                                        <a href="@Url.Action("delivery-policy","Home",new { section = "ship-replace-policy" })" class="font-primary-medium">@ResHelper.GetString("PrintForMe.ShipReplace")</a>
+                                        <a href="@Url.Action("delivery-policy","Home",new { section = "common-questions"})" class="font-primary-medium">@ResHelper.GetString("PrintForMe.CommonQuestions")</a>
+                                        <a href="@Url.Action("delivery-policy","Home",new { section = "payment-options"})" class="font-primary-medium">@ResHelper.GetString("PrintForMe.PaymentOptions")</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-5 col-lg-3 mb-sm-5 p-4 p-md-3 footer-links-wrapper">
+                            <h3>
+                                @ResHelper.GetString("PrintForMe.FollowUs")
+                            </h3>
+                            <div class="bordr-top-2 py-4 social-links">
+                                <a href="#/en-US/#" class="mx-1">
+                                    <img class="fix-icon" src="~/Content/images/twitter.svg">
+                                </a>
+                                <a href="#/en-US/#" class="mx-1">
+                                    <img class="fix-icon" src="~/Content/images/insta.svg">
+                                </a>
+                                <a href="#/en-US/#" class="mx-1">
+                                    <img class="fix-icon" src="~/Content/images/facebook.svg">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/Scripts/jquery")
+        @Scripts.Render("~/Scripts/bootstrap")
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+
+        <script src="~/Content/js/site-js.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script src="~/Content/js/slick.min.js"></script>
+        <script>
+           
+            Dropzone.autoDiscover = false;
+            var myDropzone = new Dropzone("#mydropzone", {
+                //acceptedFiles: ".jpeg,.jpg,.png",
+                maxFiles: 400,
+                timeout: 300000,
+                parallelUploads: 100,
+                accept: function (file, done) {
+                    console.log(file);
+                    if (file.type != "image/jpeg" && file.type != "image/png" && file.type != "image/jpg") {
+                        done("Only .jpg, .jpeg, .png Images are Allowed");
+                    }
+                    else { done(); }
+                }
+            });
+        </script>
+
+        <script>
+            function allowDrop(ev) {
+
+            console.log('allowDrop')
+            ev.preventDefault();
+        }
+
+            function drag(ev) {
+            ev.dataTransfer.setData("source_id", ev.target.id);
+        }
+
+        function drop(ev) {
+            debugger;
+            ev.preventDefault();
+            var drag_source_id = ev.dataTransfer.getData("source_id");
+
+            var album_page_photo_rowguid = ev.currentTarget.dataset.btn_album_page_photo_rowguid;
+            var album_pages_rowguid = ev.currentTarget.parentElement.dataset.album_pages_album_rowguid;
+
+            var active_display_page = document.querySelectorAll('#album_pages_inner_container>div:not([style*="display:none"]):not([style*="display: none"]')
+            window.current_active_album_pages_rowguid_01 = active_display_page[0].id;
+            window.current_active_album_pages_rowguid_02 = active_display_page[1].id;
+
+            if (drag_source_id == "layout01" || drag_source_id == "layout02" || drag_source_id == "layout03" || drag_source_id == "layout04" || drag_source_id == "layout05" || drag_source_id == "layout06") {
+
+                const uri_ChangeAlbumPageLayout = '/en-US/Album/ChangeAlbumPageLayout?AlbumPageRowGUID=' + album_pages_rowguid + '&PageLayoutCode=' + drag_source_id;
+                let firstAPICall = fetch(uri_ChangeAlbumPageLayout);
+
+                Promise.all([firstAPICall])
+                    .then(values => Promise.all(values.map(value => value.json())))
+                    .then(finalVals => {
+                        let firstAPIResp = finalVals[0];
+                        RefreshAlbumPageWithPhoto(firstAPIResp)
+                    });
+            }
+            else {
+                let clonequeueimage_temp_id = "#" + drag_source_id;
+                let clonequeueimage_temp = document.querySelector("#" + drag_source_id);
+                ev.target.innerHTML = ''
+                ev.target.appendChild(clonequeueimage_temp);
+                //var selected_album_page_queue_rowguid = clonequeueimage_temp.dataset.data - album_page_photo_rowguid;
+                var selected_album_page_queue_rowguid = document.querySelector(clonequeueimage_temp_id).dataset.album_page_photo_rowguid;
+
+
+                const uri_AddPhototoAlbumPageFromQueue = '/en-US/Album/AddPhototoAlbumPageFromQueue?albumPhotoQueueRowGUID=' + selected_album_page_queue_rowguid + '&albumPagePhotoGUID=' + album_page_photo_rowguid;
+                const uri_DownloadPhotoQueue = "@Url.Action("DownloadPhotoQueue", "Album", new { AlbumRowGUID= albumguid })";
+
+                let firstAPICall = fetch(uri_AddPhototoAlbumPageFromQueue);
+                let secondAPICall = fetch(uri_DownloadPhotoQueue);
+
+                Promise.all([firstAPICall, secondAPICall])
+                    .then(values => Promise.all(values.map(value => value.json())))
+                    .then(finalVals => {
+                        let firstAPIResp = finalVals[0];
+                        let secondAPIResp = finalVals[1];
+                        RefreshAlbumPageWithPhoto(firstAPIResp)
+                        RefreshAlbumQueuePhoto(secondAPIResp)
+
+                    });
+
+            }
+        }
+        </script>
+
+
+
+        <script>
+
+            document.querySelectorAll("#album_pages_inner_container>div>div").forEach(item => {
+                item.addEventListener('click', event => {
+
+                    window.crop_album_page_photo_rowguid = event.currentTarget.dataset.btn_album_page_photo_rowguid
+                    window.cropImageSrc = event.currentTarget.style.backgroundImage.slice(4, -1).replace(/"/g, "");
+                    document.querySelector("#image").src = cropImageSrc;
+                })
+            })
+
+
+            document.querySelector("#btnFileUploadButton").addEventListener('click', function (event) {
+                event.preventDefault();
+
+                var fileupload_messge_div = document.querySelectorAll(".dz-preview");
+
+                if (fileupload_messge_div.length > 0) {
+                    for (i = 0; i < fileupload_messge_div.length; i++) {
+                        fileupload_messge_div[i].style.display = "none";
+                    }
+                    document.querySelectorAll('#album-fileupload-section>form')[0].classList.remove("dz-started")
+                }
+
+
+                document.querySelector("#album-photo-section").style.display = "none";;
+                document.querySelector("#album-layout-section").style.display = "none";;
+                document.querySelector("#album-fileupload-section").style.display = "block";;
+
+                document.querySelectorAll(".navigation-sidebar ul>li")[0].classList.add("active")
+                document.querySelectorAll(".navigation-sidebar ul>li")[1].classList.remove("active")
+                document.querySelectorAll(".navigation-sidebar ul>li")[2].classList.remove("active")
+            });
+
+            document.querySelector("#btnPhotoLayout").addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const uri = "@Url.Action("DownloadPhotoQueue", "Album", new { AlbumRowGUID= albumguid })";
+                fetch(uri)
+                .then(response => response.json())
+                .then(data => RefreshAlbumQueuePhoto(data))
+
+                document.querySelector("#album-photo-section").style.display = "block";;
+                document.querySelector("#album-layout-section").style.display = "none";;
+                document.querySelector("#album-fileupload-section").style.display = "none";
+
+                document.querySelectorAll(".navigation-sidebar ul>li")[0].classList.remove("active")
+                document.querySelectorAll(".navigation-sidebar ul>li")[1].classList.add("active")
+                document.querySelectorAll(".navigation-sidebar ul>li")[2].classList.remove("active")
+
+        });
+
+            document.querySelector("#btnPageLayout").addEventListener('click', function (event) {
+            event.preventDefault();
+
+            document.querySelector("#album-photo-section").style.display = "none";;
+            document.querySelector("#album-layout-section").style.display = "block";;
+            document.querySelector("#album-fileupload-section").style.display = "none";
+
+            document.querySelectorAll(".navigation-sidebar ul>li")[0].classList.remove("active")
+            document.querySelectorAll(".navigation-sidebar ul>li")[1].classList.remove("active")
+            document.querySelectorAll(".navigation-sidebar ul>li")[2].classList.add("active")
+
+        });
+
+            document.querySelectorAll("#thumbnail_pages > ul > li").forEach(item => {
+            item.addEventListener('click', event => {
+                debugger;
+                var leftThumbnailPageGUID = event.currentTarget.querySelectorAll('li span')[0].dataset.album_pages_thumbnail_rowguid;
+                var rightThumbnailGUID = event.currentTarget.querySelectorAll('li span')[1].dataset.album_pages_thumbnail_rowguid;
+
+                var elements = document.querySelectorAll("#album_pages_inner_container>div");
+
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].style.display = "none";
+                    elements[i].classList.remove('album-wrapper2');
+
+                }
+
+                var leftAlbumLIElement = document.querySelector('[data-Album_Pages_Album_RowGUID="' + leftThumbnailPageGUID + '"]')
+                leftAlbumLIElement.style.display = "block";
+                leftAlbumLIElement.classList.add('album-wrapper2');
+                var rightAlbumLIElement = document.querySelector('[data-Album_Pages_Album_RowGUID="' + rightThumbnailGUID + '"]')
+                rightAlbumLIElement.style.display = "block";
+                rightAlbumLIElement.classList.add('album-wrapper2');
+
+                var one = event.currentTarget.querySelectorAll('li span')[0].innerHTML;
+                if (one == 1) {
+                    document.querySelector('#page-number-main-album').innerHTML = 'Cover';
+
+                }
+                else {
+                    document.querySelector('#page-number-main-album').innerHTML = event.currentTarget.querySelectorAll('li span')[0].innerHTML + '-' + event.currentTarget.querySelectorAll('li span')[1].innerHTML;
+
+                }
+                
+            })
+            })
+
+
+
+
+        function RefreshAlbumQueuePhoto(data) {
+
+            const tBody = document.getElementById('album-photo-section');
+            var ulElement_AlbumPhotoSection = document.getElementById("ul_album-photo-section");
+            tBody.innerHTML = '';
+            ulElement_AlbumPhotoSection.innerHTML = '';
+            if (data.length == 0) {
+                alert("No Photos Available");
+                tBody.appendChild(ulElement_AlbumPhotoSection);
+            }
+            data.forEach(item => {
+
+                var liElement_AlbumPhotoSection = document.createElement('li');
+                let toclonebutton_temp = document.querySelector("#toclonebutton_temp");
+                let deleteButtonElement_AlbumPhotoSection = toclonebutton_temp.cloneNode(true);
+                deleteButtonElement_AlbumPhotoSection.id = "delete_btn_" + item.ItemGUID;
+                //deleteButtonElement_AlbumPhotoSection.innerText = 'Delete';
+                deleteButtonElement_AlbumPhotoSection.style.display = "block";
+                deleteButtonElement_AlbumPhotoSection.dataset.btn_album_page_queue_rowguid = item.ItemGUID;
+
+                var imageElement_AlbumPhotoSection = document.createElement('img');
+                imageElement_AlbumPhotoSection.id = "img_" + item.ItemGUID;
+                imageElement_AlbumPhotoSection.dataset.album_page_photo_rowguid = item.ItemGUID;
+                imageElement_AlbumPhotoSection.src = "@Queuepath" + "/" + item.ImagesName;
+                imageElement_AlbumPhotoSection.style.height = '69px';
+                imageElement_AlbumPhotoSection.style.width = '336';
+                imageElement_AlbumPhotoSection.dataset.id = item.Isactive;
+
+                var dragvalidation = imageElement_AlbumPhotoSection.dataset.id;
+                if (dragvalidation == 'true') {
+                    imageElement_AlbumPhotoSection.draggable = true;
+                }
+                else {
+                    imageElement_AlbumPhotoSection.draggable = false;
+                    liElement_AlbumPhotoSection.classList.add("size-overlay");
+                }
+                    //imageElement_AlbumPhotoSection.addEventListener('ondragstart', drag(event));
+                    imageElement_AlbumPhotoSection.addEventListener('dragstart', function (event) {
+                        //alert(event.target.id);
+                        event.dataTransfer.setData("source_id", event.target.id)
+                    });
+
+                ulElement_AlbumPhotoSection.appendChild(liElement_AlbumPhotoSection);
+                liElement_AlbumPhotoSection.appendChild(imageElement_AlbumPhotoSection);
+                liElement_AlbumPhotoSection.appendChild(deleteButtonElement_AlbumPhotoSection);
+                tBody.appendChild(ulElement_AlbumPhotoSection);
+            });
+
+
+            ////Inside Refresh
+            document.querySelectorAll("#album-photo-section >ul>li>div").forEach(item => {
+                item.addEventListener('click', event => {
+                    debugger;
+                    var album_page_photo_rowguid = event.currentTarget.dataset.btn_album_page_queue_rowguid;
+
+                    const uri = '~/en-US/Album/DeletePhotoFromQueue?albumPhotoQueueRowGUID=' + album_page_photo_rowguid;
+                    if (confirm("Are you sure you want to delete Image ?")) {
+                        fetch(uri)
+                            .then(response => response.json())
+                            .then(data => DeleteAlbumQueuePhoto(data))
+                    }
+                })
+            })
+        }
+
+
+
+
+        function RefreshAlbumPageWithPhoto(data) {
+            debugger;
+            const tBody = document.getElementById('album_pages_inner_container');
+            
+            tBody.innerHTML = '';
+            data.forEach(item => {
+                debugger;
+                if (item.PageLayoutCode === "LAYOUT01") {
+
+                    var divElement_AlbumPhoto_Page = document.createElement('div');
+                    divElement_AlbumPhoto_Page.id = item.AlbumPageRowGUID;
+                    divElement_AlbumPhoto_Page.dataset.album_pages_album_rowguid = item.AlbumPageRowGUID;
+
+                    if (item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_01 || item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_02) {
+
+                        //divElement_AlbumPhoto_Page.style.display = "inline";
+                    } else {
+                        divElement_AlbumPhoto_Page.style.display = "none";
+                    }
+
+                    //divElement_AlbumPhoto_Page.className = "album-wrapper2";
+                    divElement_AlbumPhoto_Page.classList.add('album-wrapper2');
+
+
+                    divElement_AlbumPhoto_Page.addEventListener('dragover', function (event) {
+                        event.preventDefault();
+                    });
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo1 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo1.dataset.btn_album_page_photo_rowguid = item.LayoutOne.AlbumPagePhotoRowGUID_1;
+                    divElement_AlbumPhoto_Photo1.className = "template1-div1 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo1.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutOne.Name_1 + ")";
+                    divElement_AlbumPhoto_Photo1.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo1.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo1.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo1.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo1.dataset.toggle = "modal";
+
+
+
+
+
+                    /************************************************************************************************************************/
+
+                    var divElement_AlbumPhoto_Photo2 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo2.dataset.btn_album_page_photo_rowguid = item.LayoutOne.AlbumPagePhotoRowGUID_2;
+                    divElement_AlbumPhoto_Photo2.className = "template1-div1 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo2.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutOne.Name_2 + ")";
+                    divElement_AlbumPhoto_Photo2.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo2.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo2.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo2.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo2.dataset.toggle = "modal";
+
+
+
+                    /************************************************************************************************************************/
+
+
+
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo1);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo2);
+
+                    tBody.appendChild(divElement_AlbumPhoto_Page);
+
+                    /************************************************************************************************************************/
+
+
+
+                } else if (item.PageLayoutCode === "LAYOUT02") {
+
+                    var divElement_AlbumPhoto_Page = document.createElement('div');
+                    divElement_AlbumPhoto_Page.id = item.AlbumPageRowGUID;
+                    divElement_AlbumPhoto_Page.dataset.album_pages_album_rowguid = item.AlbumPageRowGUID;
+
+                    if (item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_01 || item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_02) {
+
+                        //divElement_AlbumPhoto_Page.style.display = "inline";
+                    } else {
+                        divElement_AlbumPhoto_Page.style.display = "none";
+                    }
+
+                    divElement_AlbumPhoto_Page.classList.add('album-wrapper2');
+                    //divElement_AlbumPhoto_Page.className = "album-wrapper2";
+
+
+                    divElement_AlbumPhoto_Page.addEventListener('dragover', function (event) {
+                        event.preventDefault();
+                    });
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo1 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo1.dataset.btn_album_page_photo_rowguid = item.LayoutTwo.AlbumPagePhotoRowGUID_1;
+                    divElement_AlbumPhoto_Photo1.className = "template2-div1 col-lg-12";
+
+                    divElement_AlbumPhoto_Photo1.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutTwo.Name_1 + ")";
+                    divElement_AlbumPhoto_Photo1.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo1.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo1.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo1.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo1.dataset.toggle = "modal";
+
+
+
+                    /************************************************************************************************************************/
+
+
+
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo1);
+
+
+                    tBody.appendChild(divElement_AlbumPhoto_Page);
+
+                    /************************************************************************************************************************/
+
+
+
+                } else if (item.PageLayoutCode === "LAYOUT03") {
+
+                    var divElement_AlbumPhoto_Page = document.createElement('div');
+                    divElement_AlbumPhoto_Page.id = item.AlbumPageRowGUID;
+                    divElement_AlbumPhoto_Page.dataset.album_pages_album_rowguid = item.AlbumPageRowGUID;
+
+                    if (item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_01 || item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_02) {
+
+                        //divElement_AlbumPhoto_Page.style.display = "inline";
+                    } else {
+                        divElement_AlbumPhoto_Page.style.display = "none";
+                    }
+
+                    divElement_AlbumPhoto_Page.classList.add('album-wrapper2');
+                    //divElement_AlbumPhoto_Page.className = "album-wrapper2";
+
+
+                    divElement_AlbumPhoto_Page.addEventListener('dragover', function (event) {
+                        event.preventDefault();
+                    });
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo1 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo1.dataset.btn_album_page_photo_rowguid = item.LayoutThree.AlbumPagePhotoRowGUID_1;
+                    divElement_AlbumPhoto_Photo1.className = "template3-div1 col-lg-12";
+
+                    divElement_AlbumPhoto_Photo1.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutThree.Name_1 + ")";
+                    divElement_AlbumPhoto_Photo1.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo1.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo1.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo1.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo1.dataset.toggle = "modal";
+
+
+
+                    /************************************************************************************************************************/
+
+                    var divElement_AlbumPhoto_Photo2 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo2.dataset.btn_album_page_photo_rowguid = item.LayoutThree.AlbumPagePhotoRowGUID_2;
+                    divElement_AlbumPhoto_Photo2.className = "template3-div2 col-lg-12";
+
+                    divElement_AlbumPhoto_Photo2.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutThree.Name_2 + ")";
+                    divElement_AlbumPhoto_Photo2.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo2.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo2.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo2.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo2.dataset.toggle = "modal";
+
+
+
+                    /************************************************************************************************************************/
+
+
+
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo1);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo2);
+
+                    tBody.appendChild(divElement_AlbumPhoto_Page);
+
+                    /************************************************************************************************************************/
+
+
+
+                } else if (item.PageLayoutCode === "LAYOUT04") {
+
+                    var divElement_AlbumPhoto_Page = document.createElement('div');
+                    divElement_AlbumPhoto_Page.id = item.AlbumPageRowGUID;
+                    divElement_AlbumPhoto_Page.dataset.album_pages_album_rowguid = item.AlbumPageRowGUID;
+
+                    if (item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_01 || item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_02) {
+
+                        //divElement_AlbumPhoto_Page.style.display = "inline";
+                    } else {
+                        divElement_AlbumPhoto_Page.style.display = "none";
+                    }
+
+                    divElement_AlbumPhoto_Page.classList.add('album-wrapper2');
+                    //divElement_AlbumPhoto_Page.className = "album-wrapper2";
+
+
+                    divElement_AlbumPhoto_Page.addEventListener('dragover', function (event) {
+                        event.preventDefault();
+                    });
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo1 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo1.dataset.btn_album_page_photo_rowguid = item.LayoutFour.AlbumPagePhotoRowGUID_1;
+                    divElement_AlbumPhoto_Photo1.className = "template4-div1 col-lg-12";
+
+                    divElement_AlbumPhoto_Photo1.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutFour.Name_1 + ")";
+                    divElement_AlbumPhoto_Photo1.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo1.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo1.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo1.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo1.dataset.toggle = "modal";
+
+
+
+                    /************************************************************************************************************************/
+
+                    var divElement_AlbumPhoto_Photo2 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo2.dataset.btn_album_page_photo_rowguid = item.LayoutFour.AlbumPagePhotoRowGUID_2;
+                    divElement_AlbumPhoto_Photo2.className = "template4-div2 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo2.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutFour.Name_2 + ")";
+                    divElement_AlbumPhoto_Photo2.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo2.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo2.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo2.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo2.dataset.toggle = "modal";
+
+                    /************************************************************************************************************************/
+
+                    var divElement_AlbumPhoto_Photo3 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo3.dataset.btn_album_page_photo_rowguid = item.LayoutFour.AlbumPagePhotoRowGUID_3;
+                    divElement_AlbumPhoto_Photo3.className = "template4-div3 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo3.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutFour.Name_3 + ")";
+                    divElement_AlbumPhoto_Photo3.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo3.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo3.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo3.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo3.dataset.toggle = "modal";
+
+
+
+                    /************************************************************************************************************************/
+
+
+
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo1);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo2);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo3);
+
+
+
+                    tBody.appendChild(divElement_AlbumPhoto_Page);
+
+                    /************************************************************************************************************************/
+
+
+
+                } else if (item.PageLayoutCode === "LAYOUT05") {
+
+                    var divElement_AlbumPhoto_Page = document.createElement('div');
+                    divElement_AlbumPhoto_Page.id = item.AlbumPageRowGUID;
+                    divElement_AlbumPhoto_Page.dataset.album_pages_album_rowguid = item.AlbumPageRowGUID;
+
+                    if (item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_01 || item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_02) {
+
+                        //divElement_AlbumPhoto_Page.style.display = "inline";
+                    } else {
+                        divElement_AlbumPhoto_Page.style.display = "none";
+                    }
+
+                    //divElement_AlbumPhoto_Page.className = "album-wrapper2";
+                    divElement_AlbumPhoto_Page.classList.add('album-wrapper2');
+
+
+                    divElement_AlbumPhoto_Page.addEventListener('dragover', function (event) {
+                        event.preventDefault();
+                    });
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo1 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo1.dataset.btn_album_page_photo_rowguid = item.LayoutFive.AlbumPagePhotoRowGUID_1;
+                    divElement_AlbumPhoto_Photo1.className = "template5-div1 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo1.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutFive.Name_1 + ")";
+                    divElement_AlbumPhoto_Photo1.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo1.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo1.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo1.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo1.dataset.toggle = "modal";
+
+
+                    /************************************************************************************************************************/
+
+                    var divElement_AlbumPhoto_Photo2 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo2.dataset.btn_album_page_photo_rowguid = item.LayoutFive.AlbumPagePhotoRowGUID_2;
+                    divElement_AlbumPhoto_Photo2.className = "template5-div2 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo2.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutFive.Name_2 + ")";
+                    divElement_AlbumPhoto_Photo2.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo2.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo2.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo2.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo2.dataset.toggle = "modal";
+
+
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo3 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo3.dataset.btn_album_page_photo_rowguid = item.LayoutFive.AlbumPagePhotoRowGUID_3;
+                    divElement_AlbumPhoto_Photo3.className = "template5-div3 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo3.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutFive.Name_3 + ")";
+                    divElement_AlbumPhoto_Photo3.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo3.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo3.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo3.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo3.dataset.toggle = "modal";
+
+
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo4 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo4.dataset.btn_album_page_photo_rowguid = item.LayoutFive.AlbumPagePhotoRowGUID_4;
+                    divElement_AlbumPhoto_Photo4.className = "template5-div4 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo4.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutFive.Name_4 + ")";
+                    divElement_AlbumPhoto_Photo4.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo4.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo4.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo4.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo4.dataset.toggle = "modal";
+
+
+                    /************************************************************************************************************************/
+
+
+
+
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo1);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo2);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo3);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo4);
+
+
+                    tBody.appendChild(divElement_AlbumPhoto_Page);
+
+                    /************************************************************************************************************************/
+
+
+
+                } else if (item.PageLayoutCode === "LAYOUT06") {
+
+                    var divElement_AlbumPhoto_Page = document.createElement('div');
+                    divElement_AlbumPhoto_Page.id = item.AlbumPageRowGUID;
+                    divElement_AlbumPhoto_Page.dataset.album_pages_album_rowguid = item.AlbumPageRowGUID;
+
+                    if (item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_01 || item.AlbumPageRowGUID === window.current_active_album_pages_rowguid_02) {
+
+                        //divElement_AlbumPhoto_Page.style.display = "inline";
+
+                    } else {
+                        divElement_AlbumPhoto_Page.style.display = "none";
+                    }
+
+
+                    divElement_AlbumPhoto_Page.classList.add('album-wrapper2');
+
+
+                    divElement_AlbumPhoto_Page.addEventListener('dragover', function (event) {
+                        event.preventDefault();
+                    });
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo1 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo1.dataset.btn_album_page_photo_rowguid = item.LayoutSix.AlbumPagePhotoRowGUID_1;
+                    divElement_AlbumPhoto_Photo1.className = "template6-div1 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo1.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutSix.Name_1 + ")";
+                    divElement_AlbumPhoto_Photo1.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo1.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo1.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo1.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo1.dataset.toggle = "modal";
+
+                    /************************************************************************************************************************/
+
+                    var divElement_AlbumPhoto_Photo2 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo2.dataset.btn_album_page_photo_rowguid = item.LayoutSix.AlbumPagePhotoRowGUID_2;
+                    divElement_AlbumPhoto_Photo2.className = "template6-div2 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo2.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutSix.Name_2 + ")";
+                    divElement_AlbumPhoto_Photo2.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo2.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo2.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo2.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo2.dataset.toggle = "modal";
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo3 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo3.dataset.btn_album_page_photo_rowguid = item.LayoutSix.AlbumPagePhotoRowGUID_3;
+                    divElement_AlbumPhoto_Photo3.className = "template6-div3 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo3.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutSix.Name_3 + ")";
+                    divElement_AlbumPhoto_Photo3.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo3.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo3.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo3.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo3.dataset.toggle = "modal";
+
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo4 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo4.dataset.btn_album_page_photo_rowguid = item.LayoutSix.AlbumPagePhotoRowGUID_4;
+                    divElement_AlbumPhoto_Photo4.className = "template6-div4 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo4.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutSix.Name_4 + ")";
+                    divElement_AlbumPhoto_Photo4.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo4.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo4.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo4.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo4.dataset.toggle = "modal";
+
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo5 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo5.dataset.btn_album_page_photo_rowguid = item.LayoutSix.AlbumPagePhotoRowGUID_5;
+                    divElement_AlbumPhoto_Photo5.className = "template6-div5 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo5.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutSix.Name_5 + ")";
+                    divElement_AlbumPhoto_Photo5.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo5.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo5.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo5.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo5.dataset.toggle = "modal";
+
+
+                    /************************************************************************************************************************/
+                    var divElement_AlbumPhoto_Photo6 = document.createElement('div');
+                    divElement_AlbumPhoto_Photo6.dataset.btn_album_page_photo_rowguid = item.LayoutSix.AlbumPagePhotoRowGUID_6;
+                    divElement_AlbumPhoto_Photo6.className = "template6-div6 col-lg-6";
+
+                    divElement_AlbumPhoto_Photo6.style.backgroundImage = "url(@AlbumPhotoPath/" + item.LayoutSix.Name_6 + ")";
+                    divElement_AlbumPhoto_Photo6.style.backgroundSize = "cover";
+                    divElement_AlbumPhoto_Photo6.style.backgroundPosition = "center";
+                    divElement_AlbumPhoto_Photo6.style.backgroundRepeat = "no-repeat";
+                    divElement_AlbumPhoto_Photo6.dataset.target = "#modal";
+                    divElement_AlbumPhoto_Photo6.dataset.toggle = "modal";
+
+
+                    /************************************************************************************************************************/
+
+
+
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo1);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo2);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo3);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo4);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo5);
+                    divElement_AlbumPhoto_Page.appendChild(divElement_AlbumPhoto_Photo6);
+
+
+                    tBody.appendChild(divElement_AlbumPhoto_Page);
+
+                    /************************************************************************************************************************/
+
+
+
+                }
+
+            });
+
+
+            document.querySelectorAll("#album_pages_inner_container>div>div").forEach(item => {
+                item.addEventListener('drop', ev => {
+                    debugger;
+                    ev.preventDefault();
+                    var drag_source_id = ev.dataTransfer.getData("source_id");
+
+                    var album_page_photo_rowguid = ev.currentTarget.dataset.btn_album_page_photo_rowguid;
+                    var album_pages_rowguid = ev.currentTarget.parentElement.dataset.album_pages_album_rowguid;
+
+                    var active_display_page = document.querySelectorAll('#album_pages_inner_container>div:not([style*="display:none"]):not([style*="display: none"]')
+                    window.current_active_album_pages_rowguid_01 = active_display_page[0].id;
+                    window.current_active_album_pages_rowguid_02 = active_display_page[1].id;
+
+                    if (drag_source_id == "layout01" || drag_source_id == "layout02" || drag_source_id == "layout03" || drag_source_id == "layout04" || drag_source_id == "layout05" || drag_source_id == "layout06") {
+
+
+                        const uri_ChangeAlbumPageLayout = '/en-US/Album/ChangeAlbumPageLayout?AlbumPageRowGUID=' + album_pages_rowguid + '&PageLayoutCode=' + drag_source_id;
+                        let firstAPICall = fetch(uri_ChangeAlbumPageLayout);
+
+                        Promise.all([firstAPICall])
+                            .then(values => Promise.all(values.map(value => value.json())))
+                            .then(finalVals => {
+                                let firstAPIResp = finalVals[0];
+                                RefreshAlbumPageWithPhoto(firstAPIResp)
+                            });
+                    }
+                    else {
+
+                        let clonequeueimage_temp_id = "#" + drag_source_id;
+                        let clonequeueimage_temp = document.querySelector("#" + drag_source_id);
+                        ev.target.innerHTML = ''
+                        ev.target.appendChild(clonequeueimage_temp);
+                        //var selected_album_page_queue_rowguid = clonequeueimage_temp.dataset.data - album_page_photo_rowguid;
+                        var selected_album_page_queue_rowguid = document.querySelector(clonequeueimage_temp_id).dataset.album_page_photo_rowguid;
+
+
+                        //alert(selected_album_page_queue_rowguid);
+
+                        const uri_AddPhototoAlbumPageFromQueue = '/en-US/Album/AddPhototoAlbumPageFromQueue?albumPhotoQueueRowGUID=' + selected_album_page_queue_rowguid + '&albumPagePhotoGUID=' + album_page_photo_rowguid;
+                        const uri_DownloadPhotoQueue = "@Url.Action("DownloadPhotoQueue", "Album", new { AlbumRowGUID= albumguid })";
+
+                        let firstAPICall = fetch(uri_AddPhototoAlbumPageFromQueue);
+                        let secondAPICall = fetch(uri_DownloadPhotoQueue);
+
+                        Promise.all([firstAPICall, secondAPICall])
+                            .then(values => Promise.all(values.map(value => value.json())))
+                            .then(finalVals => {
+                                let firstAPIResp = finalVals[0];
+                                let secondAPIResp = finalVals[1];
+                                RefreshAlbumPageWithPhoto(firstAPIResp)
+                                RefreshAlbumQueuePhoto(secondAPIResp)
+
+                            });
+
+                    }
+
+                })
+            })
+
+            document.querySelectorAll("#album_pages_inner_container>div>div").forEach(item => {
+                item.addEventListener('click', event => {
+                    debugger;
+                    window.crop_album_page_photo_rowguid = event.currentTarget.dataset.btn_album_page_photo_rowguid
+                    window.cropImageSrc = event.currentTarget.style.backgroundImage.slice(4, -1).replace(/"/g, "");
+                    document.querySelector("#image").src = cropImageSrc;
+                })
+            })
+        }
+
+
+
+        function DeleteAlbumQueuePhoto(data) {
+
+            RefreshAlbumQueuePhoto(data);
+
+        }
+
+        document.querySelectorAll("#album-layout-section>ul>li").forEach(item => {
+            item.addEventListener('click', event => {
+                //alert("Hi");
+
+            })
+        })
+
+
+        </script>
+
+
+
+        <script>
+            var btn_addtocart = document.getElementById("btnaddtocart");
+            btn_addtocart.addEventListener("click", function (event) {
+                event.preventDefault();
+                debugger;
+            const uri = '@Url.Action("CheckAlbum", "Album",new { guid= Model.PhotoAlbum.AlbumRowGUID })';
+
+                fetch(uri)
+                    .then(response => response.json())                
+                    .then(data => AlbumAddToCart(data))
+
+            });
+
+            function AlbumAddToCart(data) {
+                debugger;
+                if (data != "") {
+                    if (confirm(data)) {
+                        window.location.href = '@Url.Action("AlbumAddToCart", "Album")';
+                    }
+                }
+                else {
+                    window.location.href = '@Url.Action("AlbumAddToCart", "Album")';
+                }
+            }
+
+            var btn_add_to_cart = document.getElementById("btnSaveAlbumProject");
+            btn_add_to_cart.addEventListener("click", function (event) {
+                event.preventDefault();
+                alert("Your Album is saved successfully");
+                window.location.href = '@Url.Action("ArrangeAlbum", "Album")';
+            });
+
+            var btn_home = document.getElementById("btnhome");
+            btn_home.addEventListener("click", function (event) {
+                event.preventDefault();
+                if (confirm("Do you really want to go Home Page ? ")) {
+                    window.location.href = '@Url.Action("Index", "Home")';
+                }
+            });
+
+        </script>
+        <script src="https://unpkg.com/jquery@3/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="~/Content/js/cropper.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                debugger;
+                var image = document.getElementById('image');
+                var cropBoxData;
+                var canvasData;
+                var cropper;
+
+                var button = document.getElementById('button');
+                var result = document.getElementById('result');
+                var options = {
+                    //aspectRatio: 16 / 9,
+                    preview: '.img-preview',
+                    ready: function (e) {
+                        console.log(e.type);
+                    },
+                    cropstart: function (e) {
+                        console.log(e.type, e.detail.action);
+                    },
+                    cropmove: function (e) {
+                        console.log(e.type, e.detail.action);
+                    },
+                    cropend: function (e) {
+                        console.log(e.type, e.detail.action);
+                    },
+                    crop: function (e) {
+                        debugger;
+                        var data = e.detail;
+                        cropImgData = e;
+                        console.log(cropImgData);
+                        //dataX.value = Math.round(data.x);
+                        //dataY.value = Math.round(data.y);
+                        //dataHeight.value = Math.round(data.height);
+                        //dataWidth.value = Math.round(data.width);
+                        //dataRotate.value = typeof data.rotate !== 'undefined' ? data.rotate : '';
+                        //dataScaleX.value = typeof data.scaleX !== 'undefined' ? data.scaleX : '';
+                        //dataScaleY.value = typeof data.scaleY !== 'undefined' ? data.scaleY : '';
+                    },
+                    zoom: function (e) {
+                        console.log(e.type, e.detail.ratio);
+                    }
+                };
+
+                    button.onclick = function () {
+                        debugger;
+                        var newResult = document.querySelector("[data-btn_album_page_photo_rowguid='" + window.crop_album_page_photo_rowguid + "']");
+
+                        //newResult.innerHTML = '';
+                        //newResult.appendChild(cropper.getCroppedCanvas());
+
+                        cropper.getCroppedCanvas().toBlob((blob) => {
+                            debugger;
+                            const formData = new FormData();
+                            formData.append('croppedImage', blob);
+                            formData.append('PhotoRowGUID', window.crop_album_page_photo_rowguid);
+                            formData.append('ImageSrc', window.cropImageSrc);
+
+                            fetch("/en-US/Album/UploadFiles2",
+                                {
+                                    method: 'POST',
+                                    mode: 'same-origin',
+                                    credentials: 'same-origin',
+                                    body: formData
+                                })
+                                .then(function (response) {
+                                    debugger;
+                                    //var random_number_image = Math.floor(Math.random() * 10000)
+                                    //newResult.style.backgroundImage = "url(" + window.cropImageSrc + "?id=" + random_number_image + ")";
+                                    document.getElementById("btnclose").click();
+                                    const uri_AddPhototoAlbumPageFromQueue = "@Url.Action("GetMainAlbumPageResult", "Album")";
+                const uri_DownloadPhotoQueue = "@Url.Action("DownloadPhotoQueue", "Album", new { AlbumRowGUID= albumguid })";
+
+                let firstAPICall = fetch(uri_AddPhototoAlbumPageFromQueue);
+                let secondAPICall = fetch(uri_DownloadPhotoQueue);
+
+                Promise.all([firstAPICall, secondAPICall])
+                    .then(values => Promise.all(values.map(value => value.json())))
+                    .then(finalVals => {
+                        let firstAPIResp = finalVals[0];
+                        let secondAPIResp = finalVals[1];
+                        RefreshAlbumPageWithPhoto(firstAPIResp)
+                        RefreshAlbumQueuePhoto(secondAPIResp)
+
+                    });
+
+                                    return response.text()
+                                }).then(function (text) {
+                                    //text is the server's response
+                                });
+                        });
+                };
+
+                actions.querySelector('.docs-buttons').onclick = function (event) {
+                    debugger;
+                    var e = event || document.querySelector("[data-btn_album_page_photo_rowguid='" + window.crop_album_page_photo_rowguid + "']");
+                    var target = e.target || e.srcElement;
+                    var cropped;
+                    var result;
+                    var input;
+                    var data;
+
+                    if (!cropper) {
+                        return;
+                    }
+
+                    while (target !== this) {
+                        if (target.getAttribute('data-method')) {
+                            break;
+                        }
+
+                        target = target.parentNode;
+                    }
+
+                    if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+                        return;
+                    }
+
+                    data = {
+                        method: target.getAttribute('data-method'),
+                        target: target.getAttribute('data-target'),
+                        option: target.getAttribute('data-option') || undefined,
+                        secondOption: target.getAttribute('data-second-option') || undefined
+                    };
+
+                    cropped = cropper.cropped;
+
+                    if (data.method) {
+                        if (typeof data.target !== 'undefined') {
+                            input = document.querySelector(data.target);
+
+                            if (!target.hasAttribute('data-option') && data.target && input) {
+                                try {
+                                    data.option = JSON.parse(input.value);
+                                } catch (e) {
+                                    console.log(e.message);
+                                }
+                            }
+                        }
+
+                        switch (data.method) {
+                            case 'rotate':
+                                if (cropped && options.viewMode > 0) {
+                                    cropper.clear();
+                                }
+
+                                break;
+
+                            case 'getCroppedCanvas':
+                                try {
+                                    data.option = JSON.parse(data.option);
+                                } catch (e) {
+                                    console.log(e.message);
+                                }
+
+                                if (uploadedImageType === 'image/jpeg') {
+                                    if (!data.option) {
+                                        data.option = {};
+                                    }
+
+                                    data.option.fillColor = '#fff';
+                                }
+
+                                break;
+                        }
+
+                        result = cropper[data.method](data.option, data.secondOption);
+
+                        switch (data.method) {
+                            case 'rotate':
+                                if (cropped && options.viewMode > 0) {
+                                    cropper.crop();
+                                }
+
+                                break;
+
+                            case 'scaleX':
+                            case 'scaleY':
+                                target.setAttribute('data-option', -data.option);
+                                break;
+
+                            case 'getCroppedCanvas':
+                                if (result) {
+                                    // Bootstrap's Modal
+                                    $('#getCroppedCanvasModal').modal().find('.modal-body').html(result);
+
+                                    if (!download.disabled) {
+                                        download.download = uploadedImageName;
+                                        download.href = result.toDataURL(uploadedImageType);
+                                    }
+                                }
+
+                                break;
+
+                            case 'destroy':
+                                cropper = null;
+
+                                if (uploadedImageURL) {
+                                    URL.revokeObjectURL(uploadedImageURL);
+                                    uploadedImageURL = '';
+                                    image.src = originalImageURL;
+                                }
+
+                                break;
+                        }
+
+                        if (typeof result === 'object' && result !== cropper && input) {
+                            try {
+                                input.value = JSON.stringify(result);
+                            } catch (e) {
+                                console.log(e.message);
+                            }
+                        }
+                    }
+                };
+
+                document.getElementById('buttonreset').onclick = function () {
+                    debugger;
+                    var newResult = document.querySelector("[data-btn_album_page_photo_rowguid='" + window.crop_album_page_photo_rowguid + "']");
+                    var pagerowguid = window.crop_album_page_photo_rowguid;
+                    var ImageSrc = window.cropImageSrc;
+
+                    const uri = '@Url.Action("ResetImage", "Album")?pagerowguid=' + pagerowguid + '&ImageSrc=' + ImageSrc;
+
+                fetch(uri)
+                    .then(response => response.json())
+                    .then(data => ResetCroppedImage(data))
+                };
+
+                function ResetCroppedImage(data) {
+                    debugger;
+                    document.getElementById("btnclose").click();
+                    alert("Image reset successfully")
+                    
+                    const uri_AddPhototoAlbumPageFromQueue = "@Url.Action("GetMainAlbumPageResult", "Album")";
+                const uri_DownloadPhotoQueue = "@Url.Action("DownloadPhotoQueue", "Album", new { AlbumRowGUID= albumguid })";
+
+                let firstAPICall = fetch(uri_AddPhototoAlbumPageFromQueue);
+                let secondAPICall = fetch(uri_DownloadPhotoQueue);
+
+                Promise.all([firstAPICall, secondAPICall])
+                    .then(values => Promise.all(values.map(value => value.json())))
+                    .then(finalVals => {
+                        let firstAPIResp = finalVals[0];
+                        let secondAPIResp = finalVals[1];
+                        RefreshAlbumPageWithPhoto(firstAPIResp)
+                        RefreshAlbumQueuePhoto(secondAPIResp)
+
+                    });
+                
+            }
+
+
+                $('#modal').on('shown.bs.modal', function () {
+                    debugger;
+                    var hidepicture = document.getElementById('hidepicture');
+                    const imagee = image.src;
+                    var split = imagee.split("/");
+                    var ok = split[7];
+                    var split1 = ok.split("?");
+                    var pic = split1[0];
+                    if (pic != "") {
+                        cropper = new Cropper(image, options);
+                        document.getElementById("modalLabel").innerHTML = "@ResHelper.GetString("PrintForMe.Cropper")";
+                    }
+                    else {
+                        //document.getElementById("btnclose").click();
+                        //alert("No Image Available");
+                        document.getElementById("modalLabel").innerHTML = "";
+                        document.getElementById("modalLabel").innerHTML = "No Image";
+                    }
+
+                }).on('hidden.bs.modal', function () {
+                    cropBoxData = cropper.getCropBoxData();
+                    canvasData = cropper.getCanvasData();
+                    cropper.destroy();
+                });
+            });
+
+
+        </script>
+
+    </div>
+</body>
+</html>
+
+

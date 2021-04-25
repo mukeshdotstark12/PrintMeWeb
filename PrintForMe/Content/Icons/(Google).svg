@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <g id="google" transform="translate(-0.012 0.837)">
+    <circle id="Ellipse_276" data-name="Ellipse 276" cx="14" cy="14" r="14" transform="translate(0.012 -0.837)" fill="#5c5560"/>
+    <circle id="Ellipse_277" data-name="Ellipse 277" cx="14" cy="14" r="14" transform="translate(0.012 -0.837)" fill="#eee"/>
+    <path id="Path_443" data-name="Path 443" d="M54.909,40.857H43.366v4.754h6.425a7.144,7.144,0,1,1-2.912-8.572l3.893-3.187a11.994,11.994,0,1,0,4.136,7.005Z" transform="translate(-29.414 -29.616)" fill="#fbbb00"/>
+    <path id="Path_444" data-name="Path 444" d="M76,309.786h0a12.02,12.02,0,0,1-18.107-3.676l3.894-3.188a7.147,7.147,0,0,0,10.3,3.659Z" transform="translate(-54.787 -286.93)" fill="#28b446"/>
+    <path id="Path_445" data-name="Path 445" d="M272.484,213.983A12.011,12.011,0,0,1,268.2,225.6h0l-3.914-3.2a7.161,7.161,0,0,0,3.081-3.657h-6.425v-4.754h11.542Z" transform="translate(-246.99 -202.742)" fill="#518ef8"/>
+    <path id="Path_446" data-name="Path 446" d="M74.577,33.852l-3.893,3.187a7.146,7.146,0,0,0-10.535,3.742l-3.915-3.2h0a12.019,12.019,0,0,1,18.343-3.724Z" transform="translate(-53.219 -29.616)" fill="#fc3f1d"/>
+  </g>
+</svg>

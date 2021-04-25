@@ -1,0 +1,15 @@
+﻿@using PrintForMe.Models.Menu;
+@using CMS.Helpers
+
+@model IEnumerable<MenuItemViewModel>
+
+@if (Model != null)
+{
+    foreach (MenuItemViewModel menuItem in Model)
+    {
+        <li class="btn"><a href="@menuItem.MenuItemLink">@menuItem.MenuItemText <img src="@menuItem.MenuItemIcon" alt=""></a></li>
+
+    }
+}
+
+

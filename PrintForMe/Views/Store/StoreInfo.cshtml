@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "StoreInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Syncfusion.EJ2
+@model PrintForMe.Models.Store.StoreViewModel
+
+@using CMS.Helpers
+
+<section class="main-container float100">
+    <div class="container full">
+        <div class="row">            
+            <div class="section-component right offset-md-4 col-lg-4 col-12">
+                <div class="main-section-wrapper">
+                    <div class="content-wrapper left-align small-width">
+                        <div class="form-wrapper">
+                            @using (Html.BeginForm("StoreInfo", "Store", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="StorName">@ResHelper.GetString("PrintForMe.StoreName")</label>
+                                            @Html.TextBoxFor(x => x.StoreName, new { @class = "form-control form-control-sm mr-3 w-35" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">@ResHelper.GetString("PrintForMe.EmailAddress")</label>
+                                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control form-control-sm mr-3 w-35" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="MobileNumber">@ResHelper.GetString("PrintForMe.StoreMobileNumber")</label>
+                                            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control form-control-sm mr-3 w-35" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="WhatsAppNumber">@ResHelper.GetString("PrintForMe.StoreWhatsAppNumber")</label>
+                                            @Html.TextBoxFor(x => x.WhatsappNumber, new { @class = "form-control form-control-sm mr-3 w-35" })
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-xl-6 col-md-6 col-12 ">
+                                        <div class="form-group">
+                                            <img style="max-height:100px; max-width:100px" src="@Model.StoreLogoPath" class="rounded" alt=" ">
+                                            <label for="StoreLogo">Upload Store Logo</label>-->
+                                            <!-- <input type="file" class="form-control" id="StoreLogo"> -->
+                                            <!--@Html.EJS().Uploader("Logo").DropArea(".control-fluid").Render()
+                                        </div>
+                                    </div>-->
+                                </div>
+                                <div class="row justify-content-center d-flex justify-content-end mx-2 my-4">
+                                    @Html.EJS().Button("btn").Content(@ResHelper.GetString("PrintForMe.update")).CssClass("e-control e-btn e-lib basic-button text-centere-primary wide-btn m-1 ml-3 text-center dark-button-bg").Render()
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content-wrapper">
+    <div class="store-profile">
+        <div class="container-fluid">
+            <div class="col-xl-10 col-md-11 col-12">
+                <div class="store-profile-table border-bottom">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-6 col-12">
+                            <div class="store-profile-table-title text-right">Frames colors</div>
+                            <div class="overflow-auto">
+                                @Html.Action("FrameColorSettings", "Store")
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-6 col-12 offset-xl-1">
+                            <div class="store-profile-table-title text-right">Paper materials</div>
+                            <div class="overflow-auto">
+                                @Html.Action("PaparMaterialSettings", "Store")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="store-profile-table border-bottom">
+                    <div class="row">
+                        <div class="col-xl-2 col-12 ">
+                            <div class="service-print text-xl-left text-right">
+                                Service Photo Printing
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-7 col-12 offset-xl-1">
+                            <div class="store-profile-table-title text-right">Photo Printing Service - Image Sizes</div>
+                            <div class="overflow-auto">
+                                @Html.Action("PhotoServicesSettings", "Store")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="store-profile-table border-bottom">
+                    <div class="row">
+                        <div class="col-xl-2 col-12 ">
+                            <div class="service-print text-xl-left text-right">
+                                Service Print an Album
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-7 col-12 offset-xl-1">
+                            <div class="store-profile-table-title text-right">Album Printing Service - Album Sizes</div>
+                            <div class="overflow-auto">
+                                @Html.Action("AlbumServicesSettings", "Store")
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="store-profile-table border-bottom">
+            <div class="row">
+                <div class="col-xl-2 col-12 ">
+                    <div class="service-print text-xl-left text-right">
+                        Service Print an Album
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-7 col-12 offset-xl-1">
+                    <div class="store-profile-table-title text-right">Album Printing Service - Album Number of Pages</div>
+                    <div class="overflow-auto">
+                        @Html.Action("AlbumQuantity", "Store")
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+                <div class="store-profile-table">
+                    <div class="row">
+                        <div class="col-xl-2 col-12 ">
+                            <div class="service-print text-xl-left text-right">
+                                Service Print Panels Wooden
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-7 col-12 offset-xl-1">
+                            <div class="store-profile-table-title text-right">Wooden Pallets Service - Image Sizes</div>
+                            <div class="overflow-auto">
+                                @Html.Action("WoodenPalletsServicesSettings", "Store")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="store-profile-table border-bottom">
+                    <div class="row">
+                        <div class="col-xl-2 col-12 ">
+                            <div class="service-print text-xl-left text-right">
+                                Service Print an Wall Paintings
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-7 col-12 offset-xl-1">
+                            <div class="store-profile-table-title text-right">Wall Painting Service - Image Sizes</div>
+                            <div class="overflow-auto">
+                                @Html.Action("WallPaintingServicesSettings", "Store")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

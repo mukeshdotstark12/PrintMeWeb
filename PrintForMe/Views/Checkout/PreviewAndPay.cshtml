@@ -1,0 +1,66 @@
+﻿@model PrintForMe.Models.Checkout.PreviewAndPayViewModel
+@using PrintForMe.Models.Checkout
+@using CMS.Helpers
+
+@{
+    ViewBag.Title = "Preview And Pay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*DocSection:DeliveryDetailsView*@
+@* Displays the customer details. *@
+<div class="checkout-page-indecator">
+    <div class="container">
+        <div class="page-indecator">
+            <ul>
+                <li class="active">@ResHelper.GetString("PrintForMe.ShoppingCart")</li>
+                <li class="active">@ResHelper.GetString("PrintForMe.ShippingInformation")</li>
+                <li class="active">@ResHelper.GetString("PrintForMe.Payment")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="checkout-page-content-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="shopping-cart-right-content shopping-cart-content">
+                    <div class="payment-options">
+                        <h2>@ResHelper.GetString("PrintForMe.PaymentOptions")</h2>
+                        @using (Html.BeginForm("PreviewAndPay", "Checkout", FormMethod.Post))
+                        {
+                            <div id="paymentMethod">
+                                @foreach (var pMethod in Model.PaymentMethod.PaymentMethods)
+                                {
+                                <div>
+                                    @Html.RadioButtonFor(m => m.PaymentMethod.PaymentMethodID, pMethod.PaymentOptionID)
+                                    @Html.Label(pMethod.PaymentOptionName)
+                                    @*<label for="PaymentOptionName">@ResHelper.GetString("PrintForMe.PaymentOptionName")</label>*@
+                                </div>
+                                }
+                            </div>
+                            <div class="order-submit-button">
+                                <input class="medium-basic-button" type="submit" value="@ResHelper.GetString("PrintForMe.CreateAnOrder")" onclick="showLoader();" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="shopping-cart-left-content">                    
+                    <div class="order-total-wrapper" id="shoppingCartTotals">
+                        <h3>@ResHelper.GetString("PrintForMe.OrderDetails")</h3>                        
+                        <p><span>@ResHelper.GetString("PrintForMe.TotalTax"):</span> @String.Format(Model.Cart.CurrencyFormatString, Model.Cart.TotalTax)</p>
+                        <p><span>@ResHelper.GetString("PrintForMe.TotalShipping"):</span> @String.Format(Model.Cart.CurrencyFormatString, Model.Cart.TotalShipping)</p>
+                        <p class="order-total highlight-text"><span>@ResHelper.GetString("PrintForMe.TotalInTax")</span> @String.Format(Model.Cart.CurrencyFormatString, Model.Cart.GrandTotal)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        hideLoader();
+    };
+</script>

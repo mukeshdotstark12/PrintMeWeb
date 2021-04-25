@@ -1,0 +1,22 @@
+﻿
+@using PrintForMe.Models.AboutUs;
+@using CMS.Helpers;
+
+@model IEnumerable<AboutUsViewModel>
+@{ bool isRtl = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft;}
+
+
+@foreach (AboutUsViewModel item in Model)
+{
+    <div class="row">
+        <div class="col-md-12 col-lg-8">
+            <img class="about-img img-fluid" src="@item.ImageUrl">
+        </div>
+        <div class="col-md-12 col-lg-2 col-xl-4 about-content @(isRtl? "rtl" : "ltr")">
+            <h2 class="about-title heavy-font heading-text font-primary-medium bold">@item.Heading @item.SubHeading</h2>
+            <p>@Html.Raw(@item.Text)</p>
+            <a href="@Url.Action("Index", "AboutUs")">@ResHelper.GetString("PrintForMe.More")</a>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,57 @@
+﻿@using CMS.Helpers
+@model PrintForMe.Models.Services.PhotoServiceModel
+
+@{
+    ViewBag.Title = "WoodenService";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="photo-page-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 col-md-6 col-12">
+                <img src="~/Content/Images/Wooden.svg" />
+            </div>
+            <div class="col-xl-5 col-md-6 col-12">
+                <div class="print-photos-box">
+                    <h1 class="text-right">@ResHelper.GetString("PrintForMe.PrintWoodenPallets")</h1>
+                    <p class="text-right mb-4">@ResHelper.GetString("PrintForMe.PrintWoodenDescription")</p>
+
+                    @using (Html.BeginForm("AddWoodenProject", "WoodenPallets", FormMethod.Get, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="row ">
+                            <div class="col-md-6 offset-md-4 col-12">
+                                <div class="form-group form-field">
+                                    @Html.Label("Size", new { @class = "control-label float-left" })
+                                    @Html.DropDownListFor(p => p.SelectedSize, new SelectList(Model.Size, "ItemID", "Code"), new { @class = "js-variant-selector form-control" })
+                                </div>
+                                @*<div class="form-group form-field">
+                                    @Html.TextBoxFor(p => p.PlankThickness, new { placeholder = "Thickness Of The Plank / 1 Cm", @class = "js-variant-selector form-control" })
+                                </div>*@
+                                <div class="notes text-center">Photo price start from @Model.MinimumPrice riyals</div>
+                                <div class="upload-photos-submit mt-5">
+                                    @Html.HiddenFor(p => p.ServiceID, Model.ServiceID)
+                                    @*<input type="submit" class="text-center dark-button-bg " value="Upload photos">*@
+                                    @Html.EJS().Button("btn").Content(@ResHelper.GetString("PrintForMe.UploadPhotos")).CssClass("text-center dark-button-bg").Render()
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+        $("#btnSave").click(function (e) {
+        if (@Model.PlankThickness == "") {
+            e.preventDefault();
+            alert("Select atleast one image");
+            }            
+        });
+</script>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="67.492" height="67.492" viewBox="0 0 67.492 67.492">
+  <g id="Group_2393" data-name="Group 2393" transform="translate(-1811.754 -182.254)">
+    <g id="Group_2187" data-name="Group 2187">
+      <g id="Group_2141" data-name="Group 2141" transform="translate(1085.254 -393.746)">
+        <rect id="Fill_Copy" data-name="Fill Copy" width="67.492" height="67.492" rx="4" transform="translate(726.5 576)" fill="none"/>
+        <g id="Border_Copy" data-name="Border Copy" transform="translate(726.5 576)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1">
+          <rect width="67.492" height="67.492" rx="4" stroke="none"/>
+          <rect x="0.5" y="0.5" width="66.492" height="66.492" rx="3.5" fill="none"/>
+        </g>
+      </g>
+      <g id="Group_2191" data-name="Group 2191" transform="translate(1818.924 188.924)">
+        <path id="Path_2514" data-name="Path 2514" d="M0,0H54.151V54.151H0Z" fill="none"/>
+      </g>
+    </g>
+    <path id="Path_2515" data-name="Path 2515" d="M4,5V34.332H42.357V5ZM8.513,29.819V9.513h6.769V29.819Zm11.282,0v-7.9h6.769v7.9Zm18.05,0H31.076v-7.9h6.769ZM19.794,17.41v-7.9h18.05v7.9Z" transform="translate(1821.949 196.206)" fill="#fff"/>
+  </g>
+</svg>

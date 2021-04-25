@@ -1,0 +1,171 @@
+.mediaViewInfo {
+	--web-view-name: Controal;
+	--web-view-id: Controal;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Controal;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Controal {
+	position: absolute;
+	width: 1920px;
+	height: 1080px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: Controal;
+	--web-view-id: Controal;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#Group_1557 {
+	position: absolute;
+	width: 276px;
+	height: 340px;
+	left: 400px;
+	top: 349px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Home.html;
+	cursor: pointer;
+}
+#Rectangle_1551 {
+	fill: rgba(124,192,217,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_1551 {
+	position: absolute;
+	overflow: visible;
+	width: 276px;
+	height: 276px;
+	left: 0px;
+	top: 0px;
+}
+#Home_Page {
+	left: 82px;
+	top: 313px;
+	position: absolute;
+	overflow: visible;
+	width: 109px;
+	white-space: nowrap;
+	line-height: 50px;
+	margin-top: -15px;
+	text-align: right;
+	font-family: Almarai;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(5,72,122,1);
+}
+#Group_1558 {
+	position: absolute;
+	width: 276px;
+	height: 340px;
+	left: 830px;
+	top: 349px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Login.html;
+	cursor: pointer;
+}
+#Rectangle_1552 {
+	fill: rgba(124,192,217,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_1552 {
+	position: absolute;
+	overflow: visible;
+	width: 276px;
+	height: 276px;
+	left: 0px;
+	top: 0px;
+}
+#Admin {
+	left: 97.5px;
+	top: 313px;
+	position: absolute;
+	overflow: visible;
+	width: 64px;
+	white-space: nowrap;
+	line-height: 50px;
+	margin-top: -15px;
+	text-align: right;
+	font-family: Almarai;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(5,72,122,1);
+}
+#Group_1559 {
+	position: absolute;
+	width: 276px;
+	height: 340px;
+	left: 1244px;
+	top: 349px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Login___1.html;
+	cursor: pointer;
+}
+#Rectangle_1553 {
+	fill: rgba(124,192,217,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_1553 {
+	position: absolute;
+	overflow: visible;
+	width: 276px;
+	height: 276px;
+	left: 0px;
+	top: 0px;
+}
+#Client {
+	left: 102.5px;
+	top: 313px;
+	position: absolute;
+	overflow: visible;
+	width: 56px;
+	white-space: nowrap;
+	line-height: 50px;
+	margin-top: -15px;
+	text-align: right;
+	font-family: Almarai;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(5,72,122,1);
+}

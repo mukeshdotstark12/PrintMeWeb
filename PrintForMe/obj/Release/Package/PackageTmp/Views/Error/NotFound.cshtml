@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "NotFound";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="store-profile">
+        <div class="container-fluid">
+            <div class="row align-items-center d-flex justify-content-center">
+                <div class="">
+                    <img src="~/Content/Images/pageError.png" />
+                </div>
+                <div class="ml-2">
+                   <h6>@Html.ActionLink("Go Back To Home Page", "Index", "Home")</h6>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>

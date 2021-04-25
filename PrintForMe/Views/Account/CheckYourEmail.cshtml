@@ -1,0 +1,42 @@
+﻿@using CMS.Helpers;
+@model PrintForMe.Models.Account.RegisterCustomerViewModel
+
+@{
+    ViewBag.Title = "CheckYourEmail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="email-confirmation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="email-confirmation-content">
+                    <svg id="Component_3_1" data-name="Component 3 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="232" height="232" viewBox="0 0 232 232">
+                        <defs>
+                            <clipPath id="clip-path">
+                                <rect id="Rectangle_1698" data-name="Rectangle 1698" width="232" height="232" transform="translate(775 339)" fill="#fff" stroke="#707070" stroke-width="1" />
+                            </clipPath>
+                        </defs>
+                        <g id="Mask_Group_106" data-name="Mask Group 106" transform="translate(-775 -339)" clip-path="url(#clip-path)">
+                            <g id="letter" transform="translate(767.267 331.394)">
+                                <path id="Path_2576" data-name="Path 2576" d="M238.342,93.7,192.924,55.848c-.009-.415-.019-.83-.043-1.246A33.624,33.624,0,0,0,135.538,32.8l-12,12-12-12A33.624,33.624,0,0,0,54.191,54.6c-.031.529-.048,1.058-.055,1.584L9.124,93.7a3.866,3.866,0,0,0-1.391,2.97V220.4a3.867,3.867,0,0,0,3.866,3.867H235.866a3.867,3.867,0,0,0,3.867-3.867V96.666a3.866,3.866,0,0,0-1.391-2.97Zm-55.66,22.087L172.406,127.6h-9.253l21.33-24.53L178.647,98,152.9,127.6h-10.8l42.578-48.965a33.494,33.494,0,0,0,7.175-13.607l38.463,32.053L203.2,127.6H182.655l5.863-6.743ZM61.912,55.055a25.891,25.891,0,0,1,44.154-16.791L120.8,53a3.868,3.868,0,0,0,5.469,0l14.736-14.736a25.891,25.891,0,0,1,37.844,35.3L131.861,127.6h-16.65L68.221,73.56a25.747,25.747,0,0,1-6.309-18.505ZM94.562,127.6,68.819,98l-5.836,5.074,21.33,24.53H75.229L64.953,115.783l-5.836,5.074L64.98,127.6H44.27L17.142,97.081,55.281,65.3a33.5,33.5,0,0,0,7.1,13.336L104.963,127.6Zm-79.1,88.933v-109.7l24.177,27.2a3.867,3.867,0,0,0,2.89,1.3h162.4a3.867,3.867,0,0,0,2.89-1.3L232,106.837v109.7Z" fill="#7cc0d9" />
+                                <path id="Path_2577" data-name="Path 2577" d="M170.133,181.733h23.2v7.733h-23.2Z" fill="#7cc0d9" />
+                                <path id="Path_2578" data-name="Path 2578" d="M201.067,181.733h15.467v7.733H201.067Z" fill="#7cc0d9" />
+                                <path id="Path_2579" data-name="Path 2579" d="M158.533,197.2H174v7.733H158.533Z" fill="#7cc0d9" />
+                                <path id="Path_2580" data-name="Path 2580" d="M181.733,197.2h34.8v7.733h-34.8Z" fill="#7cc0d9" />
+                                <path id="Path_2581" data-name="Path 2581" d="M212.667,150.8H197.2a3.867,3.867,0,0,0-3.867,3.866v15.467A3.867,3.867,0,0,0,197.2,174h15.467a3.867,3.867,0,0,0,3.867-3.866V154.667a3.867,3.867,0,0,0-3.866-3.867ZM208.8,166.267h-7.733v-7.733H208.8Z" fill="#7cc0d9" />
+                                <path id="Path_2582" data-name="Path 2582" d="M186.1,87.214h7.475v7.735H186.1Z" transform="translate(-3.456 174.545) rotate(-49.013)" fill="#7cc0d9" />
+                                <path id="Path_2583" data-name="Path 2583" d="M188.108,106.968h8.105V114.7h-8.105Z" transform="translate(-17.568 183.073) rotate(-49.013)" fill="#7cc0d9" />
+                                <path id="Path_2584" data-name="Path 2584" d="M51.652,106.783h7.735v8.105H51.652Z" transform="translate(-59.095 63.622) rotate(-40.987)" fill="#7cc0d9" />
+                                <path id="Path_2585" data-name="Path 2585" d="M53.811,87.344h7.735v7.475H53.811Z" transform="translate(-45.603 60.185) rotate(-40.987)" fill="#7cc0d9" />
+                            </g>
+                        </g>
+                    </svg>
+                    <h2>@ResHelper.GetString("PrintForMe.Thankyou")</h2>
+                    <p>@ResHelper.GetString("PrintForMe.WelcometoPrintMe") @Model.Email  @ResHelper.GetString("PrintForMe.togetstarted")</p>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

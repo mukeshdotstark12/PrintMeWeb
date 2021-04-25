@@ -1,0 +1,320 @@
+﻿@model PrintForMe.Models.Checkout.ShoppingCartViewModel
+@using PrintForMe.Models.Checkout;
+@using PrintForMe.Controllers;
+@using CMS.Membership;
+@using CMS.Helpers
+
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="checkout-page-indecator">
+    <div class="container">
+        <div class="page-indecator">
+            <ul>
+                <li class="active">@ResHelper.GetString("PrintForMe.ShoppingCart")</li>
+                <li>@ResHelper.GetString("PrintForMe.ShippingInformation")</li>
+                <li>@ResHelper.GetString("PrintForMe.Payment")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!--Checkout page indicator-->
+<div class="checkout-page-content-wrapper">
+    <div class="container">
+        <div class="row">
+            @if (Model.IsEmpty)
+            {
+                <div class="col-lg-8">
+                    <div class="shopping-cart-right-content shopping-cart-content">
+                        <h2>@ResHelper.GetString("PrintForMe.ShoppingCart")</h2>
+                        <span>@ResHelper.GetString("PrintForMe.EmptyCart")</span>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-lg-8">
+                    <div class="shopping-cart-right-content shopping-cart-content">
+                        <h2>@ResHelper.GetString("PrintForMe.ShoppingCart")</h2>
+                        @*<a type="button"
+                            class="btn"
+                            href="#article-editor"
+                            data-toggle="modal">Click me</a>*@
+                        <!-- Trigger the modal with a button -->
+                        <ul>
+                            @* Loops through all shopping cart items. *@
+                            @foreach (ShoppingCartItemViewModel cartItem in Model.CartItems)
+                            {
+                            <li>
+                                @if (!string.IsNullOrEmpty(cartItem.SKUImage))
+                                {
+                                    <div class="shopping-cart-image">
+                                        <img src="@String.Format("data:image/png;base64,{0}", cartItem.SKUImage)" width="500" alt="@cartItem.SKUName">
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="shopping-cart-image">
+                                        <img src="~/Content/Images/shoppingcartItem.png" width="500" alt="@cartItem.SKUName">
+                                    </div>
+                                }
+
+                                <div class="shopping-cart-item-details">
+                                    <p class="cart-item-name">@cartItem.CartItemUnits&times; @cartItem.SKUName</p>
+                                    <p>
+                                        @if (cartItem.ListPrice < cartItem.OldPrice)
+                                        {
+                                            <span id="lastPrice" class="new-price">@String.Format(Model.CurrencyFormatString, " " + cartItem.ListPrice)</span>
+                                            <span id="totalPrice" class="old-price">@String.Format(Model.CurrencyFormatString, " " + cartItem.OldPrice)</span>
+                                        }
+                                        else
+                                        {
+                                            <span id="lastPrice" class="new-price">@String.Format(Model.CurrencyFormatString, " " + cartItem.ListPrice)</span>
+                                        }
+                                    </p>
+                                </div>
+                                @*<div class="number-input cart-update-qty">
+
+            <button data-itemid="@cartItem.CartItemID" data-replaceqty="@(cartItem.CartItemUnits-1)" class="removeItemQtyBtn "></button>
+            <input class="quantity" min="0" name="itemUnits" value="@cartItem.CartItemUnits" type="number">
+            <button data-itemid="@cartItem.SKUID" class="AddItemqtyBtn plus"></button>
+
+        </div>*@
+                                <div class="cart-remove-item  fa fa-trash-o">
+                                    <form action="@Url.Action("RemoveItem", "Checkout")" method="post">
+                                        <input id="ItemId" name="ItemId" type="hidden" value="@cartItem.CartItemID" />
+                                        <input id="SKUID" name="SKUID" type="hidden" value="@cartItem.SKUID" />
+                                        <input type="submit" id="btnDelete" value=" " onclick="deleteMessage(this)" />
+                                        @*<button type="submit" id="btnSave" value=" "></button>*@
+                                    </form>
+                                </div>
+                                @{
+                                    if (cartItem.SKUName == "Album Product")
+                                    {
+                                        <div class="cart-edit-item fa fa-pencil-square-o" onclick="location.href='@Url.Action("ArrangeAlbum", "Album")'">
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="cart-edit-item fa fa-pencil-square-o" onclick="location.href='@Url.Action("EditProjectBySkuId", "Checkout")?SKUID='+@cartItem.SKUID">
+                                        </div>
+                                    }
+                                }
+
+                            </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="shopping-cart-left-content">
+
+                        <div class="gift-wrap-section">
+                            <label>
+                                @*<input data-val="true" data-val-required="The GiftWrapping field is required." id="GiftWrapping" name="GiftWrapping" type="checkbox" value="true">*@
+                                @Html.CheckBox("GiftWrapping", Model.GiftWrapping)
+                                <input name="GiftWrapping" type="hidden" value="false">
+                                <span>
+                                    <img src="~/Content/Images/gift-icon.svg" alt="" />@ResHelper.GetString("PrintForMe.GiftWrapping")
+                                </span>
+                            </label>
+                            <h2>Gift Note</h2>
+                            @*<textarea class="form-control" cols="20" id="ShoppingCartNote" name="ShoppingCartNote" rows="2"></textarea>*@
+                            @Html.TextArea("ShoppingCartNote", Model.ShoppingCartNote, new { rows = "3", cols = "33" })
+                        </div>
+
+                        @*DocSection:CouponCode*@
+                        @* Renders a text box for entering coupon codes and a button invoking
+                            an action that handles adding of new coupon codes. *@
+                        <h2>@ResHelper.GetString("PrintForMe.CouponCodes")</h2>
+                        <div class="apply-couppn-wrapper">
+                            <form action="@Url.Action("AddCouponCode", "Checkout")" method="post">
+                                <input class="apply-code" type="text" name="CouponCode" />
+                                <input class="medium-basic-button" type="submit" value="@ResHelper.GetString("PrintForMe.Apply")" />
+                                <span class="field-validation-valid" data-valmsg-for="CouponCodeError" data-valmsg-replace="true"></span>
+                                <div>
+                                    @Html.ValidationMessage("CouponCodeError", new { @class = "error-label" })
+                                    @Html.ValidationMessage("OnlyOneCouponCode", new { @class = "error-label" })
+                                </div>
+                            </form>
+                            @* Loops through all applied coupon codes *@
+                            @foreach (string couponCode in Model.CouponCodes)
+                            {
+                                <li>
+                                    @couponCode
+                                    @* Renders a button invoking the action that removes specified coupon codes. *@
+                                    @using (Html.BeginForm("RemoveCouponCode", "Checkout", FormMethod.Post))
+                                    {
+                                        <input type="hidden" name="CouponCode" value="@couponCode" />
+                                        <input type="submit" value="Remove" />
+                                    }
+                                </li>
+                            }
+                        </div>
+                        @*EndDocSection:CouponCode*@
+
+                        <div class="order-total-wrapper">
+                            <h3>@ResHelper.GetString("PrintForMe.OrderDetails")</h3>
+                            <p class="highlight-text"><span>@ResHelper.GetString("PrintForMe.Price")</span> @String.Format(Model.CurrencyFormatString, " " + Math.Round(Model.TotalPrice, 2))</p>
+                            <p><span>@ResHelper.GetString("PrintForMe.Discount")</span> @String.Format(Model.CurrencyFormatString, " " + Model.CartTotalDiscount)</p>
+                            <p><span>@ResHelper.GetString("PrintForMe.Shipping")</span> @String.Format(Model.CurrencyFormatString, " " + Model.TotalShipping)</p>
+                            <p><span>@ResHelper.GetString("PrintForMe.Tax")</span> @String.Format(Model.CurrencyFormatString, " " + Model.TotalTax)</p>
+                            <p class="order-total highlight-text"><span>@ResHelper.GetString("PrintForMe.TotalPrice")</span>@String.Format(Model.CurrencyFormatString, " " + Model.GrandTotal)</p>
+                        </div>
+
+                        <div class="order-submit-button">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @Html.ActionLink(ResHelper.GetString("PrintForMe.CompleteOrder"), "DeliveryDetailsAddressSelector", "Checkout", new { @class = "medium-basic-button" })
+                            }
+                            else
+                            {
+                                @*@Html.ActionLink("Complete Order", "SignIn", "Account", new { @class = "medium-basic-button" })*@
+                                @Html.ActionLink(ResHelper.GetString("PrintForMe.CompleteOrder"), "SignIn", "Account", null, new { @class = "medium-basic-button" })
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    function deleteMessage(e) {        
+        if (!confirm("@ResHelper.GetString("PrintForMe.DeleteProjectMessage")"))
+            event.preventDefault();
+    }
+
+    @*$("btnDelete").click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/pages/test/",
+            data: {
+                id: $(this).val(), // < note use of 'this' here
+                access_token: $("#access_token").val()
+            },
+            success: function (result) {
+                alert('ok');
+                //@Model.CartItems.
+            },
+            error: function (result) {
+                alert('error');
+            }
+        });
+    });*@
+
+    $(document).on("click", ".open-AddBookDialog", function () {
+        var myBookId = $(this).data('id');
+        $(".modal-body #bookId").val(myBookId);
+
+        var myvalue = $(this).data('myvalue');
+        console.log(myvalue, "myvalue");
+
+        // As pointed out in comments,
+        // it is unnecessary to have to manually call the modal.
+        // $('#addBookDialog').modal('show');
+    });
+
+
+        // data-* attributes to scan when populating modal values
+        var ATTRIBUTES = ['myvalue', 'myvar', 'bb'];
+        console.log(ATTRIBUTES, "kamal");
+
+        var myBookId = $(this).data('myvalue');
+        console.log(myBookId, "myBookId");
+
+        $('[data-toggle="modal"]').on('click', function (e) {
+            // convert target (e.g. the button) to jquery object
+            var $target = $(e.target);
+            // modal targeted by the button
+            var modalSelector = $target.data('target');
+            console.log(modalSelector, "modalSelector");
+            console.log($target, "$target");
+            // iterate over each possible data-* attribute
+            ATTRIBUTES.forEach(function (attributeName) {
+                // retrieve the dom element corresponding to current attribute
+                var $modalAttribute = $(modalSelector + ' #modal-' + attributeName);
+                var dataValue = $target.data(attributeName);
+                console.log(dataValue, "dataValue");
+                // if the attribute value is empty, $target.data() will return undefined.
+                // In JS boolean expressions return operands and are not coerced into
+                // booleans. That way is dataValue is undefined, the left part of the following
+                // Boolean expression evaluate to false and the empty string will be returned
+                $modalAttribute.text(dataValue || '');
+            });
+        });
+
+
+
+    $('.AddItemqtyBtn').on('click', function () {
+        let addbtn = this;
+        let quantity = $('.quantity').val();
+        quantity = parseInt(quantity) + 1;
+        $.post('/ar-SA/Checkout/AddItem', { itemSkuId: addbtn.dataset.itemid, itemUnits: quantity })
+        addbtn.parentNode.querySelector('input[type=number]').stepUp();
+        window.location.reload();
+    });
+    $('.removeItemQtyBtn').on('click', function () {
+        let quantity = $('.quantity').val();
+        $.post('/ar-SA/Checkout/UpdateItem', { itemID: this.dataset.itemid, itemUnits: --quantity })
+        this.parentNode.querySelector('input[type=number]').stepDown()
+        window.location.reload();
+    });
+
+    $(function () {
+        $('#GiftWrapping').change(function () {
+            $.ajax({
+                type: "POST",
+                url: '/ar-SA/Checkout/UpdateOrderGiftWrapping',
+                data: '{GiftWrapping: ' + this.checked + '}',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function () {
+
+                },
+                error: function () {
+                    alert("Error occured, please try again !");
+                }
+            });
+
+        });
+    });
+
+    $(function () {
+        $('#ShoppingCartNote').change(function () {
+            var noteText = document.getElementById("ShoppingCartNote").value;
+            var note = {
+                Note: noteText
+            };
+
+            $.ajax({
+                type: "POST",
+                url: '~/ar-SA/Checkout/UpdateShoppingCartNote',
+                data: JSON.stringify(note),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function () {
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr, status, error, "error");
+                    alert("Error occured, please try again !");
+                }
+            });
+
+        });
+    });
+
+</script>

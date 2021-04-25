@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "List of past orders";
+    var Dir = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft ? "rtl" : "ltr";
+}
+@using CMS.Helpers;
+@using PrintForMe.Helpers;
+@using PrintForMe.Models.Checkout
+
+@model IEnumerable<OrderViewModel>
+<div class="my-orders-wrapper">
+    <div class="container  @Dir" dir="@Dir">
+        <div class="row">
+            <div class=" offset-lg-1 col-lg-11">
+                @*<div class="section-title heading-text font-primary-dark pb-md-4">@ResHelper.GetString("PrintForMe.MyOrders")</div>*@
+                <h1>@ResHelper.GetString("PrintForMe.MyNewProjects")</h1>
+                @if (Model.Any())
+                {
+                    <ul class="order-item">
+                        @foreach (var order in Model)
+                        {
+                            <li class="row">
+                                <span class="my-order-date">@string.Format("{0:dd MMM yyyy}", @order.OrderDate)</span>
+                                <div class="col-lg-2 col-md-3 my-order-image">
+                                    @foreach (var ProductImg in order.OrderItems)
+                                    {
+                                        if (ProductImg.SKUDepartmentID == 3)
+                                        {
+                                            string imagepath = "/Album/" + ProductImg.serviceDetail.AlbumID + "/AlbumPhoto/" + ProductImg.serviceDetail.ImagePath;
+                                    <div id="img_@ProductImg.SKUID" class="col-lg-6 col-md-6 orderImage" style="background-image:url('@imagepath')">
+                                    </div>
+                                        }
+                                        else
+                                        {
+                                            <div id="img_@ProductImg.SKUID" class="col-lg-6 col-md-6 orderImage" style="background-image:url('@ProductImg.serviceDetail.ImagePath')">
+                                            </div>
+                                        }
+
+                                    }
+                                </div>
+                                <div class="col-lg-10 col-md-9 my-order-details-wrapper">
+                                    <div class="my-order-details-cols">
+                                        <p>@ResHelper.GetString("PrintForMe.OrderNumber") <span>@order.OrderID</span></p>
+                                    </div>
+                                    <div class="my-order-details-cols">
+                                        <p>@ResHelper.GetString("PrintForMe.TotalPrice") <span>@String.Format(order.CurrencyFormatString, order.OrderTotalPrice)</span></p>
+                                    </div>
+                                    <div class="my-order-details-cols">
+                                        <p>@ResHelper.GetString("PrintForMe.Status") <span class="active">@order.OrderStatusDisplayName</span></p>
+                                    </div>
+                                    <div class="my-order-details-cols">
+                                        <p>@ResHelper.GetString("PrintForMe.PaymentOption") <span>@order.PaymentOption</span></p>
+                                    </div>
+                                    <div class="my-order-details-cols">
+                                        <p>
+                                            @ResHelper.GetString("PrintForMe.ShippingAddress")
+                                        <span>
+                                            @if (order.OrderAddress != null)
+                                            {
+                                                @order.OrderAddress.AddressLine1<br />
+                                                @order.OrderAddress.AddressLine2<br />
+                                                @String.Format("{0} {1} {2}", @order.OrderAddress.AddressCity, @order.OrderAddress.AddressState, @order.OrderAddress.AddressCountry)
+                                                @order.OrderAddress.AddressPostalCode;<br />
+                                                @order.OrderAddress.AddressPhone;
+                                            }
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="my-order-details-cols">
+                                    <p><a href="@Url.Action("GetOrderDetail", "Order", new { Id = order.OrderID.ToString() })">@ResHelper.GetString("PrintForMe.MoreDetails")</a></p>
+                                </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <span>@ResHelper.GetString("PrintForMe.NoOrdersYet")</span>
+                    <div class="center">
+                        <div class="mx-auto my-lg-5" style="width: 389px;">
+                            <div style="height:300px" class="smiley-icon-bg"></div>
+                            <input type="button" class="text-center dark-button-bg " value="@ResHelper.GetString("PrintForMe.ShopNow")" onclick="location.href='@Url.Action("Index", "Home")'" />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

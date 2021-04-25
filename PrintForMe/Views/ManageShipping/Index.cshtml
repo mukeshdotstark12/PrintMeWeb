@@ -1,0 +1,77 @@
+﻿@using CMS.Ecommerce
+@model PrintForMe.Models.ManageShippingModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<div class="center-div">
+        @Html.EJS().Grid("Shipping").DataSource(dataManager => { dataManager.Json(Model).Adaptor("RemoteSaveAdaptor").UpdateUrl("/en-US/Store/EditServicesSettings").InsertUrl("/en-US/Store/AddServicesSettings").RemoveUrl("/en-US/Store/DeleteServicesSettings"); }).Columns(col =>
+        {
+            col.Field("ItemID").IsPrimaryKey(true).HeaderText("ItemID").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("10").AllowEditing(false).Visible(false).Add();
+            col.Field("ShippingOptionName").HeaderText("Availability").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).EditType("booleanedit").DisplayAsCheckBox(true).Type("boolean").Width("30").Add();
+            col.Field("Height").HeaderText("Height").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("40").AllowEditing(true).Add();
+            col.Field("Width").HeaderText("Width").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("40").AllowEditing(true).Add();
+            col.Field("Price").HeaderText("Price").Width("50").EditType("numericedit").ValidationRules(new { required = true }).Format("C2").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Right).Add();
+            col.Field("AlbumPageSize").HeaderText("AlbumPageSize").TextAlign(Syncfusion.EJ2.Grids.TextAlign.Center).Width("40").AllowEditing(true).Add();
+        }).EditSettings(edit => { edit.AllowEditing(true).AllowAdding(true).AllowDeleting(false).Mode(Syncfusion.EJ2.Grids.EditMode.Normal); }).Toolbar(new List<string>() { "Edit", "Add", "Update", "Delete", "Cancel" }).Render()
+    </div>*@
+
+<div class="row">
+    <div class="container">
+        <div class="main-section-wrapper">
+            <div class="form-wrapper shipping-form">
+                <form>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+
+                            <div class="form-group">
+                                <label for="select01">Shipping Options</label>
+                                @Html.DropDownListFor(x => x.ShippingOptionID, new SelectList(Model.ShippingOption, "ShippingOptionID", "ShippingOptionName"), "Choose... ", new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+
+                                @*<a class="btn btn-primary" href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/ManageShipping/Add/@Model.ShippingOptionID">Add Cost</a>*@
+                                <table class="table margin-top-40">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Pound</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (ShippingCostInfo obj in Model.ShippingCosts)
+                                        {
+                                            <tr>
+                                                <td>@obj.ShippingCostMinWeight</td>
+                                                <td>@obj.ShippingCostValue.ToString("f2")</td>
+                                                <td class="d-flex justify-content-center"><a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/ManageShipping/edit/@obj.ShippingCostID" class="btn dark-button-bg">Edit</a></td>
+                                                @*<a href="/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/ManageShipping/Delete/@obj.ShippingCostID" type="button" class="btn btn-danger">Delete</a>*@
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#ShippingOptionID").change(function () {
+                window.location.href = "/@CMS.Localization.LocalizationContext.CurrentCulture.CultureCode/ManageShipping?id=" + $(this).val();
+
+            });
+
+        });
+    </script>
+}
+
+
